@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pinnacle Mobile Oil Changes | Professional Oil Change at Your Location</title>
-  <meta name="description" content="Pinnacle Mobile Oil Changes — mobile oil changes in East Orlando from $79.99. Choose your vehicle, see the recommended oil, pick how oil is handled, add wipers or washer fluid, and book online." />
+  <title>Pinnacle Mobile Oil | Top-Tier Mobile Oil Changes — East Orlando</title>
+  <meta name="description" content="Pinnacle Mobile Oil — top-tier mobile oil changes in East Orlando from $79.99. Call or text 787-618-0170. Choose your vehicle, oil option, and filter." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0b1220;
-      --surface: #111827;
-      --surface-2: #1a2332;
-      --border: #243044;
-      --text: #e8eef7;
-      --muted: #94a3b8;
-      --primary: #0ea5e9;
-      --primary-dark: #0284c7;
-      --accent: #22c55e;
-      --warning: #f59e0b;
+      --bg: #0a1628;
+      --surface: #0f1f35;
+      --surface-2: #152a45;
+      --border: #2a4060;
+      --text: #f0f4fa;
+      --muted: #9db0c9;
+      --primary: #c8d4e6;
+      --primary-dark: #a8b8d0;
+      --accent: #e8eef8;
+      --silver: #d4dde8;
+      --navy: #0a1628;
       --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.4);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -48,10 +49,22 @@
       padding: 0.9rem 0; gap: 1rem;
     }
     .logo {
-      font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em;
-      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Montserrat', Inter, sans-serif;
+      font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 0.65rem;
+      color: var(--silver);
+      text-decoration: none;
     }
-    .logo span { color: var(--primary); }
+    .logo:hover { text-decoration: none; color: #fff; }
+    .logo-mark {
+      width: 36px; height: 28px; flex-shrink: 0;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-text strong { font-size: 1.05rem; letter-spacing: 0.12em; }
+    .logo-text small {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
+      color: var(--muted); text-transform: uppercase;
+    }
     .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
     .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
@@ -66,34 +79,42 @@
     }
     .btn:active { transform: scale(0.98); }
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff; box-shadow: 0 6px 20px rgba(14,165,233,.35);
+      background: linear-gradient(145deg, #e8eef8, #b8c5d8);
+      color: #0a1628; box-shadow: 0 6px 20px rgba(200,212,230,.25);
+      font-weight: 700;
     }
-    .btn-primary:hover { box-shadow: 0 8px 24px rgba(14,165,233,.5); text-decoration: none; }
+    .btn-primary:hover { box-shadow: 0 8px 24px rgba(200,212,230,.4); text-decoration: none; filter: brightness(1.05); }
     .btn-outline {
-      background: transparent; color: var(--text);
+      background: transparent; color: var(--silver);
       border: 1px solid var(--border);
     }
-    .btn-outline:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
-    .btn-accent { background: var(--accent); color: #052e16; }
+    .btn-outline:hover { border-color: var(--silver); color: #fff; text-decoration: none; }
+    .btn-accent { background: var(--silver); color: #0a1628; }
     .btn-block { width: 100%; }
 
     /* Hero */
     .hero {
       padding: 4.5rem 0 3.5rem;
       background:
-        radial-gradient(ellipse 80% 60% at 70% -10%, rgba(14,165,233,.18), transparent),
-        radial-gradient(ellipse 50% 40% at 10% 50%, rgba(34,197,94,.08), transparent);
+        radial-gradient(ellipse 70% 50% at 75% 0%, rgba(200,212,230,.12), transparent),
+        radial-gradient(ellipse 50% 40% at 15% 60%, rgba(42,64,96,.25), transparent);
     }
     .hero-grid {
       display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center;
     }
     @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
     .hero h1 {
+      font-family: 'Montserrat', Inter, sans-serif;
       font-size: clamp(2rem, 4.5vw, 2.85rem); font-weight: 800;
       letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem;
     }
-    .hero h1 em { font-style: normal; color: var(--primary); }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(180deg, #ffffff, #a8b8d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
     .hero p.lead { color: var(--muted); font-size: 1.1rem; max-width: 38ch; margin-bottom: 1.25rem; }
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem;
@@ -103,8 +124,8 @@
       background: var(--surface-2); border: 1px solid var(--border);
       padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600;
     }
-    .pill.price { color: var(--accent); border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.1); }
-    .pill.area { color: var(--primary); border-color: rgba(14,165,233,.35); background: rgba(14,165,233,.1); }
+    .pill.price { color: #fff; border-color: rgba(200,212,230,.4); background: rgba(200,212,230,.12); }
+    .pill.area { color: var(--silver); border-color: rgba(200,212,230,.3); background: rgba(200,212,230,.08); }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .hero-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -130,7 +151,7 @@
     .includes-list li:last-child, .addon-list li:last-child { border-bottom: none; }
     .check {
       flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%;
-      background: rgba(34,197,94,.15); color: var(--accent);
+      background: rgba(200,212,230,.15); color: var(--silver);
       display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
       margin-top: 0.15rem;
     }
@@ -165,7 +186,7 @@
     }
     .step-num {
       width: 2rem; height: 2rem; border-radius: 50%;
-      background: var(--primary); color: #fff; font-weight: 700;
+      background: linear-gradient(145deg, #e8eef8, #8a9bb5); color: #0a1628; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       font-size: 0.9rem; margin-bottom: 0.75rem;
     }
@@ -184,6 +205,21 @@
       width: 100%; padding: 0.7rem 0.9rem; border-radius: 10px;
       border: 1px solid var(--border); background: var(--surface-2);
       color: var(--text); font: inherit; outline: none;
+    }
+    select {
+      appearance: auto;
+      -webkit-appearance: menulist;
+      cursor: pointer;
+      background-color: #1a2332;
+      color: #e8eef7;
+    }
+    select option {
+      background-color: #1a2332;
+      color: #e8eef7;
+    }
+    select:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
     }
     select:focus, input:focus, textarea:focus { border-color: var(--primary); }
     .result-box {
@@ -207,7 +243,7 @@
       display: flex; flex-direction: column; height: 100%;
     }
     .option-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .option-card.selected { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(14,165,233,.3); }
+    .option-card.selected { border-color: var(--silver); box-shadow: 0 0 0 2px rgba(200,212,230,.25); }
     .option-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
     .option-card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
     .option-card .price-hint { margin: 1rem 0 0.75rem; font-weight: 600; color: var(--accent); }
@@ -232,7 +268,7 @@
     .badge {
       display: inline-block; font-size: 0.7rem; font-weight: 700;
       padding: 0.15rem 0.45rem; border-radius: 6px; margin-left: 0.4rem;
-      background: rgba(34,197,94,.15); color: var(--accent); vertical-align: middle;
+      background: rgba(200,212,230,.15); color: var(--silver); vertical-align: middle;
     }
 
     /* Contact / QR */
@@ -260,7 +296,21 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="logo">Pinnacle <span>Mobile Oil Changes</span></div>
+      <a href="#" class="logo">
+        <svg class="logo-mark" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 32 L14 12 L20 22 L28 6 L44 32 Z" fill="url(#mtn)" stroke="#e8eef8" stroke-width="1.2" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="mtn" x1="4" y1="6" x2="44" y2="32" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ffffff"/>
+              <stop offset="1" stop-color="#8a9bb5"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">
+          <strong>PINNACLE</strong>
+          <small>Mobile Oil</small>
+        </span>
+      </a>
       <nav class="nav-links">
         <a href="#pricing">Pricing</a>
         <a href="#how">How it works</a>
@@ -269,7 +319,7 @@
         <a href="#book">Book</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn btn-primary" href="#book">Book now</a>
+      <a class="btn btn-primary" href="tel:+17876180170">Call / Text</a>
     </div>
   </header>
 
@@ -278,15 +328,16 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <h1>Oil changes that come <em>to you</em></h1>
-          <p class="lead">Professional mobile oil changes at your home, office, or parking lot in East Orlando. See the oil your engine needs, choose how you want oil handled, add optional extras, and book a time that works.</p>
+          <h1>Top-tier mobile oil changes — <em>we come to you</em></h1>
+          <p class="lead">Pinnacle Mobile Oil serves East Orlando at your home, office, or parking lot. See the oil your engine needs, choose how oil and filters are handled, add extras, and book a time that works.</p>
           <div class="hero-meta">
             <span class="pill price">From $79.99</span>
-            <span class="pill area">Serving East Orlando</span>
+            <span class="pill area">East Orlando</span>
+            <span class="pill area">Call or Text 787-618-0170</span>
           </div>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#pricing">See pricing &amp; add-ons</a>
-            <a class="btn btn-outline" href="#oil-finder">Find my oil type</a>
+            <a class="btn btn-primary" href="tel:+17876180170">Call or Text 787-618-0170</a>
+            <a class="btn btn-outline" href="#pricing">See pricing</a>
           </div>
         </div>
         <div class="hero-card">
@@ -393,7 +444,7 @@
     <section id="oil-finder">
       <div class="container">
         <h2>Vehicle oil finder</h2>
-        <p class="section-sub">Select your vehicle details. Vehicle makes/models come from NHTSA vPIC. Engine/configuration data is loaded when available. For an exact oil specification, use the VIN lookup or confirm the owner’s manual.</p>
+        <p class="section-sub">Select your vehicle details. We’ll recommend the oil type your engine typically needs. Always confirm with your owner’s manual for the final word.</p>
         <div class="card">
           <div class="finder-form">
             <div>
@@ -415,21 +466,13 @@
               </select>
             </div>
             <div>
-              <label for="engine">Engine / Configuration</label>
+              <label for="engine">Engine / Motor</label>
               <select id="engine" disabled>
-                <option value="">Select engine / configuration</option>
+                <option value="">Select engine</option>
               </select>
             </div>
           </div>
           <button type="button" class="btn btn-primary" id="lookup-btn">Get oil recommendation</button>
-          <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border);">
-            <label for="vin-input">Have the VIN? Get exact vehicle data</label>
-            <div style="display:grid; grid-template-columns:1fr auto; gap:.65rem;">
-              <input id="vin-input" maxlength="17" placeholder="Enter 17-character VIN (optional)" autocomplete="off" />
-              <button type="button" class="btn btn-outline" id="vin-btn">Decode VIN</button>
-            </div>
-            <p class="note">VIN decoding can identify the exact engine and other vehicle attributes when NHTSA has them. Never enter payment or other sensitive information here.</p>
-          </div>
           <div class="result-box" id="result">
             <h3>Recommended oil</h3>
             <div id="vehicle-label"></div>
@@ -510,41 +553,33 @@
     <section id="book">
       <div class="container">
         <h2>Book an appointment</h2>
-        <p class="section-sub">You asked for free or no-subscription calendars. Here are solid free options you can embed or link from this page. Pick one, create your calendar, then replace the placeholder below with their embed code or booking link.</p>
+        <p class="section-sub">We use <strong>Booksy</strong> for online booking. Set up your Booksy business profile, then paste your booking widget code here so customers can schedule on this page.</p>
         <div class="booking-grid">
           <div class="card">
-            <h3 style="margin-bottom:1rem;">Recommended free booking tools</h3>
-            <ul class="tool-list">
-              <li>
-                <strong>Schedly <span class="badge">Forever free</span></strong>
-                <span>Unlimited calendars, Google Calendar sync, embeddable. No credit card. Good starting point.</span>
-              </li>
-              <li>
-                <strong>Koalendar <span class="badge">Forever free</span></strong>
-                <span>Unlimited bookings &amp; links, Google/Outlook/iCloud sync, embed options. Clean and simple.</span>
-              </li>
-              <li>
-                <strong>FieldCamp Booking</strong>
-                <span>Free booking page + widget aimed at service businesses. Service-area checks and calendar sync.</span>
-              </li>
-              <li>
-                <strong>Setmore</strong>
-                <span>Free tier with limited appointments/month. HTML embed and Booking Page.</span>
-              </li>
-              <li>
-                <strong>Cal.com (open source) / Easy!Appointments</strong>
-                <span>Self-hosted if you want full control and zero monthly cost. Requires a bit more setup.</span>
-              </li>
-              <li>
-                <strong>Square Appointments</strong>
-                <span>Free for solo; includes payments if you already use Square.</span>
-              </li>
-            </ul>
-            <p class="note mt-1">Tip: Start with <strong>Schedly</strong> or <strong>Koalendar</strong> — both are free forever with embeds. Create one event type (e.g. “Mobile Oil Change – 45–60 min”), set your service area and availability, then paste their embed code into this section.</p>
+            <h3 style="margin-bottom:0.75rem;">Booksy <span class="badge">Your booking system</span></h3>
+            <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">
+              Clients book 24/7 from your Booksy profile, the Booksy app, Google, and a widget on this website. Marketplace listing and basic bookings can start free — check current Booksy Biz plans for your area.
+            </p>
+            <h3 style="font-size:1rem; margin-bottom:0.5rem;">How to add Booksy to this page</h3>
+            <ol style="color:var(--muted); font-size:0.95rem; padding-left:1.2rem; margin-bottom:1rem;">
+              <li style="margin-bottom:0.4rem;">Create or open your <strong>Booksy Biz</strong> account</li>
+              <li style="margin-bottom:0.4rem;">Add services (e.g. Mobile Oil Change from $79.99, add-ons for wipers / washer fluid)</li>
+              <li style="margin-bottom:0.4rem;">Set availability for East Orlando</li>
+              <li style="margin-bottom:0.4rem;">Go to <strong>Business Settings → Online Booking → Your Website</strong></li>
+              <li style="margin-bottom:0.4rem;">Copy the unique widget / embed code</li>
+              <li style="margin-bottom:0.4rem;">Paste that code in the “Booksy widget” box on this page (replace the placeholder)</li>
+            </ol>
+            <p class="note">You can also share your Booksy booking link on social media, Google Business, and your business card QR (point the QR at this site or directly at your Booksy link).</p>
+            <div id="booksy-widget-slot" class="mt-2" style="margin-top:1.25rem; padding:1.25rem; border:1px dashed var(--border); border-radius:12px; text-align:center; background:var(--surface-2);">
+              <p style="font-weight:600; margin-bottom:0.35rem;">Booksy widget placeholder</p>
+              <p class="note">Paste your Booksy embed script here after you copy it from Booksy → Online Booking → Your Website.</p>
+              <p class="mt-1" style="font-size:0.85rem; color:var(--muted);">Until then, use the request form on the right or your Booksy booking link.</p>
+            </div>
+            <p class="note mt-2">Other free tools (if you ever switch): Schedly, Koalendar, FieldCamp, Setmore, Square Appointments, Cal.com.</p>
           </div>
           <div class="card">
-            <h3 style="margin-bottom:1rem;">Quick request form (placeholder)</h3>
-            <p class="note" style="margin-bottom:1rem;">Until you embed a real calendar, customers can leave details here. Wire this form to your email (Formspree, Netlify Forms, etc.) or replace with the booking widget.</p>
+            <h3 style="margin-bottom:1rem;">Quick request form</h3>
+            <p class="note" style="margin-bottom:1rem;">Prefer to message us first? Send details here. For instant booking, use Booksy once the widget is live.</p>
             <form id="request-form" onsubmit="return handleRequest(event)">
               <div style="margin-bottom:0.75rem;">
                 <label for="name">Name</label>
@@ -620,16 +655,15 @@
         <p class="section-sub">Put this QR code on your business cards so customers land straight on this page (or your future live domain).</p>
         <div class="card qr-section">
           <div>
-            <p><strong>Pinnacle Mobile Oil Changes</strong></p>
-            <p class="mt-1" style="color:var(--muted);">Mobile oil changes in East Orlando — from $79.99.</p>
+            <p style="font-family:Montserrat,sans-serif; font-weight:800; letter-spacing:0.08em; font-size:1.15rem;">PINNACLE MOBILE OIL</p>
+            <p class="mt-1" style="color:var(--muted);">Top-Tier Mobile Oil Changes · East Orlando · From $79.99</p>
             <p class="mt-2">
-              Phone: <a href="tel:+15555550100">(555) 555-0100</a> · 
-              Email: <a href="mailto:hello@pinnaclemobileoil.com">hello@pinnaclemobileoil.com</a>
+              <strong>Call or Text:</strong> <a href="tel:+17876180170">787-618-0170</a>
             </p>
             <p class="mt-1" style="font-size:0.9rem;">
               <strong>Payments:</strong> Cash · Zelle · Cash App · Crypto
             </p>
-            <p class="note mt-1">Serving East Orlando. Replace the phone, email, and QR target URL with your real details when you host this page.</p>
+            <p class="note mt-1">Serving East Orlando. Add your email when ready. Point the QR at your live site after GitHub Pages is on.</p>
             <p class="mt-2">
               <button type="button" class="btn btn-outline" id="download-qr">Download QR (print size)</button>
             </p>
@@ -645,7 +679,7 @@
 
   <footer>
     <div class="container">
-      <p>© <span id="year-copy"></span> Pinnacle Mobile Oil Changes. All rights reserved.</p>
+      <p>© <span id="year-copy"></span> Pinnacle Mobile Oil · East Orlando · 787-618-0170</p>
       <p class="mt-1">Professional mobile service. Oil specifications are typical recommendations — always confirm with your vehicle’s owner’s manual.</p>
     </div>
   </footer>
@@ -653,137 +687,145 @@
   <!-- QR library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    // ─────────────────────────────────────────────────────────────
-    // LIVE VEHICLE DATA
-    // NHTSA vPIC supplies current U.S. vehicle makes and models.
-    // It does NOT provide authoritative oil viscosity/capacity data,
-    // so oil specifications below are only used when explicitly
-    // available in this site's small verified starter table.
-    // For an exact vehicle, the VIN decoder is recommended.
-    // ─────────────────────────────────────────────────────────────
-
-    const VPIC = 'https://vpic.nhtsa.dot.gov/api/vehicles';
-
-    // OEM/manual-backed oil + filter starter database for the added brands.
-    // Year ranges are intentionally explicit. When a vehicle is outside this
-    // table, the live NHTSA lookup still works and the site asks the customer
-    // to verify the exact OEM specification rather than guessing.
-    const starterOilSpecs = {
-      // Existing brands
-      'Toyota|Camry|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Toyota|Camry|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota V6 common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Toyota|RAV4|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Honda|Civic|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.4 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 2.0L common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|Civic|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|Accord|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|CR-V|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Ford|F-150|2.7L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.0 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 2.7L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Ford|F-150|3.5L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.2 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 3.5L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Ford|F-150|5.0L V8': { grade:'5W-20', capacity:'Approx. 8.8 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 5.0L V8 common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Older/current Wrangler 2.0L specifications vary by model year. Verify the exact Mopar specification before service.' },
-      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Wrangler 3.6L specification. Verify exact Mopar specification and capacity for the model year.' },
-      'Chevrolet|Silverado 1500|5.3L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos requirement and capacity for the model year.' },
-      'Chevrolet|Silverado 1500|6.2L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos requirement and capacity for the model year.' },
-
-      // KIA
-      'Kia|Sportage|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage 2.5L GDI: full synthetic SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Kia|Sportage|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage turbo: full synthetic SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
-      'Kia|Sorento|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L GDI common specification. Verify exact year/trim.' },
-      'Kia|Sorento|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L turbo common specification. Verify exact year/trim.' },
-      'Kia|Telluride|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by market/model year. Verify exact Kia requirement.' },
-      'Kia|Forte|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
-      'Kia|Seltos|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
-      'Kia|Seltos|1.6L T-GDI': { grade:'0W-20', capacity:'Approx. 5.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 1.6L T-GDI common specification. Verify exact model year.' },
-
-      // MAZDA
-      'Mazda|CX-5|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5L capacity with filter is approximately 4.8 qt. Verify exact viscosity for the model year.' },
-      'Mazda|CX-5|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
-      'Mazda|CX-50|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5L: SAE 0W-20; capacity with filter approximately 4.8 qt.' },
-      'Mazda|CX-50|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
-      'Mazda|Mazda3|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.4 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.0L: capacity with filter approximately 4.4 qt.' },
-      'Mazda|Mazda3|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.5L: capacity with filter approximately 4.8 qt.' },
-      'Mazda|MX-5 Miata|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.5 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 MX-5 capacity with filter is approximately 4.5 qt. Verify exact viscosity by year/market.' },
-
-      // VOLKSWAGEN
-      'Volkswagen|Tiguan|2.0L TSI': { grade:'0W-30 / VW 504 00', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use oil carrying the VW approval specified for the exact engine/year; VW specifications can change by model year.' },
-      'Volkswagen|Jetta|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 4.8 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Exact VW oil approval is more important than viscosity alone. Verify the current approval in the owner manual.' },
-      'Volkswagen|Atlas|2.0L TSI': { grade:'0W-30 / VW-approved', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
-      'Volkswagen|Atlas|3.6L V6': { grade:'0W-30 / VW-approved', capacity:'Approx. 6.3 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
-      'Volkswagen|Taos|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 5.0 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
-
-      // GMC
-      'GMC|Sierra 1500|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm current dexos approval and exact capacity.' },
-      'GMC|Sierra 1500|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm current dexos approval and exact capacity.' },
-      'GMC|Sierra 1500|2.7L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 2.7L Turbo specification varies by model year. Confirm exact dexos requirement and capacity.' },
-      'GMC|Terrain|1.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 5.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 1.5L Turbo common specification. Verify exact year.' },
-      'GMC|Acadia|2.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'Current Acadia engine specification can vary by year. Verify exact dexos requirement.' },
-      'GMC|Yukon|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos approval and capacity.' },
-      'GMC|Yukon|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos approval and capacity.' },
-
-      // HYUNDAI
-      'Hyundai|Tucson|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Tucson|1.6L T-GDI': { grade:'0W-20', capacity:'5.07 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 1.6L T-GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Santa Fe|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Santa Fe|2.5L T-GDI': { grade:'0W-30', capacity:'Approx. 6.1 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L turbo: SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Elantra|2.0L MPI': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'Hyundai 2.0L MPI common specification. Verify exact year/trim.' },
-      'Hyundai|Sonata|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Sonata 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Palisade|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by model year/market. Verify exact Hyundai requirement.' },
-
-      // JEEP
-      'Jeep|Grand Cherokee|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 2.0L: Mopar API SP/GF-6A SAE 5W-30 meeting MS-13340.' },
-      'Jeep|Grand Cherokee|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 3.6L: Mopar SAE 0W-20 meeting MS-6395.' },
-      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 2.0L specification varies by year. Verify exact Mopar requirement.' },
-      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 3.6L common specification. Verify exact model year.' },
-      'Jeep|Gladiator|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Gladiator 3.6L common specification. Verify exact model year.' },
-      'Jeep|Compass|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Compass engine specifications vary by year/market. Verify exact Mopar requirement.' },
-
-      // NISSAN
-      'Nissan|Rogue|1.5L VC-Turbo': { grade:'0W-20', capacity:'Approx. 5.4 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'2025 Rogue specifies API/ILSAC-approved SAE 0W-20; exact refill capacity should be confirmed for the engine/year.' },
-      'Nissan|Altima|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.5L common specification. Verify exact year/engine.' },
-      'Nissan|Sentra|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.0L common specification. Verify exact year/engine.' },
-      'Nissan|Pathfinder|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
-      'Nissan|Murano|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
-      'Nissan|Frontier|3.8L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.8L V6 common specification. Verify exact year/engine.' },
-
-      // MITSUBISHI
-      'Mitsubishi|Outlander|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.9 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.5L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Outlander|2.4L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.4L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Eclipse Cross|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 4.7 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.5L Turbo common specification. Verify exact year/engine.' },
-      'Mitsubishi|Outlander Sport|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.0L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Mirage|1.2L 3-cyl': { grade:'0W-20', capacity:'Approx. 3.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.2L common specification. Verify exact year/engine.' }
-    };
-
-    // Engine aliases let the live NHTSA description match the database even
-    // when NHTSA calls the configuration something like "2.5L" or includes trim text.
-    const oilDbAliases = {
-      'Kia|Sportage': [
-        ['2.5L T-GDI','2.5L turbo'], ['2.5L GDI','2.5L'], ['1.6L T-GDI','1.6L turbo']
-      ],
-      'Kia|Sorento': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
-      'Kia|Forte': [['2.0L MPI','2.0L']], 'Kia|Seltos': [['1.6L T-GDI','1.6L'],['2.0L MPI','2.0L']],
-      'Kia|Telluride': [['3.8L V6','3.8L']],
-      'Mazda|CX-5': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
-      'Mazda|CX-50': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
-      'Mazda|Mazda3': [['2.5L SKYACTIV-G','2.5L'],['2.0L SKYACTIV-G','2.0L']],
-      'Mazda|MX-5 Miata': [['2.0L SKYACTIV-G','2.0L']],
-      'Volkswagen|Tiguan': [['2.0L TSI','2.0L']], 'Volkswagen|Jetta': [['1.5L TSI','1.5L']],
-      'Volkswagen|Atlas': [['3.6L V6','3.6L'],['2.0L TSI','2.0L']], 'Volkswagen|Taos': [['1.5L TSI','1.5L']],
-      'GMC|Sierra 1500': [['6.2L V8','6.2L'],['5.3L V8','5.3L'],['2.7L Turbo','2.7L']],
-      'GMC|Terrain': [['1.5L Turbo','1.5L']], 'GMC|Acadia': [['2.5L Turbo','2.5L']],
-      'GMC|Yukon': [['6.2L V8','6.2L'],['5.3L V8','5.3L']],
-      'Hyundai|Tucson': [['1.6L T-GDI','1.6L'],['2.5L GDI','2.5L']],
-      'Hyundai|Santa Fe': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
-      'Hyundai|Elantra': [['2.0L MPI','2.0L']], 'Hyundai|Sonata': [['2.5L GDI','2.5L']],
-      'Hyundai|Palisade': [['3.8L V6','3.8L']],
-      'Jeep|Grand Cherokee': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
-      'Jeep|Wrangler': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
-      'Jeep|Gladiator': [['3.6L V6','3.6L']], 'Jeep|Compass': [['2.0L Turbo','2.0L']],
-      'Nissan|Rogue': [['1.5L VC-Turbo','1.5L']], 'Nissan|Altima': [['2.5L 4-cyl','2.5L']],
-      'Nissan|Sentra': [['2.0L 4-cyl','2.0L']], 'Nissan|Pathfinder': [['3.5L V6','3.5L']],
-      'Nissan|Murano': [['3.5L V6','3.5L']], 'Nissan|Frontier': [['3.8L V6','3.8L']],
-      'Mitsubishi|Outlander': [['2.5L 4-cyl','2.5L'],['2.4L 4-cyl','2.4L']],
-      'Mitsubishi|Eclipse Cross': [['1.5L Turbo','1.5L']], 'Mitsubishi|Outlander Sport': [['2.0L 4-cyl','2.0L']],
-      'Mitsubishi|Mirage': [['1.2L 3-cyl','1.2L']]
+    // ——— Sample vehicle oil data (common US vehicles). Expand or replace with a real API/DB later. ———
+    const vehicleData = {
+      "Toyota": {
+        years: {
+          "2020": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" } },
+          "2021": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" } },
+          "2022": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" } },
+          "2023": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" } },
+          "2024": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "2.4L Turbo": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" } },
+          "2025": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "2.4L Turbo": "0W-20" } }
+        }
+      },
+      "Honda": {
+        years: {
+          "2020": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
+          "2021": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
+          "2022": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
+          "2023": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20", "2.0L Hybrid": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
+          "2024": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
+          "2025": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" } }
+        }
+      },
+      "Ford": {
+        years: {
+          "2020": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Explorer": { "2.3L EcoBoost": "5W-30" } },
+          "2021": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30", "2.7L EcoBoost": "5W-30" } },
+          "2022": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
+          "2023": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
+          "2024": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
+          "2025": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" } }
+        }
+      },
+      "Chevrolet": {
+        years: {
+          "2020": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
+          "2021": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
+          "2022": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
+          "2023": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
+          "2024": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" } },
+          "2025": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" } }
+        }
+      },
+      "Jeep": {
+        years: {
+          "2020": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" }, "Cherokee": { "2.0L Turbo": "0W-20", "2.4L 4-cyl": "0W-20" } },
+          "2021": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" }, "Cherokee": { "2.0L Turbo": "0W-20" } },
+          "2022": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20", "2.0L Turbo": "0W-20" } },
+          "2023": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20", "2.0L Turbo": "0W-20" } },
+          "2024": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" } },
+          "2025": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" } }
+        }
+      },
+      "Nissan": {
+        years: {
+          "2020": { "Altima": { "2.5L 4-cyl": "0W-20", "2.0L Turbo": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20", "2.0L Turbo": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" } },
+          "2021": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" } },
+          "2022": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" } },
+          "2023": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" } },
+          "2024": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" } },
+          "2025": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" } }
+        }
+      },
+      "Kia": {
+        years: {
+          "2020": { "Forte": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" } },
+          "2021": { "Forte": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
+          "2022": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
+          "2023": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
+          "2024": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
+          "2025": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } }
+        }
+      },
+      "Hyundai": {
+        years: {
+          "2020": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Sonata": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Tucson": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Santa Fe": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
+          "2021": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
+          "2022": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
+          "2023": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
+          "2024": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
+          "2025": { "Elantra": { "2.0L 4-cyl": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } }
+        }
+      },
+      "Genesis": {
+        years: {
+          "2020": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
+          "2021": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
+          "2022": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
+          "2023": { "G70": { "2.5L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
+          "2024": { "G70": { "2.5L Turbo": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
+          "2025": { "G70": { "2.5L Turbo": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } }
+        }
+      },
+      "Volkswagen": {
+        years: {
+          "2020": { "Jetta": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Golf": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-30" } },
+          "2021": { "Jetta": { "1.4L Turbo": "0W-20", "1.5L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Golf": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-30" } },
+          "2022": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
+          "2023": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
+          "2024": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
+          "2025": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20" }, "Taos": { "1.5L Turbo": "0W-20" } }
+        }
+      },
+      "Mazda": {
+        years: {
+          "2020": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
+          "2021": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
+          "2022": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
+          "2023": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
+          "2024": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-90": { "3.3L Turbo": "0W-20" } },
+          "2025": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-90": { "3.3L Turbo": "0W-20" } }
+        }
+      },
+      "Scion": {
+        years: {
+          "2014": { "tC": { "2.5L 4-cyl": "0W-20" }, "xB": { "2.4L 4-cyl": "0W-20" }, "FR-S": { "2.0L 4-cyl": "0W-20" } },
+          "2015": { "tC": { "2.5L 4-cyl": "0W-20" }, "xB": { "2.4L 4-cyl": "0W-20" }, "FR-S": { "2.0L 4-cyl": "0W-20" }, "iA": { "1.5L 4-cyl": "0W-20" }, "iM": { "1.8L 4-cyl": "0W-20" } },
+          "2016": { "tC": { "2.5L 4-cyl": "0W-20" }, "iA": { "1.5L 4-cyl": "0W-20" }, "iM": { "1.8L 4-cyl": "0W-20" }, "FR-S": { "2.0L 4-cyl": "0W-20" } }
+        }
+      },
+      "GMC": {
+        years: {
+          "2020": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
+          "2021": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
+          "2022": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
+          "2023": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
+          "2024": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
+          "2025": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } }
+        }
+      },
+      "Lexus": {
+        years: {
+          "2020": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
+          "2021": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
+          "2022": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
+          "2023": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
+          "2024": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20" }, "GX 550": { "3.4L Twin-Turbo V6": "0W-20" } },
+          "2025": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20" }, "GX 550": { "3.4L Twin-Turbo V6": "0W-20" } }
+        }
+      }
     };
 
     const makeEl = document.getElementById('make');
@@ -796,324 +838,93 @@
     const vehicleLabelEl = document.getElementById('vehicle-label');
     const vehicleSummaryEl = document.getElementById('vehicle-summary');
     const oilChoiceEl = document.getElementById('oil-choice');
-    const vinEl = document.getElementById('vin-input');
-
     let selectedOption = null;
-    let currentVariants = [];
-    let liveMakes = [];
-
-    function setStatus(message, error = false) {
-      let el = document.getElementById('vehicle-api-status');
-      if (!el) {
-        el = document.createElement('p');
-        el.id = 'vehicle-api-status';
-        el.className = 'note';
-        document.querySelector('#oil-finder .card').prepend(el);
-      }
-      el.textContent = message;
-      el.style.color = error ? '#f87171' : 'var(--muted)';
-    }
 
     function resetSelect(el, placeholder) {
-      el.innerHTML = `<option value="">${placeholder}</option>`;
+      el.innerHTML = '';
+      const ph = document.createElement('option');
+      ph.value = '';
+      ph.textContent = placeholder;
+      el.appendChild(ph);
       el.disabled = true;
     }
 
-    function addOptions(el, items, placeholder) {
-      el.innerHTML = `<option value="">${placeholder}</option>`;
-      items.forEach(item => {
+    function populateMakes() {
+      if (!makeEl) return;
+      // Keep the placeholder, clear any previous brands
+      makeEl.innerHTML = '';
+      const ph = document.createElement('option');
+      ph.value = '';
+      ph.textContent = 'Select brand';
+      makeEl.appendChild(ph);
+      Object.keys(vehicleData).sort().forEach(m => {
         const opt = document.createElement('option');
-        opt.value = item.value;
-        opt.textContent = item.label;
-        el.appendChild(opt);
+        opt.value = m;
+        opt.textContent = m;
+        makeEl.appendChild(opt);
       });
-      el.disabled = items.length === 0;
+      makeEl.disabled = false;
     }
 
-    async function apiJSON(url, timeout = 15000) {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeout);
-      try {
-        const response = await fetch(url, {
-          headers: { 'Accept': 'application/json' },
-          signal: controller.signal
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        return await response.json();
-      } finally {
-        clearTimeout(timer);
-      }
-    }
+    // Populate brands as soon as script runs (script is at end of body)
+    populateMakes();
 
-    async function loadYears() {
-      const currentYear = new Date().getFullYear();
-      const years = [];
-      // NHTSA's Make + Year model endpoint supports model years > 1995.
-      for (let y = currentYear; y >= 1996; y--) {
-        years.push({ value:String(y), label:String(y) });
-      }
-      addOptions(yearEl, years, 'Select year');
-      yearEl.disabled = false;
-    }
-
-    async function loadMakesForYear(year) {
-      resetSelect(makeEl, 'Loading makes...');
+    makeEl.addEventListener('change', () => {
+      resetSelect(yearEl, 'Select year');
       resetSelect(modelEl, 'Select model');
-      resetSelect(engineEl, 'Select engine / configuration');
-      resultEl.classList.remove('show');
-
-      try {
-        const data = await apiJSON(`${VPIC}/GetMakesForVehicleType/car?format=json`);
-        const raw = (data.Results || [])
-          .map(x => ({ value: x.MakeName, label: x.MakeName }))
-          .filter(x => x.value);
-
-        // vPIC's generic make endpoint is not year-filtered, so remove duplicates.
-        const seen = new Set();
-        liveMakes = raw.filter(x => {
-          const key = x.value.trim().toLowerCase();
-          if (seen.has(key)) return false;
-          seen.add(key);
-          return true;
-        }).sort((a,b) => a.label.localeCompare(b.label));
-
-        addOptions(makeEl, liveMakes, 'Select make');
-        setStatus(`Live vehicle database loaded. Select a make for ${year}.`);
-      } catch (err) {
-        console.error(err);
-        resetSelect(makeEl, 'Unable to load makes');
-        setStatus('The vehicle database could not be reached. Check your internet connection and try again.', true);
-      }
-    }
-
-    async function loadModels(year, make) {
-      resetSelect(modelEl, 'Loading models...');
-      resetSelect(engineEl, 'Select engine / configuration');
-      resultEl.classList.remove('show');
-
-      try {
-        const url = `${VPIC}/GetModelsForMakeYear/make/${encodeURIComponent(make)}/modelyear/${encodeURIComponent(year)}?format=json`;
-        const data = await apiJSON(url);
-        const models = (data.Results || [])
-          .map(x => x.Model_Name)
-          .filter(Boolean);
-
-        const unique = [...new Set(models)].sort((a,b) => a.localeCompare(b));
-        addOptions(modelEl, unique.map(x => ({value:x,label:x})), 'Select model');
-        setStatus(`${unique.length} ${make} models found for ${year}.`);
-      } catch (err) {
-        console.error(err);
-        resetSelect(modelEl, 'Unable to load models');
-        setStatus('Models could not be loaded from NHTSA. Please try again.', true);
-      }
-    }
-
-    async function loadConfigurations(year, make, model) {
-      resetSelect(engineEl, 'Loading engine / configurations...');
-      resultEl.classList.remove('show');
-      currentVariants = [];
-
-      try {
-        // NHTSA SafetyRatings exposes tested vehicle variants. These descriptions
-        // are useful configuration choices, but are NOT guaranteed to contain
-        // every engine sold for the model.
-        const url =
-          `https://api.nhtsa.gov/SafetyRatings/modelyear/${encodeURIComponent(year)}` +
-          `/make/${encodeURIComponent(make)}/model/${encodeURIComponent(model)}?format=json`;
-
-        const data = await apiJSON(url);
-        currentVariants = data.Results || [];
-
-        const variants = [];
-        const seen = new Set();
-
-        currentVariants.forEach((v, index) => {
-          const desc = (v.VehicleDescription || v.Description || '').trim();
-          const id = v.VehicleId || v.VehicleID || index;
-          const label = desc || `Vehicle configuration ${index + 1}`;
-          const key = label.toLowerCase();
-          if (!seen.has(key)) {
-            seen.add(key);
-            variants.push({ value:String(id), label });
-          }
-        });
-
-        // If NHTSA has no safety variant, keep a manual configuration choice.
-        if (!variants.length) {
-          variants.push({
-            value:'unknown',
-            label:'Engine not listed — verify by VIN / owner’s manual'
-          });
-        }
-
-        addOptions(engineEl, variants, 'Select engine / configuration');
-        setStatus(
-          variants.length > 1
-            ? `${variants.length} vehicle configurations found.`
-            : 'Configuration data is limited for this model; use VIN for exact engine data.'
-        );
-      } catch (err) {
-        console.warn('Configuration lookup:', err);
-        addOptions(engineEl, [{
-          value:'unknown',
-          label:'Engine not listed — verify by VIN / owner’s manual'
-        }], 'Select engine / configuration');
-        setStatus('Engine configuration data was not available. Use the VIN decoder below for exact vehicle data.', true);
-      }
-    }
-
-    function resolveOilSpec(make, model, engineLabel) {
-      const direct = starterOilSpecs[`${make}|${model}|${engineLabel}`];
-      if (direct) return direct;
-
-      const label = String(engineLabel || '').toLowerCase();
-      const aliases = oilDbAliases[`${make}|${model}`] || [];
-      for (const [dbEngine, needle] of aliases) {
-        if (label.includes(needle.toLowerCase())) {
-          return starterOilSpecs[`${make}|${model}|${dbEngine}`];
-        }
-      }
-
-      // Also allow common displacement matches even if NHTSA changes its
-      // wording (for example, "2.5L", "2.5 L", or "2500 cc").
-      const entries = Object.keys(starterOilSpecs).filter(k => k.startsWith(`${make}|${model}|`));
-      for (const key of entries) {
-        const engine = key.split('|')[2];
-        const m = engine.match(/(\d\.\d)L/);
-        if (m && label.includes(m[1] + 'l')) return starterOilSpecs[key];
-      }
-      return null;
-    }
-
-    function showOilResult(make, year, model, engineLabel, extra = '') {
-      const spec = resolveOilSpec(make, model, engineLabel);
-
-      vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engineLabel}`;
-
-      if (spec) {
-        oilGradeEl.textContent = spec.grade;
-        oilDetailEl.innerHTML = `${spec.detail}<br><strong>Oil capacity:</strong> ${spec.capacity || 'Verify exact capacity by VIN/manual'}<br><strong>Oil filter:</strong> ${spec.filter || 'Verify exact filter by VIN'}`;
-      } else {
-        oilGradeEl.textContent = 'Verify exact oil spec';
-        oilDetailEl.textContent =
-          'This live vehicle lookup found the vehicle/configuration, but this site does not have a verified oil specification for this exact configuration yet. Check the owner’s manual, oil-fill cap, or an OEM service source before adding oil.' +
-          (extra ? ` ${extra}` : '');
-      }
-
-      resultEl.classList.add('show');
-      vehicleSummaryEl.value = `${year} ${make} ${model} ${engineLabel}`;
-      resultEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
-    }
-
-    yearEl.addEventListener('change', async () => {
-      const year = yearEl.value;
-      if (!year) {
-        resetSelect(makeEl, 'Select make');
-        resetSelect(modelEl, 'Select model');
-        resetSelect(engineEl, 'Select engine / configuration');
-        return;
-      }
-      await loadMakesForYear(year);
+      resetSelect(engineEl, 'Select engine');
+      if (resultEl) resultEl.classList.remove('show');
+      if (!makeEl.value || !vehicleData[makeEl.value]) return;
+      const years = Object.keys(vehicleData[makeEl.value].years).sort((a, b) => b - a);
+      years.forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        yearEl.appendChild(opt);
+      });
+      yearEl.disabled = false;
     });
 
-    makeEl.addEventListener('change', async () => {
-      if (!makeEl.value || !yearEl.value) return;
-      await loadModels(yearEl.value, makeEl.value);
+    yearEl.addEventListener('change', () => {
+      resetSelect(modelEl, 'Select model');
+      resetSelect(engineEl, 'Select engine');
+      resultEl.classList.remove('show');
+      if (!yearEl.value) return;
+      const models = Object.keys(vehicleData[makeEl.value].years[yearEl.value]);
+      models.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m; opt.textContent = m;
+        modelEl.appendChild(opt);
+      });
+      modelEl.disabled = false;
     });
 
-    modelEl.addEventListener('change', async () => {
-      if (!modelEl.value || !makeEl.value || !yearEl.value) return;
-      await loadConfigurations(yearEl.value, makeEl.value, modelEl.value);
+    modelEl.addEventListener('change', () => {
+      resetSelect(engineEl, 'Select engine');
+      resultEl.classList.remove('show');
+      if (!modelEl.value) return;
+      const engines = Object.keys(vehicleData[makeEl.value].years[yearEl.value][modelEl.value]);
+      engines.forEach(e => {
+        const opt = document.createElement('option');
+        opt.value = e; opt.textContent = e;
+        engineEl.appendChild(opt);
+      });
+      engineEl.disabled = false;
     });
 
     document.getElementById('lookup-btn').addEventListener('click', () => {
-      const make = makeEl.value;
-      const year = yearEl.value;
-      const model = modelEl.value;
-      const engine = engineEl.value;
-
+      const make = makeEl.value, year = yearEl.value, model = modelEl.value, engine = engineEl.value;
       if (!make || !year || !model || !engine) {
-        alert('Please select year, make, model, and engine/configuration.');
+        alert('Please select brand, year, model, and engine.');
         return;
       }
-
-      let engineLabel = engineEl.options[engineEl.selectedIndex]?.text || engine;
-
-      // If a safety-variant ID was selected, use its exact description.
-      const selectedVariant = currentVariants.find(v =>
-        String(v.VehicleId || v.VehicleID || '') === String(engine)
-      );
-      if (selectedVariant) {
-        engineLabel = (selectedVariant.VehicleDescription || selectedVariant.Description || engineLabel).trim();
-      }
-
-      showOilResult(make, year, model, engineLabel);
+      const grade = vehicleData[make].years[year][model][engine];
+      vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engine}`;
+      oilGradeEl.textContent = grade;
+      oilDetailEl.textContent = `Typical recommended viscosity: ${grade}. Use a quality oil that meets the latest API / ILSAC (or OEM) specification for your vehicle. Capacity varies by engine — we measure and fill correctly on site.`;
+      resultEl.classList.add('show');
+      vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
     });
-
-    // Exact VIN lookup using the official NHTSA vPIC decoder.
-    document.getElementById('vin-btn').addEventListener('click', async () => {
-      const vin = vinEl.value.trim().toUpperCase();
-
-      if (!/^[A-HJ-NPR-Z0-9]{17}$/.test(vin)) {
-        alert('Please enter a valid 17-character VIN.');
-        return;
-      }
-
-      const button = document.getElementById('vin-btn');
-      button.disabled = true;
-      button.textContent = 'Decoding...';
-      setStatus('Decoding VIN with NHTSA...');
-
-      try {
-        const data = await apiJSON(`${VPIC}/DecodeVinValues/${encodeURIComponent(vin)}?format=json`);
-        const r = data.Results?.[0] || {};
-
-        const year = r.ModelYear || '';
-        const make = r.Make || '';
-        const model = r.Model || '';
-        const engine =
-          r.DisplacementL ? `${r.DisplacementL}L` :
-          r.EngineModel ? r.EngineModel :
-          r.EngineCylinders ? `${r.EngineCylinders}-cylinder` :
-          'Exact engine not reported';
-
-        const fuel = r.FuelTypePrimary || '';
-        const transmission = r.TransmissionStyle || '';
-        const drive = r.DriveType || '';
-
-        const detailParts = [
-          fuel && `Fuel: ${fuel}`,
-          transmission && `Transmission: ${transmission}`,
-          drive && `Drive: ${drive}`,
-          r.Trim && `Trim: ${r.Trim}`
-        ].filter(Boolean);
-
-        vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engine}`;
-        oilGradeEl.textContent = 'Verify exact oil spec';
-        oilDetailEl.textContent =
-          'NHTSA identified this VIN. The oil viscosity/capacity is not supplied by the NHTSA vehicle decoder, so verify the exact oil specification in the owner’s manual or OEM service information.' +
-          (detailParts.length ? ` ${detailParts.join(' · ')}.` : '');
-
-        resultEl.classList.add('show');
-        vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
-        setStatus('VIN decoded successfully.');
-        resultEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
-      } catch (err) {
-        console.error(err);
-        setStatus('VIN could not be decoded. Verify the VIN and try again.', true);
-      } finally {
-        button.disabled = false;
-        button.textContent = 'Decode VIN';
-      }
-    });
-
-    vinEl.addEventListener('input', () => {
-      vinEl.value = vinEl.value.toUpperCase().replace(/[^A-HJ-NPR-Z0-9]/g, '').slice(0,17);
-    });
-
-    // Start the live selector.
-    loadYears();
-    loadMakesForYear(String(new Date().getFullYear()));
 
     // Oil option selection
     document.querySelectorAll('.select-option').forEach(btn => {
@@ -1201,7 +1012,7 @@
       text: qrTarget,
       width: 160,
       height: 160,
-      colorDark: '#0b1220',
+      colorDark: '#0a1628',
       colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.M
     });
