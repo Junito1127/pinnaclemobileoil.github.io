@@ -393,6 +393,1186 @@
     <section id="oil-finder">
       <div class="container">
         <h2>Vehicle oil finder</h2>
+        <p class="section-sub">Select your vehicle details. Vehicle makes/models come from NHTSA vPIC. Engine/configuration data is loaded when available. For an exact oil specification, use the VIN lookup or confirm the owner’s manual.</p>
+        <div class="card">
+          <div class="finder-form">
+            <div>
+              <label for="make">Brand</label>
+              <select id="make">
+                <option value="">Select brand</option>
+              </select>
+            </div>
+            <div>
+              <label for="year">Year</label>
+              <select id="year" disabled>
+                <option value="">Select year</option>
+              </select>
+            </div>
+            <div>
+              <label for="model">Model</label>
+              <select id="model" disabled>
+                <option value="">Select model</option>
+              </select>
+            </div>
+            <div>
+              <label for="engine">Engine / Configuration</label>
+              <select id="engine" disabled>
+                <option value="">Select engine / configuration</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="lookup-btn">Get oil recommendation</button>
+          <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border);">
+            <label for="vin-input">Have the VIN? Get exact vehicle data</label>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:.65rem;">
+              <input id="vin-input" maxlength="17" placeholder="Enter 17-character VIN (optional)" autocomplete="off" />
+              <button type="button" class="btn btn-outline" id="vin-btn">Decode VIN</button>
+            </div>
+            <p class="note">VIN decoding can identify the exact engine and other vehicle attributes when NHTSA has them. Never enter payment or other sensitive information here.</p>
+          </div>
+          <div class="result-box" id="result">
+            <h3>Recommended oil</h3>
+            <div id="vehicle-label"></div>
+            <div class="oil-badge" id="oil-grade">—</div>
+            <p id="oil-detail"></p>
+            <p class="note">This is a typical factory recommendation for common configurations. Always verify with your owner’s manual or the oil filler cap. European vehicles may require specific approvals (e.g. BMW LL, VW 504).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three options -->
+    <section id="options">
+      <div class="container">
+        <h2>How do you want the oil handled?</h2>
+        <p class="section-sub">Three clear choices. Pick the one that matches how you want to manage oil cost and brand. Then choose your filter option below (A or B).</p>
+        <div class="grid-3" id="option-cards">
+          <div class="option-card" data-option="1">
+            <div class="option-num">1</div>
+            <h3>You supply the oil</h3>
+            <p>Buy your preferred oil ahead of time. We perform the full service with what you provide. Best if you already have a favorite brand or found a good deal.</p>
+            <div class="price-hint">From $79.99 · labor (you supply oil)</div>
+            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
+          </div>
+          <div class="option-card" data-option="2">
+            <div class="option-num">2</div>
+            <h3>Tell us the brand — we buy it</h3>
+            <p>Tell us the exact oil brand and grade you want. We purchase it, bring it, and add the oil cost to your service total. Convenient when you want a specific product without shopping yourself.</p>
+            <div class="price-hint">From $79.99 + oil cost</div>
+            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
+          </div>
+          <div class="option-card" data-option="3">
+            <div class="option-num">3</div>
+            <h3>Use our oil</h3>
+            <p>We use a quality oil that meets or exceeds the specification for your engine. Simple, no extra shopping. Ideal if you want a reliable, no-hassle change.</p>
+            <div class="price-hint">From $79.99 · package with our oil</div>
+            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
+          </div>
+        </div>
+        <p class="mt-2 note" id="selected-option-msg">No oil option selected yet. Choose one above, then pick your filter option.</p>
+
+        <h2 class="mt-2" style="margin-top:2.5rem;">Oil filter choice</h2>
+        <p class="section-sub">Choose how you want the oil filter handled. We install it either way.</p>
+        <div class="grid-2" id="filter-cards">
+          <div class="option-card" data-filter="own">
+            <div class="option-num">A</div>
+            <h3>You buy your own filter</h3>
+            <p>Purchase any oil filter brand and type you prefer. Bring it to the appointment — we install the filter you provide.</p>
+            <div class="price-hint">You purchase (any brand) · we install</div>
+            <button type="button" class="btn btn-outline btn-block select-filter">Choose A</button>
+          </div>
+          <div class="option-card" data-filter="fram">
+            <div class="option-num">B</div>
+            <h3>Fram oil filter</h3>
+            <p>Use a Fram filter. After selecting B, choose Regular tier or Top tier so we know which Fram product you’re using.</p>
+            <div class="price-hint">Fram · Regular or Top Tier</div>
+            <div id="fram-tiers" class="mt-1" style="display:none; margin-top:0.85rem; padding-top:0.75rem; border-top:1px solid var(--border);">
+              <label style="margin-bottom:0.4rem;">Choose Fram tier</label>
+              <div style="display:flex; flex-direction:column; gap:0.45rem;">
+                <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
+                  <input type="radio" name="fram_tier" value="regular" style="width:auto;" />
+                  Regular tier
+                </label>
+                <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
+                  <input type="radio" name="fram_tier" value="top" style="width:auto;" />
+                  Top tier
+                </label>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline btn-block select-filter" style="margin-top:0.75rem;">Choose B</button>
+          </div>
+        </div>
+        <p class="mt-2 note" id="selected-filter-msg">No filter option selected yet. Choose A (your own filter) or B (Fram Regular / Top Tier).</p>
+      </div>
+    </section>
+
+    <!-- Booking -->
+    <section id="book">
+      <div class="container">
+        <h2>Book an appointment</h2>
+        <p class="section-sub">You asked for free or no-subscription calendars. Here are solid free options you can embed or link from this page. Pick one, create your calendar, then replace the placeholder below with their embed code or booking link.</p>
+        <div class="booking-grid">
+          <div class="card">
+            <h3 style="margin-bottom:1rem;">Recommended free booking tools</h3>
+            <ul class="tool-list">
+              <li>
+                <strong>Schedly <span class="badge">Forever free</span></strong>
+                <span>Unlimited calendars, Google Calendar sync, embeddable. No credit card. Good starting point.</span>
+              </li>
+              <li>
+                <strong>Koalendar <span class="badge">Forever free</span></strong>
+                <span>Unlimited bookings &amp; links, Google/Outlook/iCloud sync, embed options. Clean and simple.</span>
+              </li>
+              <li>
+                <strong>FieldCamp Booking</strong>
+                <span>Free booking page + widget aimed at service businesses. Service-area checks and calendar sync.</span>
+              </li>
+              <li>
+                <strong>Setmore</strong>
+                <span>Free tier with limited appointments/month. HTML embed and Booking Page.</span>
+              </li>
+              <li>
+                <strong>Cal.com (open source) / Easy!Appointments</strong>
+                <span>Self-hosted if you want full control and zero monthly cost. Requires a bit more setup.</span>
+              </li>
+              <li>
+                <strong>Square Appointments</strong>
+                <span>Free for solo; includes payments if you already use Square.</span>
+              </li>
+            </ul>
+            <p class="note mt-1">Tip: Start with <strong>Schedly</strong> or <strong>Koalendar</strong> — both are free forever with embeds. Create one event type (e.g. “Mobile Oil Change – 45–60 min”), set your service area and availability, then paste their embed code into this section.</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:1rem;">Quick request form (placeholder)</h3>
+            <p class="note" style="margin-bottom:1rem;">Until you embed a real calendar, customers can leave details here. Wire this form to your email (Formspree, Netlify Forms, etc.) or replace with the booking widget.</p>
+            <form id="request-form" onsubmit="return handleRequest(event)">
+              <div style="margin-bottom:0.75rem;">
+                <label for="name">Name</label>
+                <input id="name" name="name" required placeholder="Your name" />
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required placeholder="Mobile number" />
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Optional" />
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="vehicle-summary">Vehicle</label>
+                <input id="vehicle-summary" name="vehicle" placeholder="e.g. 2019 Toyota Camry 2.5L" />
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="oil-choice">Oil option</label>
+                <select id="oil-choice" name="oil_option">
+                  <option value="">Select…</option>
+                  <option value="1">1 — I supply the oil</option>
+                  <option value="2">2 — Buy my preferred brand</option>
+                  <option value="3">3 — Use your oil</option>
+                </select>
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="filter-choice">Oil filter</label>
+                <select id="filter-choice" name="filter_option">
+                  <option value="">Select…</option>
+                  <option value="own">A — I buy my own filter (any brand)</option>
+                  <option value="fram-regular">B — Fram Regular tier</option>
+                  <option value="fram-top">B — Fram Top tier</option>
+                </select>
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label>Add-ons (optional)</label>
+                <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.35rem;">
+                  <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
+                    <input type="checkbox" name="addon_wipers" value="wipers" style="width:auto;" />
+                    New wiper blades (+$7)
+                  </label>
+                  <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
+                    <input type="checkbox" name="addon_washer" value="washer" style="width:auto;" />
+                    Windshield washer fluid (+$5)
+                  </label>
+                </div>
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="preferred">Preferred day / time window</label>
+                <input id="preferred" name="preferred" placeholder="e.g. Tue morning, or next weekend" />
+              </div>
+              <div style="margin-bottom:0.75rem;">
+                <label for="address">Service address (East Orlando)</label>
+                <input id="address" name="address" placeholder="Street address or zip in East Orlando" />
+              </div>
+              <div style="margin-bottom:1rem;">
+                <label for="notes">Notes / preferred oil brand</label>
+                <textarea id="notes" name="notes" rows="2" placeholder="Oil brand if option 2, gate codes, or anything else…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Send request</button>
+              <p class="note mt-1" id="form-msg"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact + QR -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact &amp; business card QR</h2>
+        <p class="section-sub">Put this QR code on your business cards so customers land straight on this page (or your future live domain).</p>
+        <div class="card qr-section">
+          <div>
+            <p><strong>Pinnacle Mobile Oil Changes</strong></p>
+            <p class="mt-1" style="color:var(--muted);">Mobile oil changes in East Orlando — from $79.99.</p>
+            <p class="mt-2">
+              Phone: <a href="tel:+15555550100">(555) 555-0100</a> · 
+              Email: <a href="mailto:hello@pinnaclemobileoil.com">hello@pinnaclemobileoil.com</a>
+            </p>
+            <p class="mt-1" style="font-size:0.9rem;">
+              <strong>Payments:</strong> Cash · Zelle · Cash App · Crypto
+            </p>
+            <p class="note mt-1">Serving East Orlando. Replace the phone, email, and QR target URL with your real details when you host this page.</p>
+            <p class="mt-2">
+              <button type="button" class="btn btn-outline" id="download-qr">Download QR (print size)</button>
+            </p>
+          </div>
+          <div>
+            <div id="qrcode"></div>
+            <p class="note mt-1" style="text-align:center;">Scan to open this site</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year-copy"></span> Pinnacle Mobile Oil Changes. All rights reserved.</p>
+      <p class="mt-1">Professional mobile service. Oil specifications are typical recommendations — always confirm with your vehicle’s owner’s manual.</p>
+    </div>
+  </footer>
+
+  <!-- QR library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // ─────────────────────────────────────────────────────────────
+    // LIVE VEHICLE DATA
+    // NHTSA vPIC supplies current U.S. vehicle makes and models.
+    // It does NOT provide authoritative oil viscosity/capacity data,
+    // so oil specifications below are only used when explicitly
+    // available in this site's small verified starter table.
+    // For an exact vehicle, the VIN decoder is recommended.
+    // ─────────────────────────────────────────────────────────────
+
+    const VPIC = 'https://vpic.nhtsa.dot.gov/api/vehicles';
+
+    // OEM/manual-backed oil + filter starter database for the added brands.
+    // Year ranges are intentionally explicit. When a vehicle is outside this
+    // table, the live NHTSA lookup still works and the site asks the customer
+    // to verify the exact OEM specification rather than guessing.
+    const starterOilSpecs = {
+      // Existing brands
+      'Toyota|Camry|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
+      'Toyota|Camry|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota V6 common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
+      'Toyota|RAV4|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
+      'Honda|Civic|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.4 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 2.0L common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
+      'Honda|Civic|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
+      'Honda|Accord|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
+      'Honda|CR-V|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
+      'Ford|F-150|2.7L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.0 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 2.7L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
+      'Ford|F-150|3.5L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.2 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 3.5L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
+      'Ford|F-150|5.0L V8': { grade:'5W-20', capacity:'Approx. 8.8 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 5.0L V8 common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
+      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Older/current Wrangler 2.0L specifications vary by model year. Verify the exact Mopar specification before service.' },
+      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Wrangler 3.6L specification. Verify exact Mopar specification and capacity for the model year.' },
+      'Chevrolet|Silverado 1500|5.3L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos requirement and capacity for the model year.' },
+      'Chevrolet|Silverado 1500|6.2L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos requirement and capacity for the model year.' },
+
+      // KIA
+      'Kia|Sportage|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage 2.5L GDI: full synthetic SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
+      'Kia|Sportage|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage turbo: full synthetic SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
+      'Kia|Sorento|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L GDI common specification. Verify exact year/trim.' },
+      'Kia|Sorento|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L turbo common specification. Verify exact year/trim.' },
+      'Kia|Telluride|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by market/model year. Verify exact Kia requirement.' },
+      'Kia|Forte|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
+      'Kia|Seltos|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
+      'Kia|Seltos|1.6L T-GDI': { grade:'0W-20', capacity:'Approx. 5.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 1.6L T-GDI common specification. Verify exact model year.' },
+
+      // MAZDA
+      'Mazda|CX-5|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5L capacity with filter is approximately 4.8 qt. Verify exact viscosity for the model year.' },
+      'Mazda|CX-5|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
+      'Mazda|CX-50|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5L: SAE 0W-20; capacity with filter approximately 4.8 qt.' },
+      'Mazda|CX-50|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
+      'Mazda|Mazda3|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.4 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.0L: capacity with filter approximately 4.4 qt.' },
+      'Mazda|Mazda3|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.5L: capacity with filter approximately 4.8 qt.' },
+      'Mazda|MX-5 Miata|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.5 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 MX-5 capacity with filter is approximately 4.5 qt. Verify exact viscosity by year/market.' },
+
+      // VOLKSWAGEN
+      'Volkswagen|Tiguan|2.0L TSI': { grade:'0W-30 / VW 504 00', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use oil carrying the VW approval specified for the exact engine/year; VW specifications can change by model year.' },
+      'Volkswagen|Jetta|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 4.8 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Exact VW oil approval is more important than viscosity alone. Verify the current approval in the owner manual.' },
+      'Volkswagen|Atlas|2.0L TSI': { grade:'0W-30 / VW-approved', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
+      'Volkswagen|Atlas|3.6L V6': { grade:'0W-30 / VW-approved', capacity:'Approx. 6.3 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
+      'Volkswagen|Taos|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 5.0 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
+
+      // GMC
+      'GMC|Sierra 1500|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm current dexos approval and exact capacity.' },
+      'GMC|Sierra 1500|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm current dexos approval and exact capacity.' },
+      'GMC|Sierra 1500|2.7L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 2.7L Turbo specification varies by model year. Confirm exact dexos requirement and capacity.' },
+      'GMC|Terrain|1.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 5.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 1.5L Turbo common specification. Verify exact year.' },
+      'GMC|Acadia|2.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'Current Acadia engine specification can vary by year. Verify exact dexos requirement.' },
+      'GMC|Yukon|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos approval and capacity.' },
+      'GMC|Yukon|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos approval and capacity.' },
+
+      // HYUNDAI
+      'Hyundai|Tucson|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
+      'Hyundai|Tucson|1.6L T-GDI': { grade:'0W-20', capacity:'5.07 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 1.6L T-GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
+      'Hyundai|Santa Fe|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
+      'Hyundai|Santa Fe|2.5L T-GDI': { grade:'0W-30', capacity:'Approx. 6.1 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L turbo: SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
+      'Hyundai|Elantra|2.0L MPI': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'Hyundai 2.0L MPI common specification. Verify exact year/trim.' },
+      'Hyundai|Sonata|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Sonata 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
+      'Hyundai|Palisade|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by model year/market. Verify exact Hyundai requirement.' },
+
+      // JEEP
+      'Jeep|Grand Cherokee|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 2.0L: Mopar API SP/GF-6A SAE 5W-30 meeting MS-13340.' },
+      'Jeep|Grand Cherokee|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 3.6L: Mopar SAE 0W-20 meeting MS-6395.' },
+      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 2.0L specification varies by year. Verify exact Mopar requirement.' },
+      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 3.6L common specification. Verify exact model year.' },
+      'Jeep|Gladiator|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Gladiator 3.6L common specification. Verify exact model year.' },
+      'Jeep|Compass|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Compass engine specifications vary by year/market. Verify exact Mopar requirement.' },
+
+      // NISSAN
+      'Nissan|Rogue|1.5L VC-Turbo': { grade:'0W-20', capacity:'Approx. 5.4 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'2025 Rogue specifies API/ILSAC-approved SAE 0W-20; exact refill capacity should be confirmed for the engine/year.' },
+      'Nissan|Altima|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.5L common specification. Verify exact year/engine.' },
+      'Nissan|Sentra|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.0L common specification. Verify exact year/engine.' },
+      'Nissan|Pathfinder|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
+      'Nissan|Murano|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
+      'Nissan|Frontier|3.8L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.8L V6 common specification. Verify exact year/engine.' },
+
+      // MITSUBISHI
+      'Mitsubishi|Outlander|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.9 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.5L common specification. Verify exact year/engine.' },
+      'Mitsubishi|Outlander|2.4L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.4L common specification. Verify exact year/engine.' },
+      'Mitsubishi|Eclipse Cross|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 4.7 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.5L Turbo common specification. Verify exact year/engine.' },
+      'Mitsubishi|Outlander Sport|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.0L common specification. Verify exact year/engine.' },
+      'Mitsubishi|Mirage|1.2L 3-cyl': { grade:'0W-20', capacity:'Approx. 3.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.2L common specification. Verify exact year/engine.' }
+    };
+
+    // Engine aliases let the live NHTSA description match the database even
+    // when NHTSA calls the configuration something like "2.5L" or includes trim text.
+    const oilDbAliases = {
+      'Kia|Sportage': [
+        ['2.5L T-GDI','2.5L turbo'], ['2.5L GDI','2.5L'], ['1.6L T-GDI','1.6L turbo']
+      ],
+      'Kia|Sorento': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
+      'Kia|Forte': [['2.0L MPI','2.0L']], 'Kia|Seltos': [['1.6L T-GDI','1.6L'],['2.0L MPI','2.0L']],
+      'Kia|Telluride': [['3.8L V6','3.8L']],
+      'Mazda|CX-5': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
+      'Mazda|CX-50': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
+      'Mazda|Mazda3': [['2.5L SKYACTIV-G','2.5L'],['2.0L SKYACTIV-G','2.0L']],
+      'Mazda|MX-5 Miata': [['2.0L SKYACTIV-G','2.0L']],
+      'Volkswagen|Tiguan': [['2.0L TSI','2.0L']], 'Volkswagen|Jetta': [['1.5L TSI','1.5L']],
+      'Volkswagen|Atlas': [['3.6L V6','3.6L'],['2.0L TSI','2.0L']], 'Volkswagen|Taos': [['1.5L TSI','1.5L']],
+      'GMC|Sierra 1500': [['6.2L V8','6.2L'],['5.3L V8','5.3L'],['2.7L Turbo','2.7L']],
+      'GMC|Terrain': [['1.5L Turbo','1.5L']], 'GMC|Acadia': [['2.5L Turbo','2.5L']],
+      'GMC|Yukon': [['6.2L V8','6.2L'],['5.3L V8','5.3L']],
+      'Hyundai|Tucson': [['1.6L T-GDI','1.6L'],['2.5L GDI','2.5L']],
+      'Hyundai|Santa Fe': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
+      'Hyundai|Elantra': [['2.0L MPI','2.0L']], 'Hyundai|Sonata': [['2.5L GDI','2.5L']],
+      'Hyundai|Palisade': [['3.8L V6','3.8L']],
+      'Jeep|Grand Cherokee': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
+      'Jeep|Wrangler': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
+      'Jeep|Gladiator': [['3.6L V6','3.6L']], 'Jeep|Compass': [['2.0L Turbo','2.0L']],
+      'Nissan|Rogue': [['1.5L VC-Turbo','1.5L']], 'Nissan|Altima': [['2.5L 4-cyl','2.5L']],
+      'Nissan|Sentra': [['2.0L 4-cyl','2.0L']], 'Nissan|Pathfinder': [['3.5L V6','3.5L']],
+      'Nissan|Murano': [['3.5L V6','3.5L']], 'Nissan|Frontier': [['3.8L V6','3.8L']],
+      'Mitsubishi|Outlander': [['2.5L 4-cyl','2.5L'],['2.4L 4-cyl','2.4L']],
+      'Mitsubishi|Eclipse Cross': [['1.5L Turbo','1.5L']], 'Mitsubishi|Outlander Sport': [['2.0L 4-cyl','2.0L']],
+      'Mitsubishi|Mirage': [['1.2L 3-cyl','1.2L']]
+    };
+
+    const makeEl = document.getElementById('make');
+    const yearEl = document.getElementById('year');
+    const modelEl = document.getElementById('model');
+    const engineEl = document.getElementById('engine');
+    const resultEl = document.getElementById('result');
+    const oilGradeEl = document.getElementById('oil-grade');
+    const oilDetailEl = document.getElementById('oil-detail');
+    const vehicleLabelEl = document.getElementById('vehicle-label');
+    const vehicleSummaryEl = document.getElementById('vehicle-summary');
+    const oilChoiceEl = document.getElementById('oil-choice');
+    const vinEl = document.getElementById('vin-input');
+
+    let selectedOption = null;
+    let currentVariants = [];
+    let liveMakes = [];
+
+    function setStatus(message, error = false) {
+      let el = document.getElementById('vehicle-api-status');
+      if (!el) {
+        el = document.createElement('p');
+        el.id = 'vehicle-api-status';
+        el.className = 'note';
+        document.querySelector('#oil-finder .card').prepend(el);
+      }
+      el.textContent = message;
+      el.style.color = error ? '#f87171' : 'var(--muted)';
+    }
+
+    function resetSelect(el, placeholder) {
+      el.innerHTML = `<option value="">${placeholder}</option>`;
+      el.disabled = true;
+    }
+
+    function addOptions(el, items, placeholder) {
+      el.innerHTML = `<option value="">${placeholder}</option>`;
+      items.forEach(item => {
+        const opt = document.createElement('option');
+        opt.value = item.value;
+        opt.textContent = item.label;
+        el.appendChild(opt);
+      });
+      el.disabled = items.length === 0;
+    }
+
+    async function apiJSON(url, timeout = 15000) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeout);
+      try {
+        const response = await fetch(url, {
+          headers: { 'Accept': 'application/json' },
+          signal: controller.signal
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return await response.json();
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    async function loadYears() {
+      const currentYear = new Date().getFullYear();
+      const years = [];
+      // NHTSA's Make + Year model endpoint supports model years > 1995.
+      for (let y = currentYear; y >= 1996; y--) {
+        years.push({ value:String(y), label:String(y) });
+      }
+      addOptions(yearEl, years, 'Select year');
+      yearEl.disabled = false;
+    }
+
+    async function loadMakesForYear(year) {
+      resetSelect(makeEl, 'Loading makes...');
+      resetSelect(modelEl, 'Select model');
+      resetSelect(engineEl, 'Select engine / configuration');
+      resultEl.classList.remove('show');
+
+      try {
+        const data = await apiJSON(`${VPIC}/GetMakesForVehicleType/car?format=json`);
+        const raw = (data.Results || [])
+          .map(x => ({ value: x.MakeName, label: x.MakeName }))
+          .filter(x => x.value);
+
+        // vPIC's generic make endpoint is not year-filtered, so remove duplicates.
+        const seen = new Set();
+        liveMakes = raw.filter(x => {
+          const key = x.value.trim().toLowerCase();
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        }).sort((a,b) => a.label.localeCompare(b.label));
+
+        addOptions(makeEl, liveMakes, 'Select make');
+        setStatus(`Live vehicle database loaded. Select a make for ${year}.`);
+      } catch (err) {
+        console.error(err);
+        resetSelect(makeEl, 'Unable to load makes');
+        setStatus('The vehicle database could not be reached. Check your internet connection and try again.', true);
+      }
+    }
+
+    async function loadModels(year, make) {
+      resetSelect(modelEl, 'Loading models...');
+      resetSelect(engineEl, 'Select engine / configuration');
+      resultEl.classList.remove('show');
+
+      try {
+        const url = `${VPIC}/GetModelsForMakeYear/make/${encodeURIComponent(make)}/modelyear/${encodeURIComponent(year)}?format=json`;
+        const data = await apiJSON(url);
+        const models = (data.Results || [])
+          .map(x => x.Model_Name)
+          .filter(Boolean);
+
+        const unique = [...new Set(models)].sort((a,b) => a.localeCompare(b));
+        addOptions(modelEl, unique.map(x => ({value:x,label:x})), 'Select model');
+        setStatus(`${unique.length} ${make} models found for ${year}.`);
+      } catch (err) {
+        console.error(err);
+        resetSelect(modelEl, 'Unable to load models');
+        setStatus('Models could not be loaded from NHTSA. Please try again.', true);
+      }
+    }
+
+    async function loadConfigurations(year, make, model) {
+      resetSelect(engineEl, 'Loading engine / configurations...');
+      resultEl.classList.remove('show');
+      currentVariants = [];
+
+      try {
+        // NHTSA SafetyRatings exposes tested vehicle variants. These descriptions
+        // are useful configuration choices, but are NOT guaranteed to contain
+        // every engine sold for the model.
+        const url =
+          `https://api.nhtsa.gov/SafetyRatings/modelyear/${encodeURIComponent(year)}` +
+          `/make/${encodeURIComponent(make)}/model/${encodeURIComponent(model)}?format=json`;
+
+        const data = await apiJSON(url);
+        currentVariants = data.Results || [];
+
+        const variants = [];
+        const seen = new Set();
+
+        currentVariants.forEach((v, index) => {
+          const desc = (v.VehicleDescription || v.Description || '').trim();
+          const id = v.VehicleId || v.VehicleID || index;
+          const label = desc || `Vehicle configuration ${index + 1}`;
+          const key = label.toLowerCase();
+          if (!seen.has(key)) {
+            seen.add(key);
+            variants.push({ value:String(id), label });
+          }
+        });
+
+        // If NHTSA has no safety variant, keep a manual configuration choice.
+        if (!variants.length) {
+          variants.push({
+            value:'unknown',
+            label:'Engine not listed — verify by VIN / owner’s manual'
+          });
+        }
+
+        addOptions(engineEl, variants, 'Select engine / configuration');
+        setStatus(
+          variants.length > 1
+            ? `${variants.length} vehicle configurations found.`
+            : 'Configuration data is limited for this model; use VIN for exact engine data.'
+        );
+      } catch (err) {
+        console.warn('Configuration lookup:', err);
+        addOptions(engineEl, [{
+          value:'unknown',
+          label:'Engine not listed — verify by VIN / owner’s manual'
+        }], 'Select engine / configuration');
+        setStatus('Engine configuration data was not available. Use the VIN decoder below for exact vehicle data.', true);
+      }
+    }
+
+    function resolveOilSpec(make, model, engineLabel) {
+      const direct = starterOilSpecs[`${make}|${model}|${engineLabel}`];
+      if (direct) return direct;
+
+      const label = String(engineLabel || '').toLowerCase();
+      const aliases = oilDbAliases[`${make}|${model}`] || [];
+      for (const [dbEngine, needle] of aliases) {
+        if (label.includes(needle.toLowerCase())) {
+          return starterOilSpecs[`${make}|${model}|${dbEngine}`];
+        }
+      }
+
+      // Also allow common displacement matches even if NHTSA changes its
+      // wording (for example, "2.5L", "2.5 L", or "2500 cc").
+      const entries = Object.keys(starterOilSpecs).filter(k => k.startsWith(`${make}|${model}|`));
+      for (const key of entries) {
+        const engine = key.split('|')[2];
+        const m = engine.match(/(\d\.\d)L/);
+        if (m && label.includes(m[1] + 'l')) return starterOilSpecs[key];
+      }
+      return null;
+    }
+
+    function showOilResult(make, year, model, engineLabel, extra = '') {
+      const spec = resolveOilSpec(make, model, engineLabel);
+
+      vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engineLabel}`;
+
+      if (spec) {
+        oilGradeEl.textContent = spec.grade;
+        oilDetailEl.innerHTML = `${spec.detail}<br><strong>Oil capacity:</strong> ${spec.capacity || 'Verify exact capacity by VIN/manual'}<br><strong>Oil filter:</strong> ${spec.filter || 'Verify exact filter by VIN'}`;
+      } else {
+        oilGradeEl.textContent = 'Verify exact oil spec';
+        oilDetailEl.textContent =
+          'This live vehicle lookup found the vehicle/configuration, but this site does not have a verified oil specification for this exact configuration yet. Check the owner’s manual, oil-fill cap, or an OEM service source before adding oil.' +
+          (extra ? ` ${extra}` : '');
+      }
+
+      resultEl.classList.add('show');
+      vehicleSummaryEl.value = `${year} ${make} ${model} ${engineLabel}`;
+      resultEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    }
+
+    yearEl.addEventListener('change', async () => {
+      const year = yearEl.value;
+      if (!year) {
+        resetSelect(makeEl, 'Select make');
+        resetSelect(modelEl, 'Select model');
+        resetSelect(engineEl, 'Select engine / configuration');
+        return;
+      }
+      await loadMakesForYear(year);
+    });
+
+    makeEl.addEventListener('change', async () => {
+      if (!makeEl.value || !yearEl.value) return;
+      await loadModels(yearEl.value, makeEl.value);
+    });
+
+    modelEl.addEventListener('change', async () => {
+      if (!modelEl.value || !makeEl.value || !yearEl.value) return;
+      await loadConfigurations(yearEl.value, makeEl.value, modelEl.value);
+    });
+
+    document.getElementById('lookup-btn').addEventListener('click', () => {
+      const make = makeEl.value;
+      const year = yearEl.value;
+      const model = modelEl.value;
+      const engine = engineEl.value;
+
+      if (!make || !year || !model || !engine) {
+        alert('Please select year, make, model, and engine/configuration.');
+        return;
+      }
+
+      let engineLabel = engineEl.options[engineEl.selectedIndex]?.text || engine;
+
+      // If a safety-variant ID was selected, use its exact description.
+      const selectedVariant = currentVariants.find(v =>
+        String(v.VehicleId || v.VehicleID || '') === String(engine)
+      );
+      if (selectedVariant) {
+        engineLabel = (selectedVariant.VehicleDescription || selectedVariant.Description || engineLabel).trim();
+      }
+
+      showOilResult(make, year, model, engineLabel);
+    });
+
+    // Exact VIN lookup using the official NHTSA vPIC decoder.
+    document.getElementById('vin-btn').addEventListener('click', async () => {
+      const vin = vinEl.value.trim().toUpperCase();
+
+      if (!/^[A-HJ-NPR-Z0-9]{17}$/.test(vin)) {
+        alert('Please enter a valid 17-character VIN.');
+        return;
+      }
+
+      const button = document.getElementById('vin-btn');
+      button.disabled = true;
+      button.textContent = 'Decoding...';
+      setStatus('Decoding VIN with NHTSA...');
+
+      try {
+        const data = await apiJSON(`${VPIC}/DecodeVinValues/${encodeURIComponent(vin)}?format=json`);
+        const r = data.Results?.[0] || {};
+
+        const year = r.ModelYear || '';
+        const make = r.Make || '';
+        const model = r.Model || '';
+        const engine =
+          r.DisplacementL ? `${r.DisplacementL}L` :
+          r.EngineModel ? r.EngineModel :
+          r.EngineCylinders ? `${r.EngineCylinders}-cylinder` :
+          'Exact engine not reported';
+
+        const fuel = r.FuelTypePrimary || '';
+        const transmission = r.TransmissionStyle || '';
+        const drive = r.DriveType || '';
+
+        const detailParts = [
+          fuel && `Fuel: ${fuel}`,
+          transmission && `Transmission: ${transmission}`,
+          drive && `Drive: ${drive}`,
+          r.Trim && `Trim: ${r.Trim}`
+        ].filter(Boolean);
+
+        vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engine}`;
+        oilGradeEl.textContent = 'Verify exact oil spec';
+        oilDetailEl.textContent =
+          'NHTSA identified this VIN. The oil viscosity/capacity is not supplied by the NHTSA vehicle decoder, so verify the exact oil specification in the owner’s manual or OEM service information.' +
+          (detailParts.length ? ` ${detailParts.join(' · ')}.` : '');
+
+        resultEl.classList.add('show');
+        vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
+        setStatus('VIN decoded successfully.');
+        resultEl.scrollIntoView({ behavior:'smooth', block:'nearest' });
+      } catch (err) {
+        console.error(err);
+        setStatus('VIN could not be decoded. Verify the VIN and try again.', true);
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Decode VIN';
+      }
+    });
+
+    vinEl.addEventListener('input', () => {
+      vinEl.value = vinEl.value.toUpperCase().replace(/[^A-HJ-NPR-Z0-9]/g, '').slice(0,17);
+    });
+
+    // Start the live selector.
+    loadYears();
+    loadMakesForYear(String(new Date().getFullYear()));
+
+    // Oil option selection
+    document.querySelectorAll('.select-option').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('#option-cards .option-card').forEach(c => c.classList.remove('selected'));
+        const card = this.closest('.option-card');
+        card.classList.add('selected');
+        selectedOption = card.dataset.option;
+        oilChoiceEl.value = selectedOption;
+        const labels = {
+          '1': 'Option 1 selected: You supply the oil — we do the service.',
+          '2': 'Option 2 selected: Tell us the brand — we buy it and add the cost.',
+          '3': 'Option 3 selected: We’ll use our quality oil that meets the spec.'
+        };
+        document.getElementById('selected-option-msg').textContent = labels[selectedOption];
+        document.getElementById('selected-option-msg').style.color = 'var(--accent)';
+      });
+    });
+
+    // Filter selection: A = own filter, B = Fram (Regular or Top Tier)
+    const filterChoiceEl = document.getElementById('filter-choice');
+    const framTiersEl = document.getElementById('fram-tiers');
+
+    function updateFilterMessage(filter, tier) {
+      let text = '';
+      if (filter === 'own') {
+        text = 'Filter option A: You buy your own filter (any brand) — we install it.';
+        if (filterChoiceEl) filterChoiceEl.value = 'own';
+      } else if (filter === 'fram') {
+        if (tier === 'regular') {
+          text = 'Filter option B: Fram Regular tier.';
+          if (filterChoiceEl) filterChoiceEl.value = 'fram-regular';
+        } else if (tier === 'top') {
+          text = 'Filter option B: Fram Top tier.';
+          if (filterChoiceEl) filterChoiceEl.value = 'fram-top';
+        } else {
+          text = 'Filter option B selected: Fram — now choose Regular or Top tier.';
+          if (filterChoiceEl) filterChoiceEl.value = '';
+        }
+      }
+      const msg = document.getElementById('selected-filter-msg');
+      msg.textContent = text;
+      msg.style.color = 'var(--accent)';
+    }
+
+    document.querySelectorAll('.select-filter').forEach(btn => {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('#filter-cards .option-card').forEach(c => c.classList.remove('selected'));
+        const card = this.closest('.option-card');
+        card.classList.add('selected');
+        const filter = card.dataset.filter;
+        if (filter === 'fram') {
+          if (framTiersEl) framTiersEl.style.display = 'block';
+          const checked = document.querySelector('input[name="fram_tier"]:checked');
+          updateFilterMessage('fram', checked ? checked.value : null);
+        } else {
+          if (framTiersEl) framTiersEl.style.display = 'none';
+          document.querySelectorAll('input[name="fram_tier"]').forEach(r => { r.checked = false; });
+          updateFilterMessage('own');
+        }
+      });
+    });
+
+    document.querySelectorAll('input[name="fram_tier"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        document.querySelectorAll('#filter-cards .option-card').forEach(c => c.classList.remove('selected'));
+        const framCard = document.querySelector('#filter-cards .option-card[data-filter="fram"]');
+        if (framCard) framCard.classList.add('selected');
+        if (framTiersEl) framTiersEl.style.display = 'block';
+        updateFilterMessage('fram', this.value);
+      });
+    });
+
+    function handleRequest(e) {
+      e.preventDefault();
+      const msg = document.getElementById('form-msg');
+      msg.textContent = 'Thanks! Your request was captured locally. Connect this form to email (Formspree, etc.) or replace with a real booking calendar embed.';
+      msg.style.color = 'var(--accent)';
+      return false;
+    }
+
+    // QR code — points to current page URL (or change to your live domain)
+    const qrTarget = window.location.href.split('#')[0] || 'https://pinnaclemobileoil.com';
+    const qr = new QRCode(document.getElementById('qrcode'), {
+      text: qrTarget,
+      width: 160,
+      height: 160,
+      colorDark: '#0b1220',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+
+    document.getElementById('download-qr').addEventListener('click', () => {
+      const canvas = document.querySelector('#qrcode canvas');
+      if (!canvas) return;
+      const link = document.createElement('a');
+      link.download = 'pinnacle-mobile-oil-qr.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+
+    document.getElementById('year-copy').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>-index: 50;
+      background: rgba(11,18,32,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 0; gap: 1rem;
+    }
+    .logo {
+      font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.4rem; padding: 0.7rem 1.2rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer;
+      transition: transform .15s, background .15s, box-shadow .15s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff; box-shadow: 0 6px 20px rgba(14,165,233,.35);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 24px rgba(14,165,233,.5); text-decoration: none; }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+    .btn-accent { background: var(--accent); color: #052e16; }
+    .btn-block { width: 100%; }
+
+    /* Hero */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% -10%, rgba(14,165,233,.18), transparent),
+        radial-gradient(ellipse 50% 40% at 10% 50%, rgba(34,197,94,.08), transparent);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center;
+    }
+    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 2.85rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--primary); }
+    .hero p.lead { color: var(--muted); font-size: 1.1rem; max-width: 38ch; margin-bottom: 1.25rem; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: var(--surface-2); border: 1px solid var(--border);
+      padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600;
+    }
+    .pill.price { color: var(--accent); border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.1); }
+    .pill.area { color: var(--primary); border-color: rgba(14,165,233,.35); background: rgba(14,165,233,.1); }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);
+    }
+    .hero-card h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--muted); font-weight: 600; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat { text-align: center; padding: 0.75rem; background: var(--surface-2); border-radius: 10px; }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--primary); }
+    .stat span { font-size: 0.8rem; color: var(--muted); }
+
+    /* Pricing / includes / add-ons */
+    .price-hero {
+      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent);
+      line-height: 1;
+    }
+    .price-hero small { font-size: 1rem; font-weight: 600; color: var(--muted); }
+    .includes-list, .addon-list { list-style: none; }
+    .includes-list li, .addon-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem;
+    }
+    .includes-list li:last-child, .addon-list li:last-child { border-bottom: none; }
+    .check {
+      flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%;
+      background: rgba(34,197,94,.15); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
+      margin-top: 0.15rem;
+    }
+    .addon-row {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;
+    }
+    .addon-price { font-weight: 700; color: var(--primary); white-space: nowrap; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    /* Sections */
+    section { padding: 3.5rem 0; }
+    section h2 {
+      font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800;
+      letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 2rem; max-width: 55ch; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    @media (max-width: 800px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .steps { grid-template-columns: 1fr; } }
+    .step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem; position: relative;
+    }
+    .step-num {
+      width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--primary); color: #fff; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; margin-bottom: 0.75rem;
+    }
+    .step h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+    .step p { color: var(--muted); font-size: 0.9rem; }
+
+    /* Vehicle finder */
+    #oil-finder { background: linear-gradient(180deg, transparent, rgba(14,165,233,.04)); }
+    .finder-form {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.25rem;
+    }
+    @media (max-width: 800px) { .finder-form { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .finder-form { grid-template-columns: 1fr; } }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; font-weight: 500; }
+    select, input, textarea {
+      width: 100%; padding: 0.7rem 0.9rem; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--surface-2);
+      color: var(--text); font: inherit; outline: none;
+    }
+    select:focus, input:focus, textarea:focus { border-color: var(--primary); }
+    .result-box {
+      display: none; margin-top: 1rem; padding: 1.25rem;
+      background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .result-box.show { display: block; }
+    .result-box h3 { color: var(--accent); margin-bottom: 0.5rem; }
+    .oil-badge {
+      display: inline-block; background: rgba(14,165,233,.15);
+      color: var(--primary); padding: 0.35rem 0.75rem; border-radius: 999px;
+      font-weight: 700; font-size: 1.1rem; margin: 0.5rem 0;
+    }
+    .note { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+
+    /* Oil options */
+    .option-card {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.5rem; background: var(--surface); transition: border-color .2s, transform .15s;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .option-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .option-card.selected { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(14,165,233,.3); }
+    .option-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .option-card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
+    .option-card .price-hint { margin: 1rem 0 0.75rem; font-weight: 600; color: var(--accent); }
+    .option-num {
+      width: 1.75rem; height: 1.75rem; border-radius: 50%;
+      background: var(--surface-2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; margin-bottom: 0.75rem;
+    }
+
+    /* Booking */
+    .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 700px) { .booking-grid { grid-template-columns: 1fr; } }
+    .tool-list { list-style: none; }
+    .tool-list li {
+      padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .tool-list li:last-child { border-bottom: none; }
+    .tool-list strong { color: var(--text); }
+    .tool-list span { color: var(--muted); font-size: 0.9rem; }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 0.15rem 0.45rem; border-radius: 6px; margin-left: 0.4rem;
+      background: rgba(34,197,94,.15); color: var(--accent); vertical-align: middle;
+    }
+
+    /* Contact / QR */
+    .qr-section {
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+    }
+    @media (max-width: 600px) { .qr-section { grid-template-columns: 1fr; text-align: center; } }
+    #qrcode {
+      background: #fff; padding: 12px; border-radius: 12px;
+      display: inline-flex; box-shadow: var(--shadow);
+    }
+    #qrcode img, #qrcode canvas { display: block; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 2rem;
+      color: var(--muted); font-size: 0.9rem; text-align: center;
+    }
+
+    /* Utility */
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Pinnacle <span>Mobile Oil Changes</span></div>
+      <nav class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#how">How it works</a>
+        <a href="#oil-finder">Oil finder</a>
+        <a href="#options">Your options</a>
+        <a href="#book">Book</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-primary" href="#book">Book now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Oil changes that come <em>to you</em></h1>
+          <p class="lead">Professional mobile oil changes at your home, office, or parking lot in East Orlando. See the oil your engine needs, choose how you want oil handled, add optional extras, and book a time that works.</p>
+          <div class="hero-meta">
+            <span class="pill price">From $79.99</span>
+            <span class="pill area">Serving East Orlando</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#pricing">See pricing &amp; add-ons</a>
+            <a class="btn btn-outline" href="#oil-finder">Find my oil type</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Why customers choose us</h3>
+          <div class="stat-row">
+            <div class="stat"><strong>At your door</strong><span>No waiting room</span></div>
+            <div class="stat"><strong>3 oil options</strong><span>You control the oil</span></div>
+            <div class="stat"><strong>From $79.99</strong><span>Clear starting price</span></div>
+            <div class="stat"><strong>East Orlando</strong><span>We come to you</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing & service area -->
+    <section id="pricing">
+      <div class="container">
+        <h2>Pricing &amp; service area</h2>
+        <p class="section-sub">Clear starting price, what’s included, and optional add-ons. Serving East Orlando.</p>
+        <div class="grid-2">
+          <div class="card">
+            <p style="color:var(--muted); font-size:0.9rem; font-weight:600; margin-bottom:0.35rem;">Starting price</p>
+            <div class="price-hero">$79.99 <small>starting</small></div>
+            <p class="mt-1" style="color:var(--muted); font-size:0.95rem;">Mobile oil change in East Orlando. Final total depends on your oil choice (you supply it, we buy your brand, or we use ours) and any add-ons.</p>
+            <h3 class="mt-2" style="font-size:1.05rem; margin-bottom:0.5rem;">What’s included</h3>
+            <ul class="includes-list">
+              <li><span class="check">✓</span><span>Full oil change at your location (home, work, or parking lot)</span></li>
+              <li><span class="check">✓</span><span>Correct oil viscosity for your vehicle (see oil finder below)</span></li>
+              <li><span class="check">✓</span><span>Installation of your oil filter — your own brand (A) or Fram Regular / Top Tier (B)</span></li>
+              <li><span class="check">✓</span><span>Proper fill level and visual inspection</span></li>
+              <li><span class="check">✓</span><span>Your choice of oil handling (supply yours, we buy your brand, or use ours)</span></li>
+            </ul>
+            <p class="note mt-1">Service area: <strong>East Orlando</strong>. Not sure if we cover you? Message us with your zip or address when you book.</p>
+            <h3 class="mt-2" style="font-size:1.05rem; margin-bottom:0.5rem;">Payment methods</h3>
+            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <span class="pill">Cash</span>
+              <span class="pill">Zelle</span>
+              <span class="pill">Cash App</span>
+              <span class="pill">Crypto</span>
+            </div>
+            <p class="note mt-1">Pay when the job is done. We’ll confirm Zelle, Cash App, or crypto details when your appointment is set.</p>
+          </div>
+          <div class="card">
+            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">Optional add-ons (bundles)</h3>
+            <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">Add these when you book — quick extras while we’re already there.</p>
+            <ul class="addon-list">
+              <li>
+                <div class="addon-row">
+                  <div>
+                    <strong>New wiper blades</strong>
+                    <div style="color:var(--muted); font-size:0.9rem;">Fresh blades for clear visibility</div>
+                  </div>
+                  <span class="addon-price">+$7</span>
+                </div>
+              </li>
+              <li>
+                <div class="addon-row">
+                  <div>
+                    <strong>Windshield washer fluid</strong>
+                    <div style="color:var(--muted); font-size:0.9rem;">Top-up or fill while we service</div>
+                  </div>
+                  <span class="addon-price">+$5</span>
+                </div>
+              </li>
+            </ul>
+            <p class="note mt-2">Select add-ons in the booking form or mention them when you schedule. More bundle options can be added later (air filter, cabin filter, etc.).</p>
+            <a class="btn btn-primary btn-block mt-2" href="#book">Book with add-ons</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="section-sub">Four clear steps. Every button and choice has a purpose.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Select your vehicle</h3>
+            <p>Brand, year, model, and engine so we know the correct oil specification.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>See recommended oil</h3>
+            <p>We show the viscosity and typical grade your motor needs.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Oil &amp; filter choice</h3>
+            <p>Pick how oil is handled, then filter A (your own) or B (Fram Regular / Top Tier).</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Book a time</h3>
+            <p>Pick a slot that fits your schedule. We come to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oil finder -->
+    <section id="oil-finder">
+      <div class="container">
+        <h2>Vehicle oil finder</h2>
         <p class="section-sub">Select your vehicle details. We’ll recommend the oil type your engine typically needs. Always confirm with your owner’s manual for the final word.</p>
         <div class="card">
           <div class="finder-form">
