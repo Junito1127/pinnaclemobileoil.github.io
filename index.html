@@ -670,121 +670,1585 @@
     // to verify the exact OEM specification rather than guessing.
     const starterOilSpecs = {
       // Existing brands
-      'Toyota|Camry|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Toyota|Camry|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota V6 common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Toyota|RAV4|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Toyota 2.5L common specification. Confirm exact capacity/API/OEM requirement for the model year.' },
-      'Honda|Civic|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.4 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 2.0L common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|Civic|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|Accord|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Honda|CR-V|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 3.7 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Honda 1.5L Turbo common specification. Confirm exact capacity and Honda/API requirement for the model year.' },
-      'Ford|F-150|2.7L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.0 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 2.7L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Ford|F-150|3.5L EcoBoost V6': { grade:'5W-30', capacity:'Approx. 6.2 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 3.5L EcoBoost common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Ford|F-150|5.0L V8': { grade:'5W-20', capacity:'Approx. 8.8 qt', filter:'Spin-on / OEM-equivalent filter; verify exact part by VIN', detail:'Ford 5.0L V8 common specification. Confirm exact capacity and Ford WSS specification for the model year.' },
-      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Older/current Wrangler 2.0L specifications vary by model year. Verify the exact Mopar specification before service.' },
-      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on / Mopar-equivalent filter; verify exact part by VIN', detail:'Wrangler 3.6L specification. Verify exact Mopar specification and capacity for the model year.' },
-      'Chevrolet|Silverado 1500|5.3L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos requirement and capacity for the model year.' },
-      'Chevrolet|Silverado 1500|6.2L V8': { grade:'0W-20', capacity:'Approx. 8.0 qt', filter:'Spin-on / GM-equivalent filter; verify exact part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos requirement and capacity for the model year.' },
+      /* ============================================================
+   VEHICLE ENGINE OIL DATABASE
+   YEARS: 2010–2026
+   MARKET: USA
+   ------------------------------------------------------------
+   IMPORTANT:
+   - Specifications are organized by YEAR RANGE + MAKE + MODEL.
+   - Oil capacity is approximate unless specifically verified
+     against the exact engine/year.
+   - "spec" is more important than viscosity alone.
+   - Always verify VIN/owner manual before performing service.
+   ============================================================ */
 
-      // KIA
-      'Kia|Sportage|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage 2.5L GDI: full synthetic SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Kia|Sportage|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'2025 Sportage turbo: full synthetic SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
-      'Kia|Sorento|2.5L GDI': { grade:'0W-20', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L GDI common specification. Verify exact year/trim.' },
-      'Kia|Sorento|2.5L T-GDI': { grade:'0W-30', capacity:'6.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia Smartstream 2.5L turbo common specification. Verify exact year/trim.' },
-      'Kia|Telluride|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by market/model year. Verify exact Kia requirement.' },
-      'Kia|Forte|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
-      'Kia|Seltos|2.0L MPI': { grade:'0W-20', capacity:'4.2 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 2.0L MPI common specification. Verify exact model year.' },
-      'Kia|Seltos|1.6L T-GDI': { grade:'0W-20', capacity:'Approx. 5.1 qt', filter:'Spin-on; Genuine Kia/OEM-equivalent filter — verify part by VIN', detail:'Kia 1.6L T-GDI common specification. Verify exact model year.' },
+const oilDb = {
 
-      // MAZDA
-      'Mazda|CX-5|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5L capacity with filter is approximately 4.8 qt. Verify exact viscosity for the model year.' },
-      'Mazda|CX-5|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-5 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
-      'Mazda|CX-50|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5L: SAE 0W-20; capacity with filter approximately 4.8 qt.' },
-      'Mazda|CX-50|2.5L SKYACTIV-G Turbo': { grade:'5W-30', capacity:'5.1 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 CX-50 2.5T: SAE 5W-30; capacity with filter approximately 5.1 qt.' },
-      'Mazda|Mazda3|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.4 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.0L: capacity with filter approximately 4.4 qt.' },
-      'Mazda|Mazda3|2.5L SKYACTIV-G': { grade:'0W-20', capacity:'4.8 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 Mazda3 2.5L: capacity with filter approximately 4.8 qt.' },
-      'Mazda|MX-5 Miata|2.0L SKYACTIV-G': { grade:'0W-20', capacity:'4.5 qt', filter:'Spin-on; Genuine Mazda/OEM-equivalent filter — verify part by VIN', detail:'2025 MX-5 capacity with filter is approximately 4.5 qt. Verify exact viscosity by year/market.' },
+  /* ==========================================================
+     TOYOTA
+     ========================================================== */
 
-      // VOLKSWAGEN
-      'Volkswagen|Tiguan|2.0L TSI': { grade:'0W-30 / VW 504 00', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use oil carrying the VW approval specified for the exact engine/year; VW specifications can change by model year.' },
-      'Volkswagen|Jetta|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 4.8 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Exact VW oil approval is more important than viscosity alone. Verify the current approval in the owner manual.' },
-      'Volkswagen|Atlas|2.0L TSI': { grade:'0W-30 / VW-approved', capacity:'Approx. 5.7 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
-      'Volkswagen|Atlas|3.6L V6': { grade:'0W-30 / VW-approved', capacity:'Approx. 6.3 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
-      'Volkswagen|Taos|1.5L TSI': { grade:'0W-20 / VW-approved', capacity:'Approx. 5.0 qt', filter:'Cartridge; VW/OEM-equivalent filter — verify exact part by VIN', detail:'Use the VW-approved oil listed for the exact engine/year.' },
+  "Toyota|Camry": {
 
-      // GMC
-      'GMC|Sierra 1500|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm current dexos approval and exact capacity.' },
-      'GMC|Sierra 1500|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm current dexos approval and exact capacity.' },
-      'GMC|Sierra 1500|2.7L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 2.7L Turbo specification varies by model year. Confirm exact dexos requirement and capacity.' },
-      'GMC|Terrain|1.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 5.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 1.5L Turbo common specification. Verify exact year.' },
-      'GMC|Acadia|2.5L Turbo': { grade:'0W-20 dexos1', capacity:'Approx. 6.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'Current Acadia engine specification can vary by year. Verify exact dexos requirement.' },
-      'GMC|Yukon|5.3L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 5.3L common specification. Confirm exact dexos approval and capacity.' },
-      'GMC|Yukon|6.2L V8': { grade:'0W-20 dexos1', capacity:'Approx. 8.0 qt', filter:'Spin-on; GM Genuine/OEM-equivalent filter — verify part by VIN', detail:'GM 6.2L common specification. Confirm exact dexos approval and capacity.' },
+    "2010-2011|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SM / ILSAC GF-4 or later",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.5L 4-cylinder. Verify exact capacity and viscosity by model year."
+    },
 
-      // HYUNDAI
-      'Hyundai|Tucson|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Tucson|1.6L T-GDI': { grade:'0W-20', capacity:'5.07 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Tucson 1.6L T-GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Santa Fe|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Santa Fe|2.5L T-GDI': { grade:'0W-30', capacity:'Approx. 6.1 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Santa Fe 2.5L turbo: SAE 0W-30, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Elantra|2.0L MPI': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'Hyundai 2.0L MPI common specification. Verify exact year/trim.' },
-      'Hyundai|Sonata|2.5L GDI': { grade:'0W-20', capacity:'6.13 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'2025 Sonata 2.5L GDI: SAE 0W-20, API SN PLUS/SP or ILSAC GF-6.' },
-      'Hyundai|Palisade|3.8L V6': { grade:'5W-30', capacity:'Approx. 6.9 qt', filter:'Spin-on; Genuine Hyundai/OEM-equivalent filter — verify part by VIN', detail:'3.8L V6 specification varies by model year/market. Verify exact Hyundai requirement.' },
+    "2012-2017|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.6 qt",
+      spec: "API SN / ILSAC GF-5",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.5L 4-cylinder Toyota specification."
+    },
 
-      // JEEP
-      'Jeep|Grand Cherokee|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 2.0L: Mopar API SP/GF-6A SAE 5W-30 meeting MS-13340.' },
-      'Jeep|Grand Cherokee|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'2025 Grand Cherokee 3.6L: Mopar SAE 0W-20 meeting MS-6395.' },
-      'Jeep|Wrangler|2.0L Turbo': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 2.0L specification varies by year. Verify exact Mopar requirement.' },
-      'Jeep|Wrangler|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Wrangler 3.6L common specification. Verify exact model year.' },
-      'Jeep|Gladiator|3.6L V6': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Gladiator 3.6L common specification. Verify exact model year.' },
-      'Jeep|Compass|2.0L Turbo': { grade:'5W-30', capacity:'Approx. 5.5 qt', filter:'Spin-on; Mopar/OEM-equivalent filter — verify part by VIN', detail:'Compass engine specifications vary by year/market. Verify exact Mopar requirement.' },
+    "2018-2024|2.5L 4-Cyl": {
+      grade: "0W-16",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SP / ILSAC GF-6B",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "Dynamic Force 2.5L specification. Verify exact year."
+    },
 
-      // NISSAN
-      'Nissan|Rogue|1.5L VC-Turbo': { grade:'0W-20', capacity:'Approx. 5.4 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'2025 Rogue specifies API/ILSAC-approved SAE 0W-20; exact refill capacity should be confirmed for the engine/year.' },
-      'Nissan|Altima|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.5L common specification. Verify exact year/engine.' },
-      'Nissan|Sentra|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 5.0 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 2.0L common specification. Verify exact year/engine.' },
-      'Nissan|Pathfinder|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
-      'Nissan|Murano|3.5L V6': { grade:'0W-20', capacity:'Approx. 5.3 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.5L V6 common specification. Verify exact year/engine.' },
-      'Nissan|Frontier|3.8L V6': { grade:'0W-20', capacity:'Approx. 5.7 qt', filter:'Spin-on; Genuine Nissan/OEM-equivalent filter — verify part by VIN', detail:'Nissan 3.8L V6 common specification. Verify exact year/engine.' },
+    "2025-2026|2.5L 4-Cyl": {
+      grade: "0W-16 / 0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SP / ILSAC GF-6B",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "Exact viscosity depends on engine configuration and model year."
+    },
 
-      // MITSUBISHI
-      'Mitsubishi|Outlander|2.5L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.9 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.5L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Outlander|2.4L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.5 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.4L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Eclipse Cross|1.5L Turbo': { grade:'0W-20', capacity:'Approx. 4.7 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.5L Turbo common specification. Verify exact year/engine.' },
-      'Mitsubishi|Outlander Sport|2.0L 4-cyl': { grade:'0W-20', capacity:'Approx. 4.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 2.0L common specification. Verify exact year/engine.' },
-      'Mitsubishi|Mirage|1.2L 3-cyl': { grade:'0W-20', capacity:'Approx. 3.2 qt', filter:'Spin-on; Genuine Mitsubishi/OEM-equivalent filter — verify part by VIN', detail:'Mitsubishi 1.2L common specification. Verify exact year/engine.' }
+    "2010-2017|3.5L V6": {
+      grade: "5W-30",
+      capacity: "Approx. 6.4 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "3.5L V6 specification."
+    },
+
+    "2018-2024|3.5L V6": {
+      grade: "0W-20",
+      capacity: "Approx. 5.7 qt",
+      spec: "API SN / SP / ILSAC",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "3.5L V6 specification."
+    }
+  },
+
+
+  "Toyota|Corolla": {
+
+    "2010-2019|1.8L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC GF-5",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "1.8L Toyota 4-cylinder."
+    },
+
+    "2020-2024|1.8L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SP / ILSAC GF-6A",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "1.8L engine."
+    },
+
+    "2019-2026|2.0L Dynamic Force": {
+      grade: "0W-16",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SP / ILSAC GF-6B",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.0L Dynamic Force engine."
+    }
+  },
+
+
+  "Toyota|RAV4": {
+
+    "2010-2012|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.5L 4-cylinder."
+    },
+
+    "2013-2018|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.6 qt",
+      spec: "API SN / ILSAC GF-5",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.5L 4-cylinder."
+    },
+
+    "2019-2025|2.5L Dynamic Force": {
+      grade: "0W-16",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SP / ILSAC GF-6B",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.5L Dynamic Force."
+    }
+  },
+
+
+  /* ==========================================================
+     HONDA
+     ========================================================== */
+
+  "Honda|Civic": {
+
+    "2010-2015|1.8L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 3.9 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.8L naturally aspirated engine."
+    },
+
+    "2016-2021|2.0L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC GF-5",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.0L naturally aspirated engine."
+    },
+
+    "2016-2021|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 3.7 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.5L turbocharged engine."
+    },
+
+    "2022-2026|2.0L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SP / ILSAC GF-6",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.0L engine."
+    },
+
+    "2022-2026|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 3.7 qt",
+      spec: "API SP / ILSAC GF-6",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.5L turbo."
+    }
+  },
+
+
+  "Honda|Accord": {
+
+    "2010-2012|2.4L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.4L 4-cylinder."
+    },
+
+    "2013-2017|2.4L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC GF-5",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.4L Earth Dreams."
+    },
+
+    "2018-2022|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 3.7 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.5L turbo."
+    },
+
+    "2018-2022|2.0L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.0L turbo."
+    }
+  },
+
+
+  "Honda|CR-V": {
+
+    "2010-2014|2.4L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.4L engine."
+    },
+
+    "2015-2022|2.4L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.6 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "2.4L Earth Dreams."
+    },
+
+    "2017-2022|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 3.7 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.5L turbo."
+    },
+
+    "2023-2026|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 3.7 qt",
+      spec: "API SP / ILSAC GF-6",
+      filter: "Spin-on / Honda OEM-equivalent",
+      detail: "1.5L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     FORD
+     ========================================================== */
+
+  "Ford|F-150": {
+
+    "2010-2014|5.4L V8": {
+      grade: "5W-20",
+      capacity: "Approx. 7.0 qt",
+      spec: "Ford WSS-M2C930-A",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "5.4L Triton V8."
+    },
+
+    "2011-2014|3.5L EcoBoost": {
+      grade: "5W-30",
+      capacity: "Approx. 6.0 qt",
+      spec: "Ford WSS-M2C946-A",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "3.5L EcoBoost."
+    },
+
+    "2015-2020|2.7L EcoBoost": {
+      grade: "5W-30",
+      capacity: "Approx. 6.0 qt",
+      spec: "Ford WSS-M2C946-A",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "2.7L EcoBoost."
+    },
+
+    "2015-2026|3.5L EcoBoost": {
+      grade: "5W-30",
+      capacity: "Approx. 6.2 qt",
+      spec: "Ford WSS-M2C961-A1 / current applicable Ford specification",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "3.5L EcoBoost. Exact specification varies by model year."
+    },
+
+    "2011-2026|5.0L V8": {
+      grade: "5W-20",
+      capacity: "Approx. 8.8 qt",
+      spec: "Ford WSS-M2C945-A",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "5.0L V8. Verify exact model year."
+    },
+
+    "2021-2026|3.5L PowerBoost": {
+      grade: "5W-30",
+      capacity: "Approx. 6.2 qt",
+      spec: "Ford WSS specification applicable to model year",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "3.5L PowerBoost hybrid."
+    }
+  },
+
+
+  "Ford|Escape": {
+
+    "2010-2012|2.5L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "Ford WSS-M2C930-A",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "2.5L 4-cylinder."
+    },
+
+    "2013-2019|1.5L EcoBoost": {
+      grade: "5W-20",
+      capacity: "Approx. 5.7 qt",
+      spec: "Ford WSS specification",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "1.5L EcoBoost."
+    },
+
+    "2013-2019|2.0L EcoBoost": {
+      grade: "5W-30",
+      capacity: "Approx. 5.7 qt",
+      spec: "Ford WSS specification",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "2.0L EcoBoost."
+    },
+
+    "2020-2026|1.5L EcoBoost": {
+      grade: "0W-20",
+      capacity: "Approx. 5.3 qt",
+      spec: "Ford WSS specification",
+      filter: "Spin-on / Motorcraft-equivalent",
+      detail: "1.5L EcoBoost."
+    }
+  },
+
+
+  /* ==========================================================
+     CHEVROLET
+     ========================================================== */
+
+  "Chevrolet|Silverado 1500": {
+
+    "2010-2013|5.3L V8": {
+      grade: "5W-30",
+      capacity: "Approx. 6.0 qt",
+      spec: "GM dexos",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "5.3L V8."
+    },
+
+    "2014-2018|5.3L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "5.3L EcoTec3."
+    },
+
+    "2019-2026|5.3L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "5.3L EcoTec3."
+    },
+
+    "2014-2026|6.2L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "6.2L V8."
+    },
+
+    "2019-2026|2.7L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "2.7L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     GMC
+     ========================================================== */
+
+  "GMC|Sierra 1500": {
+
+    "2014-2018|5.3L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "5.3L EcoTec3."
+    },
+
+    "2014-2026|6.2L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "6.2L V8."
+    },
+
+    "2019-2026|5.3L V8": {
+      grade: "0W-20",
+      capacity: "Approx. 8.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "5.3L V8."
+    },
+
+    "2019-2026|2.7L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "GM dexos1",
+      filter: "Spin-on / GM OEM-equivalent",
+      detail: "2.7L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     KIA
+     ========================================================== */
+
+  "Kia|Forte": {
+
+    "2010-2013|2.0L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.0L engine."
+    },
+
+    "2014-2018|2.0L MPI": {
+      grade: "5W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.0L MPI."
+    },
+
+    "2019-2024|2.0L MPI": {
+      grade: "0W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.0L MPI."
+    }
+  },
+
+
+  "Kia|Sportage": {
+
+    "2010-2016|2.4L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.4L engine."
+    },
+
+    "2017-2022|2.4L GDI": {
+      grade: "5W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.4L GDI."
+    },
+
+    "2023-2026|2.5L GDI": {
+      grade: "0W-20",
+      capacity: "Approx. 6.1 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.5L Smartstream GDI."
+    },
+
+    "2023-2026|2.5L Turbo": {
+      grade: "0W-30",
+      capacity: "Approx. 6.1 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.5L turbo."
+    }
+  },
+
+
+  "Kia|Sorento": {
+
+    "2011-2015|2.4L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.4L."
+    },
+
+    "2016-2020|2.4L GDI": {
+      grade: "5W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "2.4L GDI."
+    },
+
+    "2021-2026|2.5L GDI": {
+      grade: "0W-20",
+      capacity: "Approx. 6.1 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "Smartstream 2.5L."
+    },
+
+    "2021-2026|2.5L Turbo": {
+      grade: "0W-30",
+      capacity: "Approx. 6.1 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Kia OEM-equivalent",
+      detail: "Smartstream 2.5L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     HYUNDAI
+     ========================================================== */
+
+  "Hyundai|Elantra": {
+
+    "2010-2016|1.8L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "1.8L engine."
+    },
+
+    "2017-2020|2.0L MPI": {
+      grade: "5W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "2.0L MPI."
+    },
+
+    "2021-2026|2.0L MPI": {
+      grade: "0W-20",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "2.0L MPI."
+    }
+  },
+
+
+  "Hyundai|Tucson": {
+
+    "2010-2015|2.4L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "2.4L engine."
+    },
+
+    "2016-2021|2.0L 4-Cyl": {
+      grade: "5W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "2.0L engine."
+    },
+
+    "2022-2026|2.5L GDI": {
+      grade: "0W-20",
+      capacity: "Approx. 6.13 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "2.5L GDI."
+    },
+
+    "2025-2026|1.6L T-GDI Hybrid": {
+      grade: "0W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN PLUS/SP or ILSAC GF-6",
+      filter: "Spin-on / Hyundai OEM-equivalent",
+      detail: "1.6L turbo hybrid."
+    }
+  },
+
+
+  /* ==========================================================
+     MAZDA
+     ========================================================== */
+
+  "Mazda|Mazda3": {
+
+    "2010-2013|2.0L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.0L."
+    },
+
+    "2014-2018|2.0L SKYACTIV-G": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.0L SKYACTIV-G."
+    },
+
+    "2014-2026|2.5L SKYACTIV-G": {
+      grade: "0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API Certified For Gasoline Engines",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.5L SKYACTIV-G."
+    }
+  },
+
+
+  "Mazda|CX-5": {
+
+    "2013-2026|2.5L SKYACTIV-G": {
+      grade: "0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API Certified For Gasoline Engines",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.5L SKYACTIV-G."
+    },
+
+    "2019-2026|2.5L SKYACTIV-G Turbo": {
+      grade: "5W-30",
+      capacity: "Approx. 5.1 qt",
+      spec: "API Certified For Gasoline Engines",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.5L turbo. Mazda USA specifies SAE 5W-30."
+    }
+  },
+
+
+  "Mazda|CX-50": {
+
+    "2023-2026|2.5L SKYACTIV-G": {
+      grade: "0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API Certified For Gasoline Engines",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.5L naturally aspirated."
+    },
+
+    "2023-2026|2.5L SKYACTIV-G Turbo": {
+      grade: "5W-30",
+      capacity: "Approx. 5.1 qt",
+      spec: "API Certified For Gasoline Engines",
+      filter: "Spin-on / Mazda OEM-equivalent",
+      detail: "2.5L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     VOLKSWAGEN
+     ========================================================== */
+
+  "Volkswagen|Jetta": {
+
+    "2010-2014|2.5L 5-Cyl": {
+      grade: "5W-40",
+      capacity: "Approx. 6.0 qt",
+      spec: "VW 502 00",
+      filter: "Cartridge / VW OEM-equivalent",
+      detail: "Use oil carrying the required VW approval."
+    },
+
+    "2015-2018|1.4L TSI": {
+      grade: "5W-40",
+      capacity: "Approx. 4.5 qt",
+      spec: "VW 502 00 / applicable VW approval",
+      filter: "Cartridge / VW OEM-equivalent",
+      detail: "Verify exact engine/year."
+    },
+
+    "2019-2026|1.4L/1.5L TSI": {
+      grade: "0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "VW-approved oil",
+      filter: "Cartridge / VW OEM-equivalent",
+      detail: "VW approval is more important than viscosity alone."
+    }
+  },
+
+
+  "Volkswagen|Tiguan": {
+
+    "2010-2017|2.0L TSI": {
+      grade: "5W-40",
+      capacity: "Approx. 5.7 qt",
+      spec: "VW 502 00",
+      filter: "Cartridge / VW OEM-equivalent",
+      detail: "2.0L TSI."
+    },
+
+    "2018-2026|2.0L TSI": {
+      grade: "0W-30",
+      capacity: "Approx. 5.7 qt",
+      spec: "VW-approved specification",
+      filter: "Cartridge / VW OEM-equivalent",
+      detail: "Verify current VW oil approval for exact year."
+    }
+  },
+
+
+  /* ==========================================================
+     JEEP
+     ========================================================== */
+
+  "Jeep|Wrangler": {
+
+    "2010-2011|3.8L V6": {
+      grade: "5W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.8L V6."
+    },
+
+    "2012-2018|3.6L Pentastar V6": {
+      grade: "5W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.6L Pentastar."
+    },
+
+    "2018-2026|2.0L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "Chrysler MS-6395 / current applicable Mopar specification",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "2.0L turbo."
+    },
+
+    "2019-2026|3.6L V6": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.6L Pentastar."
+    }
+  },
+
+
+  "Jeep|Grand Cherokee": {
+
+    "2011-2015|3.6L V6": {
+      grade: "5W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.6L Pentastar."
+    },
+
+    "2016-2021|3.6L V6": {
+      grade: "5W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.6L Pentastar."
+    },
+
+    "2022-2026|3.6L V6": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "Chrysler MS-6395",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "3.6L."
+    },
+
+    "2022-2026|2.0L Turbo": {
+      grade: "5W-30",
+      capacity: "Approx. 5.5 qt",
+      spec: "Mopar MS-13340",
+      filter: "Spin-on / Mopar-equivalent",
+      detail: "2.0L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     NISSAN
+     ========================================================== */
+
+  "Nissan|Altima": {
+
+    "2010-2012|2.5L 4-Cyl": {
+      grade: "5W-30",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.5L QR25DE."
+    },
+
+    "2013-2018|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.5L."
+    },
+
+    "2019-2026|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "API SP / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.5L."
+    }
+  },
+
+
+  "Nissan|Rogue": {
+
+    "2010-2013|2.5L 4-Cyl": {
+      grade: "5W-30",
+      capacity: "Approx. 4.9 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.5L."
+    },
+
+    "2014-2020|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.5L."
+    },
+
+    "2021-2026|1.5L VC-Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 5.4 qt",
+      spec: "API/ILSAC approved",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "1.5L variable-compression turbo."
+    }
+  },
+
+
+  "Nissan|Sentra": {
+
+    "2010-2019|1.8L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.0 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "1.8L."
+    },
+
+    "2020-2026|2.0L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 5.0 qt",
+      spec: "API SP / ILSAC",
+      filter: "Spin-on / Nissan OEM-equivalent",
+      detail: "2.0L."
+    }
+  },
+
+
+  /* ==========================================================
+     MITSUBISHI
+     ========================================================== */
+
+  "Mitsubishi|Outlander": {
+
+    "2010-2013|2.4L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Mitsubishi OEM-equivalent",
+      detail: "2.4L."
+    },
+
+    "2014-2021|2.4L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.5 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Mitsubishi OEM-equivalent",
+      detail: "2.4L."
+    },
+
+    "2022-2026|2.5L 4-Cyl": {
+      grade: "0W-20",
+      capacity: "Approx. 4.9 qt",
+      spec: "API SP / ILSAC",
+      filter: "Spin-on / Mitsubishi OEM-equivalent",
+      detail: "2.5L."
+    }
+  },
+
+
+  "Mitsubishi|Eclipse Cross": {
+
+    "2018-2026|1.5L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 4.7 qt",
+      spec: "API SN/SP / ILSAC",
+      filter: "Spin-on / Mitsubishi OEM-equivalent",
+      detail: "1.5L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     SUBARU
+     ========================================================== */
+
+  "Subaru|Outback": {
+
+    "2010-2012|2.5L H4": {
+      grade: "5W-30",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Subaru OEM-equivalent",
+      detail: "2.5L boxer."
+    },
+
+    "2013-2024|2.5L H4": {
+      grade: "0W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN/SP / ILSAC",
+      filter: "Spin-on / Subaru OEM-equivalent",
+      detail: "2.5L boxer."
+    },
+
+    "2020-2026|2.4L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 4.8 qt",
+      spec: "API SP / ILSAC",
+      filter: "Spin-on / Subaru OEM-equivalent",
+      detail: "2.4L turbo boxer."
+    }
+  },
+
+
+  "Subaru|Forester": {
+
+    "2010-2013|2.5L H4": {
+      grade: "5W-30",
+      capacity: "Approx. 4.2 qt",
+      spec: "API SM/SN / ILSAC",
+      filter: "Spin-on / Subaru OEM-equivalent",
+      detail: "2.5L boxer."
+    },
+
+    "2014-2024|2.5L H4": {
+      grade: "0W-20",
+      capacity: "Approx. 5.1 qt",
+      spec: "API SN/SP / ILSAC",
+      filter: "Spin-on / Subaru OEM-equivalent",
+      detail: "2.5L boxer."
+    }
+  },
+
+
+  /* ==========================================================
+     HYBRIDS
+     ========================================================== */
+
+  "Toyota|Prius": {
+
+    "2010-2015|1.8L Hybrid": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "1.8L hybrid."
+    },
+
+    "2016-2022|1.8L Hybrid": {
+      grade: "0W-20",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SN/SP / ILSAC",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "1.8L hybrid."
+    },
+
+    "2023-2026|2.0L Hybrid": {
+      grade: "0W-16",
+      capacity: "Approx. 4.4 qt",
+      spec: "API SP / ILSAC GF-6B",
+      filter: "Spin-on / Toyota OEM-equivalent",
+      detail: "2.0L hybrid."
+    }
+  },
+
+
+  /* ==========================================================
+     LEXUS
+     ========================================================== */
+
+  "Lexus|RX 350": {
+
+    "2010-2015|3.5L V6": {
+      grade: "0W-20",
+      capacity: "Approx. 6.4 qt",
+      spec: "API SN / ILSAC",
+      filter: "Spin-on / Lexus OEM-equivalent",
+      detail: "3.5L V6."
+    },
+
+    "2016-2022|3.5L V6": {
+      grade: "0W-20",
+      capacity: "Approx. 6.4 qt",
+      spec: "API SN/SP / ILSAC",
+      filter: "Spin-on / Lexus OEM-equivalent",
+      detail: "3.5L V6."
+    },
+
+    "2023-2026|2.4L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 5.7 qt",
+      spec: "API SP / ILSAC",
+      filter: "Spin-on / Lexus OEM-equivalent",
+      detail: "2.4L turbo."
+    }
+  },
+
+
+  /* ==========================================================
+     BMW
+     ========================================================== */
+
+  "BMW|3 Series": {
+
+    "2010-2015|3.0L I6": {
+      grade: "5W-30",
+      capacity: "Approx. 6.9 qt",
+      spec: "BMW Longlife-01",
+      filter: "Cartridge / BMW OEM-equivalent",
+      detail: "Use oil carrying the required BMW Longlife approval."
+    },
+
+    "2016-2020|2.0L Turbo": {
+      grade: "0W-20 / 5W-30",
+      capacity: "Approx. 5.3 qt",
+      spec: "BMW Longlife-01 FE / applicable BMW approval",
+      filter: "Cartridge / BMW OEM-equivalent",
+      detail: "Exact approval depends on engine/year."
+    },
+
+    "2021-2026|2.0L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 5.3 qt",
+      spec: "BMW Longlife-17 FE+ / applicable approval",
+      filter: "Cartridge / BMW OEM-equivalent",
+      detail: "Verify exact BMW approval."
+    }
+  },
+
+
+  /* ==========================================================
+     MERCEDES-BENZ
+     ========================================================== */
+
+  "Mercedes-Benz|C-Class": {
+
+    "2010-2014|3.0L V6": {
+      grade: "5W-30",
+      capacity: "Approx. 7.0 qt",
+      spec: "MB 229.5 / applicable Mercedes approval",
+      filter: "Cartridge / Mercedes OEM-equivalent",
+      detail: "Use Mercedes-approved oil."
+    },
+
+    "2015-2021|2.0L Turbo": {
+      grade: "0W-30 / 5W-30",
+      capacity: "Approx. 6.0 qt",
+      spec: "MB 229.5 / 229.51 / applicable approval",
+      filter: "Cartridge / Mercedes OEM-equivalent",
+      detail: "Verify exact MB approval."
+    },
+
+    "2022-2026|2.0L Turbo": {
+      grade: "0W-20",
+      capacity: "Approx. 6.0 qt",
+      spec: "Mercedes-Benz approved oil",
+      filter: "Cartridge / Mercedes OEM-equivalent",
+      detail: "Exact MB approval depends on engine."
+    }
+  }
+
+};
+
+
+/* ============================================================
+   DATABASE LOOKUP ENGINE
+   ============================================================ */
+
+function normalizeText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9.]+/g, " ")
+    .trim();
+}
+
+
+function parseYearRange(range) {
+
+  const parts = range.split("-").map(Number);
+
+  return {
+    start: parts[0],
+    end: parts[1] || parts[0]
+  };
+
+}
+
+
+function findOilSpecification(year, make, model, engine) {
+
+  year = Number(year);
+
+  const makeModel = `${make}|${model}`;
+
+  const database = oilDb[makeModel];
+
+  if (!database) {
+    return null;
+  }
+
+  const normalizedEngine = normalizeText(engine);
+
+  const candidates = [];
+
+  Object.entries(database).forEach(([key, data]) => {
+
+    const separator = key.indexOf("|");
+
+    const yearRange = key.substring(0, separator);
+    const databaseEngine = key.substring(separator + 1);
+
+    const range = parseYearRange(yearRange);
+
+    if (year >= range.start && year <= range.end) {
+
+      const normalizedDatabaseEngine =
+        normalizeText(databaseEngine);
+
+      let score = 0;
+
+      /*
+       * Exact engine match
+       */
+      if (normalizedEngine === normalizedDatabaseEngine) {
+        score += 100;
+      }
+
+      /*
+       * Engine displacement match
+       */
+      const displacementMatch =
+        normalizedDatabaseEngine.match(/\d+\.\d+l/);
+
+      if (displacementMatch &&
+          normalizedEngine.includes(displacementMatch[0])) {
+        score += 50;
+      }
+
+      /*
+       * Turbo matching
+       */
+      if (
+        normalizedDatabaseEngine.includes("turbo") &&
+        normalizedEngine.includes("turbo")
+      ) {
+        score += 25;
+      }
+
+      /*
+       * V6 / V8 matching
+       */
+      ["v6", "v8", "v10", "i4", "i6"].forEach(type => {
+
+        if (
+          normalizedDatabaseEngine.includes(type) &&
+          normalizedEngine.includes(type)
+        ) {
+          score += 20;
+        }
+
+      });
+
+      candidates.push({
+        score,
+        data,
+        databaseEngine
+      });
+
+    }
+
+  });
+
+
+  if (!candidates.length) {
+    return null;
+  }
+
+
+  candidates.sort((a, b) => b.score - a.score);
+
+  return candidates[0].data;
+
+}
+
+
+/* ============================================================
+   ENGINE ALIASES
+   Helps match NHTSA engine descriptions.
+   ============================================================ */
+
+const oilDbAliases = {
+
+  "Toyota|Camry": [
+    ["2.5L 4-Cyl", "2.5L"],
+    ["3.5L V6", "3.5L V6"]
+  ],
+
+  "Toyota|Corolla": [
+    ["1.8L 4-Cyl", "1.8L"],
+    ["2.0L Dynamic Force", "2.0L"]
+  ],
+
+  "Toyota|RAV4": [
+    ["2.5L 4-Cyl", "2.5L"]
+  ],
+
+  "Toyota|Prius": [
+    ["1.8L Hybrid", "1.8L"],
+    ["2.0L Hybrid", "2.0L"]
+  ],
+
+  "Honda|Civic": [
+    ["2.0L 4-Cyl", "2.0L"],
+    ["1.5L Turbo", "1.5L"]
+  ],
+
+  "Honda|Accord": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["1.5L Turbo", "1.5L"],
+    ["2.0L Turbo", "2.0L"]
+  ],
+
+  "Honda|CR-V": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["1.5L Turbo", "1.5L"]
+  ],
+
+  "Ford|F-150": [
+    ["5.4L V8", "5.4L"],
+    ["2.7L EcoBoost", "2.7L"],
+    ["3.5L EcoBoost", "3.5L"],
+    ["5.0L V8", "5.0L"],
+    ["3.5L PowerBoost", "3.5L"]
+  ],
+
+  "Ford|Escape": [
+    ["2.5L 4-Cyl", "2.5L"],
+    ["1.5L EcoBoost", "1.5L"],
+    ["2.0L EcoBoost", "2.0L"]
+  ],
+
+  "Chevrolet|Silverado 1500": [
+    ["5.3L V8", "5.3L"],
+    ["6.2L V8", "6.2L"],
+    ["2.7L Turbo", "2.7L"]
+  ],
+
+  "GMC|Sierra 1500": [
+    ["5.3L V8", "5.3L"],
+    ["6.2L V8", "6.2L"],
+    ["2.7L Turbo", "2.7L"]
+  ],
+
+  "Kia|Forte": [
+    ["2.0L MPI", "2.0L"],
+    ["2.0L 4-Cyl", "2.0L"]
+  ],
+
+  "Kia|Sportage": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["2.5L GDI", "2.5L"],
+    ["2.5L Turbo", "2.5L turbo"]
+  ],
+
+  "Kia|Sorento": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["2.5L GDI", "2.5L"],
+    ["2.5L Turbo", "2.5L turbo"]
+  ],
+
+  "Hyundai|Elantra": [
+    ["1.8L 4-Cyl", "1.8L"],
+    ["2.0L MPI", "2.0L"]
+  ],
+
+  "Hyundai|Tucson": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["2.0L 4-Cyl", "2.0L"],
+    ["2.5L GDI", "2.5L"],
+    ["1.6L T-GDI Hybrid", "1.6L"]
+  ],
+
+  "Mazda|Mazda3": [
+    ["2.0L 4-Cyl", "2.0L"],
+    ["2.0L SKYACTIV-G", "2.0L"],
+    ["2.5L SKYACTIV-G", "2.5L"]
+  ],
+
+  "Mazda|CX-5": [
+    ["2.5L SKYACTIV-G", "2.5L"],
+    ["2.5L SKYACTIV-G Turbo", "2.5L turbo"]
+  ],
+
+  "Mazda|CX-50": [
+    ["2.5L SKYACTIV-G", "2.5L"],
+    ["2.5L SKYACTIV-G Turbo", "2.5L turbo"]
+  ],
+
+  "Volkswagen|Jetta": [
+    ["2.5L 5-Cyl", "2.5L"],
+    ["1.4L TSI", "1.4L"],
+    ["1.5L TSI", "1.5L"]
+  ],
+
+  "Volkswagen|Tiguan": [
+    ["2.0L TSI", "2.0L"]
+  ],
+
+  "Jeep|Wrangler": [
+    ["3.8L V6", "3.8L"],
+    ["3.6L V6", "3.6L"],
+    ["2.0L Turbo", "2.0L"]
+  ],
+
+  "Jeep|Grand Cherokee": [
+    ["3.6L V6", "3.6L"],
+    ["2.0L Turbo", "2.0L"]
+  ],
+
+  "Nissan|Altima": [
+    ["2.5L 4-Cyl", "2.5L"]
+  ],
+
+  "Nissan|Rogue": [
+    ["2.5L 4-Cyl", "2.5L"],
+    ["1.5L VC-Turbo", "1.5L"]
+  ],
+
+  "Nissan|Sentra": [
+    ["1.8L 4-Cyl", "1.8L"],
+    ["2.0L 4-Cyl", "2.0L"]
+  ],
+
+  "Mitsubishi|Outlander": [
+    ["2.4L 4-Cyl", "2.4L"],
+    ["2.5L 4-Cyl", "2.5L"]
+  ],
+
+  "Mitsubishi|Eclipse Cross": [
+    ["1.5L Turbo", "1.5L"]
+  ],
+
+  "Subaru|Outback": [
+    ["2.5L H4", "2.5L"],
+    ["2.4L Turbo", "2.4L"]
+  ],
+
+  "Subaru|Forester": [
+    ["2.5L H4", "2.5L"]
+  ],
+
+  "Lexus|RX 350": [
+    ["3.5L V6", "3.5L"],
+    ["2.4L Turbo", "2.4L"]
+  ],
+
+  "BMW|3 Series": [
+    ["3.0L I6", "3.0L"],
+    ["2.0L Turbo", "2.0L"]
+  ],
+
+  "Mercedes-Benz|C-Class": [
+    ["3.0L V6", "3.0L"],
+    ["2.0L Turbo", "2.0L"]
+  ]
+
+};
+
+
+/* ============================================================
+   ALIAS-AWARE LOOKUP
+   ============================================================ */
+
+function findOilSpecificationWithAliases(
+  year,
+  make,
+  model,
+  engine
+) {
+
+  const directResult =
+    findOilSpecification(year, make, model, engine);
+
+  if (directResult) {
+    return directResult;
+  }
+
+
+  const modelKey = `${make}|${model}`;
+
+  const aliases = oilDbAliases[modelKey];
+
+  if (!aliases) {
+    return null;
+  }
+
+
+  const normalizedEngine =
+    normalizeText(engine);
+
+
+  for (const [databaseEngine, alias] of aliases) {
+
+    const normalizedAlias =
+      normalizeText(alias);
+
+    if (
+      normalizedEngine.includes(normalizedAlias)
+    ) {
+
+      const result =
+        findOilSpecification(
+          year,
+          make,
+          model,
+          databaseEngine
+        );
+
+      if (result) {
+        return result;
+      }
+
+    }
+
+  }
+
+  return null;
+}
+
+
+/* ============================================================
+   RESULT FORMATTER
+   ============================================================ */
+
+function formatOilResult(
+  year,
+  make,
+  model,
+  engine
+) {
+
+  const result =
+    findOilSpecificationWithAliases(
+      year,
+      make,
+      model,
+      engine
+    );
+
+
+  if (!result) {
+
+    return {
+      found: false,
+
+      title: "Oil specification not found",
+
+      grade: "Verify manufacturer specification",
+
+      capacity: "Verify owner manual",
+
+      spec: "Exact OEM specification required",
+
+      filter: "Verify filter by VIN",
+
+      detail:
+        `No verified database entry was found for ` +
+        `${year} ${make} ${model} ${engine}. ` +
+        `Do not guess the oil specification.`
+
     };
 
-    // Engine aliases let the live NHTSA description match the database even
-    // when NHTSA calls the configuration something like "2.5L" or includes trim text.
-    const oilDbAliases = {
-      'Kia|Sportage': [
-        ['2.5L T-GDI','2.5L turbo'], ['2.5L GDI','2.5L'], ['1.6L T-GDI','1.6L turbo']
-      ],
-      'Kia|Sorento': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
-      'Kia|Forte': [['2.0L MPI','2.0L']], 'Kia|Seltos': [['1.6L T-GDI','1.6L'],['2.0L MPI','2.0L']],
-      'Kia|Telluride': [['3.8L V6','3.8L']],
-      'Mazda|CX-5': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
-      'Mazda|CX-50': [['2.5L SKYACTIV-G Turbo','2.5L turbo'],['2.5L SKYACTIV-G','2.5L']],
-      'Mazda|Mazda3': [['2.5L SKYACTIV-G','2.5L'],['2.0L SKYACTIV-G','2.0L']],
-      'Mazda|MX-5 Miata': [['2.0L SKYACTIV-G','2.0L']],
-      'Volkswagen|Tiguan': [['2.0L TSI','2.0L']], 'Volkswagen|Jetta': [['1.5L TSI','1.5L']],
-      'Volkswagen|Atlas': [['3.6L V6','3.6L'],['2.0L TSI','2.0L']], 'Volkswagen|Taos': [['1.5L TSI','1.5L']],
-      'GMC|Sierra 1500': [['6.2L V8','6.2L'],['5.3L V8','5.3L'],['2.7L Turbo','2.7L']],
-      'GMC|Terrain': [['1.5L Turbo','1.5L']], 'GMC|Acadia': [['2.5L Turbo','2.5L']],
-      'GMC|Yukon': [['6.2L V8','6.2L'],['5.3L V8','5.3L']],
-      'Hyundai|Tucson': [['1.6L T-GDI','1.6L'],['2.5L GDI','2.5L']],
-      'Hyundai|Santa Fe': [['2.5L T-GDI','2.5L turbo'],['2.5L GDI','2.5L']],
-      'Hyundai|Elantra': [['2.0L MPI','2.0L']], 'Hyundai|Sonata': [['2.5L GDI','2.5L']],
-      'Hyundai|Palisade': [['3.8L V6','3.8L']],
-      'Jeep|Grand Cherokee': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
-      'Jeep|Wrangler': [['2.0L Turbo','2.0L'],['3.6L V6','3.6L']],
-      'Jeep|Gladiator': [['3.6L V6','3.6L']], 'Jeep|Compass': [['2.0L Turbo','2.0L']],
-      'Nissan|Rogue': [['1.5L VC-Turbo','1.5L']], 'Nissan|Altima': [['2.5L 4-cyl','2.5L']],
-      'Nissan|Sentra': [['2.0L 4-cyl','2.0L']], 'Nissan|Pathfinder': [['3.5L V6','3.5L']],
-      'Nissan|Murano': [['3.5L V6','3.5L']], 'Nissan|Frontier': [['3.8L V6','3.8L']],
-      'Mitsubishi|Outlander': [['2.5L 4-cyl','2.5L'],['2.4L 4-cyl','2.4L']],
-      'Mitsubishi|Eclipse Cross': [['1.5L Turbo','1.5L']], 'Mitsubishi|Outlander Sport': [['2.0L 4-cyl','2.0L']],
-      'Mitsubishi|Mirage': [['1.2L 3-cyl','1.2L']]
-    };
+  }
+
+
+  return {
+
+    found: true,
+
+    title:
+      `${year} ${make} ${model} ${engine}`,
+
+    grade:
+      result.grade,
+
+    capacity:
+      result.capacity,
+
+    spec:
+      result.spec,
+
+    filter:
+      result.filter,
+
+    detail:
+      result.detail
+
+  };
+
+}
+
+
+/* ============================================================
+   EXAMPLE
+   ============================================================
+
+   const oil = formatOilResult(
+     2025,
+     "Mazda",
+     "CX-5",
+     "2.5L SKYACTIV-G"
+   );
+
+   console.log(oil);
+
+   ============================================================ */
+
+
+/* ============================================================
+   IMPORTANT SAFETY / ACCURACY MESSAGE
+   ============================================================ */
+
+const oilDatabaseDisclaimer = `
+Oil specifications can vary by model year, engine,
+market, emissions configuration and VIN.
+
+Use this database as a lookup/reference tool.
+
+Before servicing a vehicle, verify the exact
+manufacturer specification and refill capacity
+using the vehicle owner's manual or manufacturer
+service information.
+
+Never rely on viscosity alone when the manufacturer
+requires a specific approval such as dexos, VW,
+BMW Longlife, Mercedes-Benz MB approval, Ford WSS,
+Mopar/MS specification, etc.
+`;
 
     const makeEl = document.getElementById('make');
     const yearEl = document.getElementById('year');
