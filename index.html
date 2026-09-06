@@ -336,8 +336,8 @@
             <span class="pill area">Call or Text 787-618-0170</span>
           </div>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="tel:+17876180170">Call or Text 787-618-0170</a>
-            <a class="btn btn-outline" href="#pricing">See pricing</a>
+            <a class="btn btn-primary" href="#book">Book appointment</a>
+            <a class="btn btn-outline" href="tel:+17876180170">Call / Text 787-618-0170</a>
           </div>
         </div>
         <div class="hero-card">
@@ -553,100 +553,20 @@
     <section id="book">
       <div class="container">
         <h2>Book an appointment</h2>
-        <p class="section-sub">We use <strong>Booksy</strong> for online booking. Set up your Booksy business profile, then paste your booking widget code here so customers can schedule on this page.</p>
-        <div class="booking-grid">
-          <div class="card">
-            <h3 style="margin-bottom:0.75rem;">Booksy <span class="badge">Your booking system</span></h3>
-            <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">
-              Clients book 24/7 from your Booksy profile, the Booksy app, Google, and a widget on this website. Marketplace listing and basic bookings can start free — check current Booksy Biz plans for your area.
-            </p>
-            <h3 style="font-size:1rem; margin-bottom:0.5rem;">How to add Booksy to this page</h3>
-            <ol style="color:var(--muted); font-size:0.95rem; padding-left:1.2rem; margin-bottom:1rem;">
-              <li style="margin-bottom:0.4rem;">Create or open your <strong>Booksy Biz</strong> account</li>
-              <li style="margin-bottom:0.4rem;">Add services (e.g. Mobile Oil Change from $79.99, add-ons for wipers / washer fluid)</li>
-              <li style="margin-bottom:0.4rem;">Set availability for East Orlando</li>
-              <li style="margin-bottom:0.4rem;">Go to <strong>Business Settings → Online Booking → Your Website</strong></li>
-              <li style="margin-bottom:0.4rem;">Copy the unique widget / embed code</li>
-              <li style="margin-bottom:0.4rem;">Paste that code in the “Booksy widget” box on this page (replace the placeholder)</li>
-            </ol>
-            <p class="note">You can also share your Booksy booking link on social media, Google Business, and your business card QR (point the QR at this site or directly at your Booksy link).</p>
-            <div id="booksy-widget-slot" class="mt-2" style="margin-top:1.25rem; padding:1.25rem; border:1px dashed var(--border); border-radius:12px; text-align:center; background:var(--surface-2);">
-              <p style="font-weight:600; margin-bottom:0.35rem;">Booksy widget placeholder</p>
-              <p class="note">Paste your Booksy embed script here after you copy it from Booksy → Online Booking → Your Website.</p>
-              <p class="mt-1" style="font-size:0.85rem; color:var(--muted);">Until then, use the request form on the right or your Booksy booking link.</p>
-            </div>
-            <p class="note mt-2">Other free tools (if you ever switch): Schedly, Koalendar, FieldCamp, Setmore, Square Appointments, Cal.com.</p>
-          </div>
-          <div class="card">
-            <h3 style="margin-bottom:1rem;">Quick request form</h3>
-            <p class="note" style="margin-bottom:1rem;">Prefer to message us first? Send details here. For instant booking, use Booksy once the widget is live.</p>
-            <form id="request-form" onsubmit="return handleRequest(event)">
-              <div style="margin-bottom:0.75rem;">
-                <label for="name">Name</label>
-                <input id="name" name="name" required placeholder="Your name" />
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" required placeholder="Mobile number" />
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="Optional" />
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="vehicle-summary">Vehicle</label>
-                <input id="vehicle-summary" name="vehicle" placeholder="e.g. 2019 Toyota Camry 2.5L" />
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="oil-choice">Oil option</label>
-                <select id="oil-choice" name="oil_option">
-                  <option value="">Select…</option>
-                  <option value="1">1 — I supply the oil</option>
-                  <option value="2">2 — Buy my preferred brand</option>
-                  <option value="3">3 — Use your oil</option>
-                </select>
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="filter-choice">Oil filter</label>
-                <select id="filter-choice" name="filter_option">
-                  <option value="">Select…</option>
-                  <option value="own">A — I buy my own filter (any brand)</option>
-                  <option value="fram-regular">B — Fram Regular tier</option>
-                  <option value="fram-top">B — Fram Top tier</option>
-                </select>
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label>Add-ons (optional)</label>
-                <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.35rem;">
-                  <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
-                    <input type="checkbox" name="addon_wipers" value="wipers" style="width:auto;" />
-                    New wiper blades (+$7)
-                  </label>
-                  <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
-                    <input type="checkbox" name="addon_washer" value="washer" style="width:auto;" />
-                    Windshield washer fluid (+$5)
-                  </label>
-                </div>
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="preferred">Preferred day / time window</label>
-                <input id="preferred" name="preferred" placeholder="e.g. Tue morning, or next weekend" />
-              </div>
-              <div style="margin-bottom:0.75rem;">
-                <label for="address">Service address (East Orlando)</label>
-                <input id="address" name="address" placeholder="Street address or zip in East Orlando" />
-              </div>
-              <div style="margin-bottom:1rem;">
-                <label for="notes">Notes / preferred oil brand</label>
-                <textarea id="notes" name="notes" rows="2" placeholder="Oil brand if option 2, gate codes, or anything else…"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Send request</button>
-              <p class="note mt-1" id="form-msg"></p>
-            </form>
-          </div>
+        <p class="section-sub">Pick a time that works for you. Serving East Orlando — from $79.99. Prefer to call or text? <a href="tel:+17876180170">787-618-0170</a></p>
+
+        <div class="card" style="margin-bottom:1.25rem; text-align:center;">
+          <p style="color:var(--muted); margin-bottom:1rem;">Open the full booking calendar in one click, or use the embedded calendar below.</p>
+          <a class="btn btn-primary" href="https://calendly.com/pantojaefrain1127/pinnacle-appointment" target="_blank" rel="noopener">Book on Calendly</a>
         </div>
+
+        <div class="card" style="padding:0; overflow:hidden;">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/pinnacle-appointment?hide_gdpr_banner=1" style="min-width:320px; height:700px;"></div>
+        </div>
+        <p class="note mt-1">If the calendar doesn’t load, use the <strong>Book on Calendly</strong> button above or call/text 787-618-0170.</p>
       </div>
     </section>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <!-- Contact + QR -->
     <section id="contact">
@@ -900,8 +820,8 @@
     const oilGradeEl = document.getElementById('oil-grade');
     const oilDetailEl = document.getElementById('oil-detail');
     const vehicleLabelEl = document.getElementById('vehicle-label');
-    const vehicleSummaryEl = document.getElementById('vehicle-summary');
-    const oilChoiceEl = document.getElementById('oil-choice');
+    const vehicleSummaryEl = document.getElementById('vehicle-summary'); // optional (form removed)
+    const oilChoiceEl = document.getElementById('oil-choice'); // optional
     let selectedOption = null;
 
     function resetSelect(el, placeholder) {
@@ -987,7 +907,7 @@
       oilGradeEl.textContent = grade;
       oilDetailEl.textContent = `Typical recommended viscosity: ${grade}. Use a quality oil that meets the latest API / ILSAC (or OEM) specification for your vehicle. Capacity varies by engine — we measure and fill correctly on site.`;
       resultEl.classList.add('show');
-      vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
+      if (vehicleSummaryEl) vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
     });
 
     // Oil option selection
@@ -997,7 +917,7 @@
         const card = this.closest('.option-card');
         card.classList.add('selected');
         selectedOption = card.dataset.option;
-        oilChoiceEl.value = selectedOption;
+        if (oilChoiceEl) oilChoiceEl.value = selectedOption;
         const labels = {
           '1': 'Option 1 selected: You supply the oil — we do the service.',
           '2': 'Option 2 selected: Tell us the brand — we buy it and add the cost.',
