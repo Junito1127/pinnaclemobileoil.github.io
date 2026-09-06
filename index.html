@@ -662,14 +662,7 @@
     // For an exact vehicle, the VIN decoder is recommended.
     // ─────────────────────────────────────────────────────────────
 
-    const VPIC = 'https://vpic.nhtsa.dot.gov/api/vehicles';
-
-    // OEM/manual-backed oil + filter starter database for the added brands.
-    // Year ranges are intentionally explicit. When a vehicle is outside this
-    // table, the live NHTSA lookup still works and the site asks the customer
-    // to verify the exact OEM specification rather than guessing.
-    const starterOilSpecs = {
-      // Existing brands
+    const VPIC = 'https://vpic.nhtsa.dot.gov/api/
       /* ============================================================
    VEHICLE ENGINE OIL DATABASE
    YEARS: 2010–2026
