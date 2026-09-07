@@ -317,7 +317,6 @@
         <a href="#oil-finder">Oil finder</a>
         <a href="#options">Your options</a>
         <a href="#book">Book</a>
-        <a href="#contact">Contact</a>
       </nav>
       <a class="btn btn-primary" href="tel:+17876180170">Call / Text</a>
     </div>
@@ -381,7 +380,7 @@
             <p class="note mt-1">Pay when the job is done. We’ll confirm Zelle, Cash App, or crypto details when your appointment is set.</p>
           </div>
           <div class="card">
-            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">Optional add-ons (bundles)</h3>
+            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">Optional add-ons</h3>
             <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">Add these when you book — quick extras while we’re already there.</p>
             <ul class="addon-list">
               <li>
@@ -402,8 +401,26 @@
                   <span class="addon-price">+$5</span>
                 </div>
               </li>
+              <li>
+                <div class="addon-row">
+                  <div>
+                    <strong>Quick vacuum</strong>
+                    <div style="color:var(--muted); font-size:0.9rem;">Fast interior vacuum while we’re on site</div>
+                  </div>
+                  <span class="addon-price">+$8</span>
+                </div>
+              </li>
+              <li>
+                <div class="addon-row">
+                  <div>
+                    <strong>Car fragrance</strong>
+                    <div style="color:var(--muted); font-size:0.9rem;">Fresh scent for the cabin</div>
+                  </div>
+                  <span class="addon-price">+$1.50</span>
+                </div>
+              </li>
             </ul>
-            <p class="note mt-2">Select add-ons in the booking form or mention them when you schedule. More bundle options can be added later (air filter, cabin filter, etc.).</p>
+            <p class="note mt-2">Choose add-ons when you book on Calendly (or mention them when you call/text).</p>
             <a class="btn btn-primary btn-block mt-2" href="#book">Book with add-ons</a>
           </div>
         </div>
@@ -428,13 +445,13 @@
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <h3>Oil &amp; filter choice</h3>
-            <p>Pick how oil is handled, then filter A (your own) or B (Fram Regular / Top Tier).</p>
+            <h3>Oil &amp; filter options</h3>
+            <p>Review how oil and filters work — you’ll confirm your choices when you book.</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
             <h3>Book a time</h3>
-            <p>Pick a slot that fits your schedule. We come to you.</p>
+            <p>Schedule online and answer oil, filter, and add-on questions in the booking form.</p>
           </div>
         </div>
       </div>
@@ -487,65 +504,46 @@
     <!-- Three options -->
     <section id="options">
       <div class="container">
-        <h2>How do you want the oil handled?</h2>
-        <p class="section-sub">Three clear choices. Pick the one that matches how you want to manage oil cost and brand. Then choose your filter option below (A or B).</p>
-        <div class="grid-3" id="option-cards">
-          <div class="option-card" data-option="1">
+        <h2>Oil supply options</h2>
+        <p class="section-sub">Here’s how oil can be handled. You’ll pick your option when you book — no need to choose on this page.</p>
+        <div class="grid-3">
+          <div class="option-card">
             <div class="option-num">1</div>
             <h3>You supply the oil</h3>
             <p>Buy your preferred oil ahead of time. We perform the full service with what you provide. Best if you already have a favorite brand or found a good deal.</p>
             <div class="price-hint">From $79.99 · labor (you supply oil)</div>
-            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
           </div>
-          <div class="option-card" data-option="2">
+          <div class="option-card">
             <div class="option-num">2</div>
             <h3>Tell us the brand — we buy it</h3>
-            <p>Tell us the exact oil brand and grade you want. We purchase it, bring it, and add the oil cost to your service total. Convenient when you want a specific product without shopping yourself.</p>
+            <p>Tell us the exact oil brand and grade you want. We purchase it, bring it, and add the oil cost to your service total.</p>
             <div class="price-hint">From $79.99 + oil cost</div>
-            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
           </div>
-          <div class="option-card" data-option="3">
+          <div class="option-card">
             <div class="option-num">3</div>
             <h3>Use our oil</h3>
-            <p>We use a quality oil that meets or exceeds the specification for your engine. Simple, no extra shopping. Ideal if you want a reliable, no-hassle change.</p>
+            <p>We use a quality oil that meets or exceeds the specification for your engine. Simple, no extra shopping.</p>
             <div class="price-hint">From $79.99 · package with our oil</div>
-            <button type="button" class="btn btn-outline btn-block select-option">Choose this</button>
           </div>
         </div>
-        <p class="mt-2 note" id="selected-option-msg">No oil option selected yet. Choose one above, then pick your filter option.</p>
 
-        <h2 class="mt-2" style="margin-top:2.5rem;">Oil filter choice</h2>
-        <p class="section-sub">Choose how you want the oil filter handled. We install it either way.</p>
-        <div class="grid-2" id="filter-cards">
-          <div class="option-card" data-filter="own">
+        <h2 class="mt-2" style="margin-top:2.5rem;">Oil filter options</h2>
+        <p class="section-sub">You provide the filter either way. You’ll confirm A or B (and Fram tier if needed) in the booking form.</p>
+        <div class="grid-2">
+          <div class="option-card">
             <div class="option-num">A</div>
             <h3>You buy your own filter</h3>
             <p>Purchase any oil filter brand and type you prefer. Bring it to the appointment — we install the filter you provide.</p>
             <div class="price-hint">You purchase (any brand) · we install</div>
-            <button type="button" class="btn btn-outline btn-block select-filter">Choose A</button>
           </div>
-          <div class="option-card" data-filter="fram">
+          <div class="option-card">
             <div class="option-num">B</div>
             <h3>Fram oil filter</h3>
-            <p>Use a Fram filter. After selecting B, choose Regular tier or Top tier so we know which Fram product you’re using.</p>
+            <p>Use a Fram filter — Regular tier or Top tier. You’ll specify which tier when you book. We install it with your service.</p>
             <div class="price-hint">Fram · Regular or Top Tier</div>
-            <div id="fram-tiers" class="mt-1" style="display:none; margin-top:0.85rem; padding-top:0.75rem; border-top:1px solid var(--border);">
-              <label style="margin-bottom:0.4rem;">Choose Fram tier</label>
-              <div style="display:flex; flex-direction:column; gap:0.45rem;">
-                <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
-                  <input type="radio" name="fram_tier" value="regular" style="width:auto;" />
-                  Regular tier
-                </label>
-                <label style="display:flex; align-items:center; gap:0.5rem; color:var(--text); font-size:0.95rem; cursor:pointer;">
-                  <input type="radio" name="fram_tier" value="top" style="width:auto;" />
-                  Top tier
-                </label>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline btn-block select-filter" style="margin-top:0.75rem;">Choose B</button>
           </div>
         </div>
-        <p class="mt-2 note" id="selected-filter-msg">No filter option selected yet. Choose A (your own filter) or B (Fram Regular / Top Tier).</p>
+        <p class="note mt-2">Ready to schedule? <a href="#book">Book an appointment</a> and answer oil, filter, and add-on questions there.</p>
       </div>
     </section>
 
@@ -568,34 +566,7 @@
     </section>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    <!-- Contact + QR -->
-    <section id="contact">
-      <div class="container">
-        <h2>Contact &amp; business card QR</h2>
-        <p class="section-sub">Put this QR code on your business cards so customers land straight on this page (or your future live domain).</p>
-        <div class="card qr-section">
-          <div>
-            <p style="font-family:Montserrat,sans-serif; font-weight:800; letter-spacing:0.08em; font-size:1.15rem;">PINNACLE MOBILE OIL</p>
-            <p class="mt-1" style="color:var(--muted);">Top-Tier Mobile Oil Changes · East Orlando · From $79.99</p>
-            <p class="mt-2">
-              <strong>Call or Text:</strong> <a href="tel:+17876180170">787-618-0170</a>
-            </p>
-            <p class="mt-1" style="font-size:0.9rem;">
-              <strong>Payments:</strong> Cash · Zelle · Cash App · Crypto
-            </p>
-            <p class="note mt-1">Serving East Orlando. Add your email when ready. Point the QR at your live site after GitHub Pages is on.</p>
-            <p class="mt-2">
-              <button type="button" class="btn btn-outline" id="download-qr">Download QR (print size)</button>
-            </p>
-          </div>
-          <div>
-            <div id="qrcode"></div>
-            <p class="note mt-1" style="text-align:center;">Scan to open this site</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+    </main>
 
   <footer>
     <div class="container">
@@ -604,8 +575,6 @@
     </div>
   </footer>
 
-  <!-- QR library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     // ——— Sample vehicle oil data (common US vehicles). Expand or replace with a real API/DB later. ———
     const vehicleData = {
@@ -820,9 +789,6 @@
     const oilGradeEl = document.getElementById('oil-grade');
     const oilDetailEl = document.getElementById('oil-detail');
     const vehicleLabelEl = document.getElementById('vehicle-label');
-    const vehicleSummaryEl = document.getElementById('vehicle-summary'); // optional (form removed)
-    const oilChoiceEl = document.getElementById('oil-choice'); // optional
-    let selectedOption = null;
 
     function resetSelect(el, placeholder) {
       el.innerHTML = '';
@@ -907,107 +873,6 @@
       oilGradeEl.textContent = grade;
       oilDetailEl.textContent = `Typical recommended viscosity: ${grade}. Use a quality oil that meets the latest API / ILSAC (or OEM) specification for your vehicle. Capacity varies by engine — we measure and fill correctly on site.`;
       resultEl.classList.add('show');
-      if (vehicleSummaryEl) vehicleSummaryEl.value = `${year} ${make} ${model} ${engine}`;
-    });
-
-    // Oil option selection
-    document.querySelectorAll('.select-option').forEach(btn => {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('#option-cards .option-card').forEach(c => c.classList.remove('selected'));
-        const card = this.closest('.option-card');
-        card.classList.add('selected');
-        selectedOption = card.dataset.option;
-        if (oilChoiceEl) oilChoiceEl.value = selectedOption;
-        const labels = {
-          '1': 'Option 1 selected: You supply the oil — we do the service.',
-          '2': 'Option 2 selected: Tell us the brand — we buy it and add the cost.',
-          '3': 'Option 3 selected: We’ll use our quality oil that meets the spec.'
-        };
-        document.getElementById('selected-option-msg').textContent = labels[selectedOption];
-        document.getElementById('selected-option-msg').style.color = 'var(--accent)';
-      });
-    });
-
-    // Filter selection: A = own filter, B = Fram (Regular or Top Tier)
-    const filterChoiceEl = document.getElementById('filter-choice');
-    const framTiersEl = document.getElementById('fram-tiers');
-
-    function updateFilterMessage(filter, tier) {
-      let text = '';
-      if (filter === 'own') {
-        text = 'Filter option A: You buy your own filter (any brand) — we install it.';
-        if (filterChoiceEl) filterChoiceEl.value = 'own';
-      } else if (filter === 'fram') {
-        if (tier === 'regular') {
-          text = 'Filter option B: Fram Regular tier.';
-          if (filterChoiceEl) filterChoiceEl.value = 'fram-regular';
-        } else if (tier === 'top') {
-          text = 'Filter option B: Fram Top tier.';
-          if (filterChoiceEl) filterChoiceEl.value = 'fram-top';
-        } else {
-          text = 'Filter option B selected: Fram — now choose Regular or Top tier.';
-          if (filterChoiceEl) filterChoiceEl.value = '';
-        }
-      }
-      const msg = document.getElementById('selected-filter-msg');
-      msg.textContent = text;
-      msg.style.color = 'var(--accent)';
-    }
-
-    document.querySelectorAll('.select-filter').forEach(btn => {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('#filter-cards .option-card').forEach(c => c.classList.remove('selected'));
-        const card = this.closest('.option-card');
-        card.classList.add('selected');
-        const filter = card.dataset.filter;
-        if (filter === 'fram') {
-          if (framTiersEl) framTiersEl.style.display = 'block';
-          const checked = document.querySelector('input[name="fram_tier"]:checked');
-          updateFilterMessage('fram', checked ? checked.value : null);
-        } else {
-          if (framTiersEl) framTiersEl.style.display = 'none';
-          document.querySelectorAll('input[name="fram_tier"]').forEach(r => { r.checked = false; });
-          updateFilterMessage('own');
-        }
-      });
-    });
-
-    document.querySelectorAll('input[name="fram_tier"]').forEach(radio => {
-      radio.addEventListener('change', function () {
-        document.querySelectorAll('#filter-cards .option-card').forEach(c => c.classList.remove('selected'));
-        const framCard = document.querySelector('#filter-cards .option-card[data-filter="fram"]');
-        if (framCard) framCard.classList.add('selected');
-        if (framTiersEl) framTiersEl.style.display = 'block';
-        updateFilterMessage('fram', this.value);
-      });
-    });
-
-    function handleRequest(e) {
-      e.preventDefault();
-      const msg = document.getElementById('form-msg');
-      msg.textContent = 'Thanks! Your request was captured locally. Connect this form to email (Formspree, etc.) or replace with a real booking calendar embed.';
-      msg.style.color = 'var(--accent)';
-      return false;
-    }
-
-    // QR code — points to current page URL (or change to your live domain)
-    const qrTarget = window.location.href.split('#')[0] || 'https://pinnaclemobileoil.com';
-    const qr = new QRCode(document.getElementById('qrcode'), {
-      text: qrTarget,
-      width: 160,
-      height: 160,
-      colorDark: '#0a1628',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M
-    });
-
-    document.getElementById('download-qr').addEventListener('click', () => {
-      const canvas = document.querySelector('#qrcode canvas');
-      if (!canvas) return;
-      const link = document.createElement('a');
-      link.download = 'pinnacle-mobile-oil-qr.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
     });
 
     document.getElementById('year-copy').textContent = new Date().getFullYear();
