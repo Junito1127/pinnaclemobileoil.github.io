@@ -53,22 +53,39 @@
           </ul>
         </div>
         <div class="hero-card" aria-hidden="true">
-          <div class="drop-art">
-            <svg viewBox="0 0 200 240" width="100%" role="img" aria-label="">
+          <div class="scene">
+            <svg viewBox="0 0 320 300" width="100%" role="img" aria-label="">
               <defs>
-                <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#ffb35c"/><stop offset="1" stop-color="#ff7a00"/>
-                </linearGradient>
+                <linearGradient id="gDrop" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc07a"/><stop offset="1" stop-color="#ff7a00"/></linearGradient>
+                <linearGradient id="gMtn1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a5a92"/><stop offset="1" stop-color="#173a63"/></linearGradient>
+                <linearGradient id="gMtn2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d4676"/><stop offset="1" stop-color="#102b4a"/></linearGradient>
               </defs>
-              <path d="M100 12C100 12 30 98 30 152a70 70 0 0 0 140 0C170 98 100 12 100 12z" fill="url(#g)"/>
-              <path d="M62 156a38 38 0 0 0 38 38" stroke="#fff" stroke-opacity=".7" stroke-width="8" fill="none" stroke-linecap="round"/>
+              <circle cx="160" cy="150" r="140" fill="rgba(255,255,255,.06)"/>
+              <path d="M10 270L105 120l45 62 45-60 115 148z" fill="url(#gMtn2)"/>
+              <path d="M60 270L160 95l100 175z" fill="url(#gMtn1)"/>
+              <path d="M160 95l-30 52 18-10 12 14 12-14 18 10z" fill="#fff" opacity=".92"/>
+              <path d="M160 40C160 40 112 104 112 150a48 48 0 0 0 96 0C208 104 160 40 160 40z" fill="url(#gDrop)"/>
+              <path d="M134 152a26 26 0 0 0 26 26" stroke="#fff" stroke-opacity=".75" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <rect x="0" y="268" width="320" height="6" rx="3" fill="#ff8a1f"/>
             </svg>
           </div>
-          <div class="float-badge b1">Fresh oil &amp; filter</div>
-          <div class="float-badge b2">At your door</div>
+          <div class="float-badge b1"><i></i>Full synthetic included</div>
+          <div class="float-badge b2"><i></i>Orlando area</div>
         </div>
       </div>
+      <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120V70l140-40 120 44 170-62 150 66 190-70 170 60 150-48 150 56V120z" fill="#ffffff"/></svg>
     </section>
+
+    <!-- FEATURE STRIP -->
+    <section class="strip" aria-label="Highlights">
+      <div class="container strip-grid">
+        <div><b>Full synthetic</b><span>included in every service</span></div>
+        <div><b>We come to you</b><span>home or workplace</span></div>
+        <div><b>Orlando area</b><span>mobile service</span></div>
+        <div><b>Easy booking</b><span>pick a time online</span></div>
+      </div>
+    </section>
+
 
     <!-- HOW IT WORKS -->
     <section id="how" class="section">
