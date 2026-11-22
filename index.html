@@ -1,881 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pinnacle Mobile Oil | Top-Tier Mobile Oil Changes — East Orlando</title>
-  <meta name="description" content="Pinnacle Mobile Oil — top-tier mobile oil changes in East Orlando from $79.99. Call or text 787-618-0170. Choose your vehicle, oil option, and filter." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a1628;
-      --surface: #0f1f35;
-      --surface-2: #152a45;
-      --border: #2a4060;
-      --text: #f0f4fa;
-      --muted: #9db0c9;
-      --primary: #c8d4e6;
-      --primary-dark: #a8b8d0;
-      --accent: #e8eef8;
-      --silver: #d4dde8;
-      --navy: #0a1628;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.4);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-      min-height: 100vh;
-    }
-    a { color: var(--primary); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { width: min(1100px, 92%); margin: 0 auto; }
-
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(11,18,32,.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.9rem 0; gap: 1rem;
-    }
-    .logo {
-      font-family: 'Montserrat', Inter, sans-serif;
-      font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 0.65rem;
-      color: var(--silver);
-      text-decoration: none;
-    }
-    .logo:hover { text-decoration: none; color: #fff; }
-    .logo-mark {
-      width: 36px; height: 28px; flex-shrink: 0;
-    }
-    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .logo-text strong { font-size: 1.05rem; letter-spacing: 0.12em; }
-    .logo-text small {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em;
-      color: var(--muted); text-transform: uppercase;
-    }
-    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-    @media (max-width: 720px) {
-      .nav-links { display: none; }
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      gap: 0.4rem; padding: 0.7rem 1.2rem; border-radius: 999px;
-      font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer;
-      transition: transform .15s, background .15s, box-shadow .15s;
-    }
-    .btn:active { transform: scale(0.98); }
-    .btn-primary {
-      background: linear-gradient(145deg, #e8eef8, #b8c5d8);
-      color: #0a1628; box-shadow: 0 6px 20px rgba(200,212,230,.25);
-      font-weight: 700;
-    }
-    .btn-primary:hover { box-shadow: 0 8px 24px rgba(200,212,230,.4); text-decoration: none; filter: brightness(1.05); }
-    .btn-outline {
-      background: transparent; color: var(--silver);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { border-color: var(--silver); color: #fff; text-decoration: none; }
-    .btn-accent { background: var(--silver); color: #0a1628; }
-    .btn-block { width: 100%; }
-
-    /* Hero */
-    .hero {
-      padding: 4.5rem 0 3.5rem;
-      background:
-        radial-gradient(ellipse 70% 50% at 75% 0%, rgba(200,212,230,.12), transparent),
-        radial-gradient(ellipse 50% 40% at 15% 60%, rgba(42,64,96,.25), transparent);
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem; align-items: center;
-    }
-    @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
-    .hero h1 {
-      font-family: 'Montserrat', Inter, sans-serif;
-      font-size: clamp(2rem, 4.5vw, 2.85rem); font-weight: 800;
-      letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem;
-    }
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(180deg, #ffffff, #a8b8d0);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .hero p.lead { color: var(--muted); font-size: 1.1rem; max-width: 38ch; margin-bottom: 1.25rem; }
-    .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem;
-    }
-    .pill {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      background: var(--surface-2); border: 1px solid var(--border);
-      padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.9rem; font-weight: 600;
-    }
-    .pill.price { color: #fff; border-color: rgba(200,212,230,.4); background: rgba(200,212,230,.12); }
-    .pill.area { color: var(--silver); border-color: rgba(200,212,230,.3); background: rgba(200,212,230,.08); }
-    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .hero-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);
-    }
-    .hero-card h3 { font-size: 1rem; margin-bottom: 0.75rem; color: var(--muted); font-weight: 600; }
-    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat { text-align: center; padding: 0.75rem; background: var(--surface-2); border-radius: 10px; }
-    .stat strong { display: block; font-size: 1.4rem; color: var(--primary); }
-    .stat span { font-size: 0.8rem; color: var(--muted); }
-
-    /* Pricing / includes / add-ons */
-    .price-hero {
-      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; color: var(--accent);
-      line-height: 1;
-    }
-    .price-hero small { font-size: 1rem; font-weight: 600; color: var(--muted); }
-    .includes-list, .addon-list { list-style: none; }
-    .includes-list li, .addon-list li {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem;
-    }
-    .includes-list li:last-child, .addon-list li:last-child { border-bottom: none; }
-    .check {
-      flex-shrink: 0; width: 1.25rem; height: 1.25rem; border-radius: 50%;
-      background: rgba(200,212,230,.15); color: var(--silver);
-      display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;
-      margin-top: 0.15rem;
-    }
-    .addon-row {
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;
-    }
-    .addon-price { font-weight: 700; color: var(--primary); white-space: nowrap; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
-
-    /* Sections */
-    section { padding: 3.5rem 0; }
-    section h2 {
-      font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 800;
-      letter-spacing: -0.02em; margin-bottom: 0.5rem;
-    }
-    .section-sub { color: var(--muted); margin-bottom: 2rem; max-width: 55ch; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem;
-    }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    @media (max-width: 800px) { .grid-3 { grid-template-columns: 1fr; } }
-
-    /* How it works */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-    @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 500px) { .steps { grid-template-columns: 1fr; } }
-    .step {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.25rem; position: relative;
-    }
-    .step-num {
-      width: 2rem; height: 2rem; border-radius: 50%;
-      background: linear-gradient(145deg, #e8eef8, #8a9bb5); color: #0a1628; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; margin-bottom: 0.75rem;
-    }
-    .step h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
-    .step p { color: var(--muted); font-size: 0.9rem; }
-
-    /* Vehicle finder */
-    #oil-finder { background: linear-gradient(180deg, transparent, rgba(14,165,233,.04)); }
-    .finder-form {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.25rem;
-    }
-    @media (max-width: 800px) { .finder-form { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .finder-form { grid-template-columns: 1fr; } }
-    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.35rem; font-weight: 500; }
-    select, input, textarea {
-      width: 100%; padding: 0.7rem 0.9rem; border-radius: 10px;
-      border: 1px solid var(--border); background: var(--surface-2);
-      color: var(--text); font: inherit; outline: none;
-    }
-    select {
-      appearance: auto;
-      -webkit-appearance: menulist;
-      cursor: pointer;
-      background-color: #1a2332;
-      color: #e8eef7;
-    }
-    select option {
-      background-color: #1a2332;
-      color: #e8eef7;
-    }
-    select:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
-    select:focus, input:focus, textarea:focus { border-color: var(--primary); }
-    .result-box {
-      display: none; margin-top: 1rem; padding: 1.25rem;
-      background: var(--surface-2); border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-    .result-box.show { display: block; }
-    .result-box h3 { color: var(--accent); margin-bottom: 0.5rem; }
-    .oil-badge {
-      display: inline-block; background: rgba(14,165,233,.15);
-      color: var(--primary); padding: 0.35rem 0.75rem; border-radius: 999px;
-      font-weight: 700; font-size: 1.1rem; margin: 0.5rem 0;
-    }
-    .note { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
-
-    /* Oil options */
-    .option-card {
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1.5rem; background: var(--surface); transition: border-color .2s, transform .15s;
-      display: flex; flex-direction: column; height: 100%;
-    }
-    .option-card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .option-card.selected { border-color: var(--silver); box-shadow: 0 0 0 2px rgba(200,212,230,.25); }
-    .option-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
-    .option-card p { color: var(--muted); font-size: 0.95rem; flex-grow: 1; }
-    .option-card .price-hint { margin: 1rem 0 0.75rem; font-weight: 600; color: var(--accent); }
-    .option-num {
-      width: 1.75rem; height: 1.75rem; border-radius: 50%;
-      background: var(--surface-2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.85rem; margin-bottom: 0.75rem;
-    }
-
-    /* Booking */
-    .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width: 700px) { .booking-grid { grid-template-columns: 1fr; } }
-    .tool-list { list-style: none; }
-    .tool-list li {
-      padding: 0.85rem 0; border-bottom: 1px solid var(--border);
-      display: flex; flex-direction: column; gap: 0.2rem;
-    }
-    .tool-list li:last-child { border-bottom: none; }
-    .tool-list strong { color: var(--text); }
-    .tool-list span { color: var(--muted); font-size: 0.9rem; }
-    .badge {
-      display: inline-block; font-size: 0.7rem; font-weight: 700;
-      padding: 0.15rem 0.45rem; border-radius: 6px; margin-left: 0.4rem;
-      background: rgba(200,212,230,.15); color: var(--silver); vertical-align: middle;
-    }
-
-    /* Contact / QR */
-    .qr-section {
-      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
-    }
-    @media (max-width: 600px) { .qr-section { grid-template-columns: 1fr; text-align: center; } }
-    #qrcode {
-      background: #fff; padding: 12px; border-radius: 12px;
-      display: inline-flex; box-shadow: var(--shadow);
-    }
-    #qrcode img, #qrcode canvas { display: block; }
-
-    footer {
-      border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 2rem;
-      color: var(--muted); font-size: 0.9rem; text-align: center;
-    }
-
-    /* Utility */
-    .mt-1 { margin-top: 0.5rem; }
-    .mt-2 { margin-top: 1rem; }
-    .hidden { display: none !important; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pinnacle Mobile Oil | Orlando Mobile Oil Changes</title>
+  <meta name="description" content="Pinnacle Mobile Oil brings full synthetic oil changes to your home or workplace in the Orlando area. Simple flat pricing, optional add-ons, and easy online booking.">
+  <meta name="theme-color" content="#0f2742">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M2 30L15 8l7 11 5-7 11 18z' fill='%23173a63'/%3E%3Cpath d='M2 30h36' stroke='%23ff8a1f' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
+
+  <header class="site-header">
     <div class="container nav">
-      <a href="#" class="logo">
-        <svg class="logo-mark" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M4 32 L14 12 L20 22 L28 6 L44 32 Z" fill="url(#mtn)" stroke="#e8eef8" stroke-width="1.2" stroke-linejoin="round"/>
-          <defs>
-            <linearGradient id="mtn" x1="4" y1="6" x2="44" y2="32" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#ffffff"/>
-              <stop offset="1" stop-color="#8a9bb5"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span class="logo-text">
-          <strong>PINNACLE</strong>
-          <small>Mobile Oil</small>
-        </span>
+      <a href="#top" class="brand" aria-label="Pinnacle Mobile Oil home">
+        <svg viewBox="0 0 40 32" width="38" height="30" aria-hidden="true"><path d="M2 30L15 8l7 11 5-7 11 18z" fill="#173a63"/><path d="M15 8l-4.2 7.3 2.4-1.6 2.1 2.5 2.2-2.4 2.6 1.9z" fill="#fff"/><path d="M27 12l-3.3 4.6 2-.9 1.3 1.6 1.4-1.6 2 .9z" fill="#fff" opacity=".9"/><path d="M2 30h36" stroke="#ff8a1f" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>Pinnacle <b>Mobile Oil</b></span>
       </a>
-      <nav class="nav-links">
-        <a href="#pricing">Pricing</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu" class="menu">
         <a href="#how">How it works</a>
-        <a href="#oil-finder">Oil finder</a>
-        <a href="#options">Your options</a>
-        <a href="#book">Book</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#addons">Add-ons</a>
+        <a href="#quote">Quote</a>
+        <a href="#book" class="btn btn-small">Book now</a>
       </nav>
-      <a class="btn btn-primary" href="tel:+17876180170">Call / Text</a>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
+  <main id="top">
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <h1>Top-tier mobile oil changes — <em>we come to you</em></h1>
-          <p class="lead">Pinnacle Mobile Oil serves East Orlando at your home, office, or parking lot. See the oil your engine needs, choose how oil and filters are handled, add extras, and book a time that works.</p>
-          <div class="hero-meta">
-            <span class="pill price">From $79.99</span>
-            <span class="pill area">East Orlando</span>
-            <span class="pill area">Call or Text 787-618-0170</span>
+        <div class="hero-copy">
+          <p class="eyebrow">Mobile oil changes in the Orlando area</p>
+          <h1>Your oil change, <span>wherever you park.</span></h1>
+          <p class="lead">Skip the shop and the waiting room. Pinnacle Mobile Oil serves the Orlando area and comes to your driveway or office lot, changes your oil, and leaves your day untouched.</p>
+          <div class="hero-actions">
+            <a href="#book" class="btn">Book an appointment</a>
+            <a href="#quote" class="btn btn-ghost">Get an instant quote</a>
           </div>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#book">Book appointment</a>
-            <a class="btn btn-outline" href="tel:+17876180170">Call / Text 787-618-0170</a>
-          </div>
+          <ul class="trust">
+            <li>Flat, upfront pricing</li>
+            <li>Home or workplace</li>
+            <li>No waiting room</li>
+          </ul>
         </div>
-        <div class="hero-card">
-          <h3>Why customers choose us</h3>
-          <div class="stat-row">
-            <div class="stat"><strong>At your door</strong><span>No waiting room</span></div>
-            <div class="stat"><strong>3 oil options</strong><span>You control the oil</span></div>
-            <div class="stat"><strong>From $79.99</strong><span>Clear starting price</span></div>
-            <div class="stat"><strong>East Orlando</strong><span>We come to you</span></div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="drop-art">
+            <svg viewBox="0 0 200 240" width="100%" role="img" aria-label="">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ffb35c"/><stop offset="1" stop-color="#ff7a00"/>
+                </linearGradient>
+              </defs>
+              <path d="M100 12C100 12 30 98 30 152a70 70 0 0 0 140 0C170 98 100 12 100 12z" fill="url(#g)"/>
+              <path d="M62 156a38 38 0 0 0 38 38" stroke="#fff" stroke-opacity=".7" stroke-width="8" fill="none" stroke-linecap="round"/>
+            </svg>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing & service area -->
-    <section id="pricing">
-      <div class="container">
-        <h2>Pricing &amp; service area</h2>
-        <p class="section-sub">Clear starting price, what’s included, and optional add-ons. Serving East Orlando.</p>
-        <div class="grid-2">
-          <div class="card">
-            <p style="color:var(--muted); font-size:0.9rem; font-weight:600; margin-bottom:0.35rem;">Starting price</p>
-            <div class="price-hero">$79.99 <small>starting</small></div>
-            <p class="mt-1" style="color:var(--muted); font-size:0.95rem;">Mobile oil change in East Orlando. Final total depends on your oil choice (you supply it, we buy your brand, or we use ours) and any add-ons.</p>
-            <h3 class="mt-2" style="font-size:1.05rem; margin-bottom:0.5rem;">What’s included</h3>
-            <ul class="includes-list">
-              <li><span class="check">✓</span><span>Full oil change at your location (home, work, or parking lot)</span></li>
-              <li><span class="check">✓</span><span>Correct oil viscosity for your vehicle (see oil finder below)</span></li>
-              <li><span class="check">✓</span><span>Installation of your oil filter — your own brand (A) or Fram Regular / Top Tier (B)</span></li>
-              <li><span class="check">✓</span><span>Proper fill level and visual inspection</span></li>
-              <li><span class="check">✓</span><span>Your choice of oil handling (supply yours, we buy your brand, or use ours)</span></li>
-            </ul>
-            <p class="note mt-1">Service area: <strong>East Orlando</strong>. Not sure if we cover you? Message us with your zip or address when you book.</p>
-            <h3 class="mt-2" style="font-size:1.05rem; margin-bottom:0.5rem;">Payment methods</h3>
-            <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-              <span class="pill">Cash</span>
-              <span class="pill">Zelle</span>
-              <span class="pill">Cash App</span>
-              <span class="pill">Crypto</span>
-            </div>
-            <p class="note mt-1">Pay when the job is done. We’ll confirm Zelle, Cash App, or crypto details when your appointment is set.</p>
-          </div>
-          <div class="card">
-            <h3 style="font-size:1.05rem; margin-bottom:0.75rem;">Optional add-ons</h3>
-            <p style="color:var(--muted); font-size:0.95rem; margin-bottom:1rem;">Add these when you book — quick extras while we’re already there.</p>
-            <ul class="addon-list">
-              <li>
-                <div class="addon-row">
-                  <div>
-                    <strong>New wiper blades</strong>
-                    <div style="color:var(--muted); font-size:0.9rem;">Fresh blades for clear visibility</div>
-                  </div>
-                  <span class="addon-price">+$7</span>
-                </div>
-              </li>
-              <li>
-                <div class="addon-row">
-                  <div>
-                    <strong>Windshield washer fluid</strong>
-                    <div style="color:var(--muted); font-size:0.9rem;">Top-up or fill while we service</div>
-                  </div>
-                  <span class="addon-price">+$5</span>
-                </div>
-              </li>
-              <li>
-                <div class="addon-row">
-                  <div>
-                    <strong>Quick vacuum</strong>
-                    <div style="color:var(--muted); font-size:0.9rem;">Fast interior vacuum while we’re on site</div>
-                  </div>
-                  <span class="addon-price">+$8</span>
-                </div>
-              </li>
-              <li>
-                <div class="addon-row">
-                  <div>
-                    <strong>Car fragrance</strong>
-                    <div style="color:var(--muted); font-size:0.9rem;">Fresh scent for the cabin</div>
-                  </div>
-                  <span class="addon-price">+$1.50</span>
-                </div>
-              </li>
-            </ul>
-            <p class="note mt-2">Choose add-ons when you book on Calendly (or mention them when you call/text).</p>
-            <a class="btn btn-primary btn-block mt-2" href="#book">Book with add-ons</a>
-          </div>
+          <div class="float-badge b1">Fresh oil &amp; filter</div>
+          <div class="float-badge b2">At your door</div>
         </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section id="how">
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section">
       <div class="container">
-        <h2>How it works</h2>
-        <p class="section-sub">Four clear steps. Every button and choice has a purpose.</p>
+        <h2 class="section-title">Three easy steps</h2>
+        <p class="section-sub">Booking takes about a minute.</p>
         <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Select your vehicle</h3>
-            <p>Brand, year, model, and engine so we know the correct oil specification.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>See recommended oil</h3>
-            <p>We show the viscosity and typical grade your motor needs.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Oil &amp; filter options</h3>
-            <p>Review how oil and filters work — you’ll confirm your choices when you book.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <h3>Book a time</h3>
-            <p>Schedule online and answer oil, filter, and add-on questions in the booking form.</p>
-          </div>
+          <article class="step">
+            <span class="num">1</span>
+            <h3>Pick a time</h3>
+            <p>Choose a day and time that works for you using our online calendar.</p>
+          </article>
+          <article class="step">
+            <span class="num">2</span>
+            <h3>We come to you</h3>
+            <p>We arrive at your home or workplace with the tools, oil, and filter needed for the job.</p>
+          </article>
+          <article class="step">
+            <span class="num">3</span>
+            <h3>Drive away</h3>
+            <p>Your service is done while you go about your day. Nothing to drop off, nothing to wait for.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Oil finder -->
-    <section id="oil-finder">
+    <!-- PRICING -->
+    <section id="pricing" class="section alt">
       <div class="container">
-        <h2>Vehicle oil finder</h2>
-        <p class="section-sub">Select your vehicle details. We’ll recommend the oil type your engine typically needs. Always confirm with your owner’s manual for the final word.</p>
-        <div class="card">
-          <div class="finder-form">
-            <div>
-              <label for="make">Brand</label>
-              <select id="make">
-                <option value="">Select brand</option>
-              </select>
-            </div>
-            <div>
-              <label for="year">Year</label>
-              <select id="year" disabled>
-                <option value="">Select year</option>
-              </select>
-            </div>
-            <div>
-              <label for="model">Model</label>
-              <select id="model" disabled>
-                <option value="">Select model</option>
-              </select>
-            </div>
-            <div>
-              <label for="engine">Engine / Motor</label>
-              <select id="engine" disabled>
-                <option value="">Select engine</option>
-              </select>
-            </div>
-          </div>
-          <button type="button" class="btn btn-primary" id="lookup-btn">Get oil recommendation</button>
-          <div class="result-box" id="result">
-            <h3>Recommended oil</h3>
-            <div id="vehicle-label"></div>
-            <div class="oil-badge" id="oil-grade">—</div>
-            <p id="oil-detail"></p>
-            <p class="note">This is a typical factory recommendation for common configurations. Always verify with your owner’s manual or the oil filler cap. European vehicles may require specific approvals (e.g. BMW LL, VW 504).</p>
-          </div>
+        <h2 class="section-title">Simple pricing by oil capacity</h2>
+        <p class="section-sub">Cars, SUVs, and trucks all use the same pricing. Your price depends only on how many quarts your engine takes. Full synthetic oil is included. If you want a specific oil or brand, just say so in the notes when you book. Not sure of your capacity? Check your owner's manual or tell us your vehicle.</p>
+
+        <div class="price-grid">
+          <article class="price-card">
+            <h3>Standard capacity</h3>
+            <p class="qts">4 to 5 quarts</p>
+            <p class="price"><span>$</span>95</p>
+            <ul class="checks">
+              <li>Full synthetic oil and new filter</li>
+              <li>Most cars, compact SUVs, and many small trucks</li>
+              <li>Service at your home or work</li>
+            </ul>
+            <a href="#quote" class="btn btn-block" data-pick="standard">Choose standard</a>
+          </article>
+
+          <article class="price-card featured">
+            <span class="ribbon">Larger engines</span>
+            <h3>Large capacity</h3>
+            <p class="qts">5.5 to 6.5 quarts</p>
+            <p class="price"><span>$</span>125</p>
+            <ul class="checks">
+              <li>Full synthetic oil and new filter</li>
+              <li>Most full-size SUVs, V8s, and pickup trucks</li>
+              <li>Service at your home or work</li>
+            </ul>
+            <a href="#quote" class="btn btn-block" data-pick="large">Choose large</a>
+          </article>
         </div>
+
+        <p class="fine">Mobile oil change services typically run about $75 to $150 depending on the vehicle and oil, so our full synthetic pricing sits near the middle of the market. Applicable taxes may apply. Vehicles needing more than 6.5 quarts, or specialty oil, are quoted when you book.</p>
       </div>
     </section>
 
-    <!-- Three options -->
-    <section id="options">
+    <!-- ADD-ONS -->
+    <section id="addons" class="section">
       <div class="container">
-        <h2>Oil supply options</h2>
-        <p class="section-sub">Here’s how oil can be handled. You’ll pick your option when you book — no need to choose on this page.</p>
-        <div class="grid-3">
-          <div class="option-card">
-            <div class="option-num">1</div>
-            <h3>You supply the oil</h3>
-            <p>Buy your preferred oil ahead of time. We perform the full service with what you provide. Best if you already have a favorite brand or found a good deal.</p>
-            <div class="price-hint">From $79.99 · labor (you supply oil)</div>
-          </div>
-          <div class="option-card">
-            <div class="option-num">2</div>
-            <h3>Tell us the brand — we buy it</h3>
-            <p>Tell us the exact oil brand and grade you want. We purchase it, bring it, and add the oil cost to your service total.</p>
-            <div class="price-hint">From $79.99 + oil cost</div>
-          </div>
-          <div class="option-card">
-            <div class="option-num">3</div>
-            <h3>Use our oil</h3>
-            <p>We use a quality oil that meets or exceeds the specification for your engine. Simple, no extra shopping.</p>
-            <div class="price-hint">From $79.99 · package with our oil</div>
-          </div>
+        <h2 class="section-title">Make it a full refresh</h2>
+        <p class="section-sub">Add any of these to your oil change.</p>
+        <div class="addon-grid">
+          <article class="addon">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></svg>
+            </div>
+            <h3>Quick vacuum</h3>
+            <p>A fast interior vacuum of floors and seats.</p>
+            <p class="addon-price">$9</p>
+          </article>
+          <article class="addon">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>
+            </div>
+            <h3>Washer fluid fill-up</h3>
+            <p>We top off your windshield washer fluid.</p>
+            <p class="addon-price">$8</p>
+          </article>
+          <article class="addon">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v3l-4 5v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9l-4-5V3"/></svg>
+            </div>
+            <h3>Car scent</h3>
+            <p>Choose a fresh scent for your cabin.</p>
+            <p class="addon-price">$1.50</p>
+          </article>
+          <article class="addon">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c4-9 14-9 18 0"/><path d="M12 17l4-7"/></svg>
+            </div>
+            <h3>Wiper blades</h3>
+            <p>New wiper blades installed for you.</p>
+            <p class="addon-price">$6</p>
+          </article>
         </div>
-
-        <h2 class="mt-2" style="margin-top:2.5rem;">Oil filter options</h2>
-        <p class="section-sub">You provide the filter either way. You’ll confirm A or B (and Fram tier if needed) in the booking form.</p>
-        <div class="grid-2">
-          <div class="option-card">
-            <div class="option-num">A</div>
-            <h3>You buy your own filter</h3>
-            <p>Purchase any oil filter brand and type you prefer. Bring it to the appointment — we install the filter you provide.</p>
-            <div class="price-hint">You purchase (any brand) · we install</div>
-          </div>
-          <div class="option-card">
-            <div class="option-num">B</div>
-            <h3>Fram oil filter</h3>
-            <p>Use a Fram filter — Regular tier or Top tier. You’ll specify which tier when you book. We install it with your service.</p>
-            <div class="price-hint">Fram · Regular or Top Tier</div>
-          </div>
-        </div>
-        <p class="note mt-2">Ready to schedule? <a href="#book">Book an appointment</a> and answer oil, filter, and add-on questions there.</p>
       </div>
     </section>
 
-    <!-- Booking -->
-    <section id="book">
+    <!-- QUOTE + PRIVACY -->
+    <section id="quote" class="section alt">
       <div class="container">
-        <h2>Book an appointment</h2>
-        <p class="section-sub">Pick a time that works for you. Serving East Orlando — from $79.99. Prefer to call or text? <a href="tel:+17876180170">787-618-0170</a></p>
+        <h2 class="section-title">Build your quote</h2>
+        <p class="section-sub">Pick your oil capacity and add-ons to see your estimate, then book your time below.</p>
 
-        <div class="card" style="margin-bottom:1.25rem; text-align:center;">
-          <p style="color:var(--muted); margin-bottom:1rem;">Open the full booking calendar in one click, or use the embedded calendar below.</p>
-          <a class="btn btn-primary" href="https://calendly.com/pantojaefrain1127/pinnacle-appointment" target="_blank" rel="noopener">Book on Calendly</a>
-        </div>
+        <div class="quote-grid">
+          <form class="quote-card" id="quoteForm" onsubmit="return false">
+            <fieldset>
+              <legend>1. Oil capacity</legend>
+              <label class="choice">
+                <input type="radio" name="tier" value="95" data-label="Standard capacity (4 to 5 quarts), full synthetic" checked>
+                <span>Standard (4 to 5 quarts)</span><b>$95</b>
+              </label>
+              <label class="choice">
+                <input type="radio" name="tier" value="125" data-label="Large capacity (5.5 to 6.5 quarts), full synthetic">
+                <span>Large (5.5 to 6.5 quarts)</span><b>$125</b>
+              </label>
+            </fieldset>
 
-        <div class="card" style="padding:0; overflow:hidden;">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/pinnacle-appointment?hide_gdpr_banner=1" style="min-width:320px; height:700px;"></div>
+            <fieldset>
+              <legend>2. Add-ons (optional)</legend>
+              <label class="choice">
+                <input type="checkbox" name="addon" value="9" data-label="Quick vacuum">
+                <span>Quick vacuum</span><b>$9</b>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="addon" value="8" data-label="Washer fluid fill-up">
+                <span>Washer fluid fill-up</span><b>$8</b>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="addon" value="1.5" data-label="Car scent">
+                <span>Car scent</span><b>$1.50</b>
+              </label>
+              <label class="choice">
+                <input type="checkbox" name="addon" value="6" data-label="Wiper blades (installed)">
+                <span>Wiper blades (installed)</span><b>$6</b>
+              </label>
+            </fieldset>
+
+            <div class="total">
+              <span>Estimated total</span>
+              <strong id="total">$95</strong>
+            </div>
+            <p class="fine" id="summary">Standard capacity (4 to 5 quarts)</p>
+
+            <div class="agree">
+              <label>
+                <input type="checkbox" id="agree">
+                <span>I have read and agree to the <a href="#terms" data-open-terms>Terms &amp; Conditions</a> and the Liability and Privacy notices on this page.</span>
+              </label>
+            </div>
+
+            <div class="quote-actions">
+              <button type="button" class="btn" id="bookBtn" disabled>Continue to booking</button>
+              <button type="button" class="btn btn-ghost" id="copyBtn">Copy my quote</button>
+            </div>
+            <p class="fine" id="copyMsg" role="status" aria-live="polite">Tip: copy your quote and paste it into the notes box on the booking form so we know what you picked.</p>
+          </form>
+
+          <aside class="notice-card" aria-label="Liability and privacy notices">
+            <h3>Liability and indemnification</h3>
+            <p><strong>Vehicle damage.</strong> Pinnacle Mobile Oil assumes no liability for any damage to the vehicle that is not directly caused by our service actions. Any claims for damages must be reported to the service technician immediately or to customer service within 24 hours of the service.</p>
+            <p><strong>Service liability.</strong> Pinnacle Mobile Oil is not responsible for any pre-existing conditions of the vehicle that may affect the service outcome. Our responsibility is limited to providing the oil change service with reasonable skill and care.</p>
+            <p><strong>Indemnification.</strong> The customer agrees to indemnify, defend, and hold harmless Pinnacle Mobile Oil and its owners, officers, directors, employees, agents, and service providers from any and all third-party claims, liability, damages, and/or costs (including legal fees) arising from the customer's use of the service or violation of these terms and conditions.</p>
+
+            <h3>Privacy policy</h3>
+            <p class="updated">Last Updated: November 22, 2026</p>
+            <p>We collect only what we need to schedule and perform your service, such as your name, contact details, service address, and vehicle information. We use it to deliver your service, respond to your questions, and keep service records. We do not sell your personal information. Scheduling is handled through Calendly, which has its own privacy practices.</p>
+            <p><strong>Privacy policy updates.</strong> We may update this Privacy Policy from time to time. We will notify you of any changes by posting the updated policy on this page and updating the "Last Updated" date above. We encourage you to review this page periodically to stay informed.</p>
+            <p>By accessing our service, you accept these terms and conditions in full. Do not continue to use Pinnacle Mobile Oil's service if you do not accept all of the terms and conditions stated on this page.</p>
+          </aside>
         </div>
-        <p class="note mt-1">If the calendar doesn’t load, use the <strong>Book on Calendly</strong> button above or call/text 787-618-0170.</p>
       </div>
     </section>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    </main>
+    <!-- BOOKING -->
+    <section id="book" class="section">
+      <div class="container">
+        <h2 class="section-title">Book your appointment</h2>
+        <p class="section-sub">Pick a time below. Available days and business hours are shown on the calendar. Have a question, a special request, or an unusual vehicle? Use the notes or questions box at the end of the booking form and we will see it before your appointment.</p>
+        <div class="calendly-wrap">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/pinnacle-appointment" style="min-width:320px;height:720px;"></div>
+        </div>
+        <p class="fine center">Booking window not loading? <a href="https://calendly.com/pantojaefrain1127/pinnacle-appointment" target="_blank" rel="noopener">Open the booking page in a new tab</a>.</p>
+      </div>
+    </section>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year-copy"></span> Pinnacle Mobile Oil · East Orlando · 787-618-0170</p>
-      <p class="mt-1">Professional mobile service. Oil specifications are typical recommendations — always confirm with your vehicle’s owner’s manual.</p>
+    <!-- TERMS (collapsible) -->
+    <section id="terms" class="section alt">
+      <div class="container narrow">
+        <button class="terms-toggle" id="termsToggle" aria-expanded="false" aria-controls="termsPanel">
+          <span>Terms &amp; Conditions</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+
+        <div class="terms-panel" id="termsPanel" hidden>
+          <p class="updated">Last Updated: November 22, 2026</p>
+          <p>These Terms &amp; Conditions ("Terms") govern your use of the website and mobile oil change services provided by Pinnacle Mobile Oil ("Pinnacle," "we," "us," or "our"). By booking, requesting, or receiving our services, you ("Customer") agree to these Terms in full. If you do not agree, please do not use our services.</p>
+
+          <h3>1. Services</h3>
+          <p>Pinnacle provides mobile oil change services in the Orlando, Florida area at the Customer's home, workplace, or another agreed location within our service area. Each service includes draining the engine oil, installing a new oil filter, and refilling with full synthetic oil in the amount appropriate for the vehicle. If the Customer wants a specific oil type, grade, or brand, the Customer must say so when booking, and the price may change. Business hours and available appointment times are shown on our online booking page. Optional add-ons (quick vacuum, washer fluid fill-up, car scents, and wiper blades) are provided only when selected.</p>
+
+          <h3>2. Pricing and capacity tiers</h3>
+          <p>Pricing is based on the engine oil capacity of the vehicle: Standard (4 to 5 quarts) and Large (5.5 to 6.5 quarts). The Customer is responsible for providing accurate vehicle information. If the vehicle's actual oil capacity differs from what was booked, or if specialty oil, a specialty filter, or extra parts are required, Pinnacle may adjust the price, and will tell the Customer before work begins. Prices shown on this website are estimates until confirmed at booking and may change without notice. Applicable taxes and fees may apply.</p>
+
+          <h3>3. Scheduling, access, and location</h3>
+          <p>Appointments are scheduled through our online booking page. The Customer agrees to provide a safe, reasonably level, accessible location, with permission to perform the work there. The Customer is responsible for confirming that service is permitted at the location, including any property owner, landlord, employer, or homeowners' association rules. The vehicle must be accessible, unlocked if needed, and available at the scheduled time. Pinnacle may decline or stop service at any location it considers unsafe, including because of weather, lighting, traffic, surface conditions, or other hazards, without liability.</p>
+
+          <h3>4. Cancellations, rescheduling, and no-shows</h3>
+          <p>Please cancel or reschedule through the booking page as early as possible. If we arrive and the vehicle or Customer is unavailable, or if service cannot be performed because of inaccurate information or an unsafe location, Pinnacle may charge a reasonable trip or no-show fee.</p>
+
+          <h3>5. Payment</h3>
+          <p>Payment is due upon completion of service unless otherwise agreed in writing. Pinnacle may accept the payment methods it makes available at the time of service. The Customer remains responsible for any unpaid balance, including reasonable collection costs where permitted by law.</p>
+
+          <h3>6. Vehicle condition and pre-existing issues</h3>
+          <p>Pinnacle may note visible conditions that it observes during service, but our service is not a diagnostic, safety, or mechanical inspection unless expressly stated. Pinnacle is not responsible for pre-existing conditions, including worn, rusted, seized, cross-threaded, or previously damaged drain plugs, oil pans, filters, gaskets, seals, or related parts, or any leak, noise, warning light, or engine problem that existed, or that arises from wear, age, prior repairs, or prior neglect. Oil and filters are installed as appropriate for the vehicle (full synthetic unless the Customer requests otherwise) based on the information provided by the Customer or the manufacturer's specifications.</p>
+
+          <h3>7. Oil level, warning lights, and follow-up</h3>
+          <p>After service, the Customer should check for leaks and monitor the oil level and any dashboard warning lights. Oil change reminders or maintenance lights that require a manual reset are the Customer's responsibility unless reset is requested. Oil change intervals should follow the vehicle manufacturer's recommendations.</p>
+
+          <h3>8. Add-on services</h3>
+          <p>Add-on services are convenience items. The vacuum service is a light, quick interior vacuum and does not include detailing, stain removal, or moving personal belongings. Pinnacle is not responsible for personal items left in the vehicle. Wiper blades are installed according to the vehicle's fit information; if a blade does not fit as expected, Pinnacle may substitute a similar blade or remove the item from the order. Car scents are provided as selected; the Customer is responsible for informing us of any allergies or sensitivities before service.</p>
+
+          <h3>9. Liability and indemnification</h3>
+          <p><strong>Vehicle damage.</strong> Pinnacle assumes no liability for any damage to the vehicle that is not directly caused by our service actions. Any claims for damages must be reported to the service technician immediately or to customer service within 24 hours of the service. Claims reported after that time may be denied.</p>
+          <p><strong>Service liability.</strong> Pinnacle is not responsible for any pre-existing conditions of the vehicle that may affect the service outcome. Our responsibility is limited to providing the oil change service with reasonable skill and care.</p>
+          <p><strong>Indemnification.</strong> The Customer agrees to indemnify, defend, and hold harmless Pinnacle and its owners, officers, directors, employees, agents, contractors, and service providers from any and all third-party claims, liability, damages, losses, and costs (including reasonable legal fees) arising from the Customer's use of the service, the Customer's breach of these Terms, the Customer's provision of inaccurate information, or the Customer's lack of authority to permit service at the location.</p>
+
+          <h3>10. Disclaimer of warranties</h3>
+          <p>To the fullest extent permitted by law, our services are provided "as is" and "as available." Except for the reasonable skill and care described above, Pinnacle makes no other warranties, express or implied, including any implied warranties of merchantability or fitness for a particular purpose. Manufacturer warranties on oil, filters, and parts remain governed by their respective manufacturers.</p>
+
+          <h3>11. Limitation of liability</h3>
+          <p>To the fullest extent permitted by law, Pinnacle will not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of use of the vehicle, towing, rental vehicles, lost income, or inconvenience. Pinnacle's total liability for any claim arising from our services will not exceed the amount the Customer paid for the specific service giving rise to the claim. Nothing in these Terms excludes liability that cannot be excluded under applicable law.</p>
+
+          <h3>12. Used oil and environmental handling</h3>
+          <p>Used oil and filters are collected and handled for recycling or disposal in accordance with applicable laws. The Customer will not interfere with that process and agrees to tell us promptly about any existing spills, leaks, or contamination at the service location.</p>
+
+          <h3>13. Customer conduct</h3>
+          <p>Pinnacle may refuse or end service immediately, without refund of any trip fee, if the Customer or any person at the location behaves in a threatening, abusive, or unsafe manner.</p>
+
+          <h3>14. Privacy</h3>
+          <p>Our collection and use of personal information is described in the Privacy Policy on this page. Scheduling and form submissions are processed through Calendly under its own terms and privacy practices. We may use photos taken during service for service records and dispute resolution.</p>
+
+          <h3>15. Intellectual property and website use</h3>
+          <p>All content on this website, including the name Pinnacle Mobile Oil, text, and design, belongs to Pinnacle and may not be copied or used without permission. You agree not to misuse the website or attempt to disrupt it.</p>
+
+          <h3>16. Dispute resolution and governing law</h3>
+          <p>The parties agree to first try to resolve any dispute informally by contacting each other in good faith. These Terms are governed by the laws of the state in which Pinnacle operates, without regard to conflict-of-law rules. Any dispute that cannot be resolved informally will be brought in the courts located in that state, to the extent permitted by law.</p>
+
+          <h3>17. Changes to these Terms</h3>
+          <p>We may update these Terms and the Privacy Policy from time to time by posting the updated version on this page and updating the "Last Updated" date above. Continued use of our services after changes are posted means you accept the updated Terms. We encourage you to review this page periodically.</p>
+
+          <h3>18. Severability and entire agreement</h3>
+          <p>If any part of these Terms is found unenforceable, the remaining parts will remain in effect. These Terms are the entire agreement between you and Pinnacle regarding our services and replace any earlier understandings on the same subject.</p>
+
+          <h3>19. Questions</h3>
+          <p>For questions about these Terms, our services, or your appointment, use the notes or questions box at the end of our online booking form.</p>
+
+          <p><strong>By accessing our service, you accept these Terms &amp; Conditions in full. Do not continue to use Pinnacle Mobile Oil's service if you do not accept all of the terms and conditions stated on this page.</strong></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <div>
+        <strong>Pinnacle Mobile Oil</strong>
+        <p>Mobile oil changes in the Orlando area.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#quote">Quote &amp; privacy</a>
+        <a href="#book">Book</a>
+        <a href="#terms" data-open-terms>Terms</a>
+      </div>
+      <p class="copy">&copy; <span id="year">2026</span> Pinnacle Mobile Oil. All rights reserved.</p>
     </div>
   </footer>
 
-  <script>
-    // ——— Sample vehicle oil data (common US vehicles). Expand or replace with a real API/DB later. ———
-    const vehicleData = {
-      "Toyota": {
-        years: {
-          "2015": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "5W-30" }, "Corolla": { "1.8L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tacoma": { "2.7L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Tundra": { "4.6L V8": "0W-20", "5.7L V8": "0W-20" }, "Prius": { "1.8L Hybrid": "0W-20" } },
-          "2016": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "5W-30" }, "Corolla": { "1.8L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tacoma": { "2.7L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Tundra": { "4.6L V8": "0W-20", "5.7L V8": "0W-20" }, "Prius": { "1.8L Hybrid": "0W-20" } },
-          "2017": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Corolla": { "1.8L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tacoma": { "2.7L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Tundra": { "4.6L V8": "0W-20", "5.7L V8": "0W-20" }, "Prius": { "1.8L Hybrid": "0W-20" } },
-          "2018": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Corolla": { "1.8L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tacoma": { "2.7L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Tundra": { "4.6L V8": "0W-20", "5.7L V8": "0W-20" }, "Prius": { "1.8L Hybrid": "0W-20" } },
-          "2019": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Corolla": { "1.8L 4-cyl": "0W-20", "2.0L 4-cyl": "0W-16" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tacoma": { "2.7L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Tundra": { "4.6L V8": "0W-20", "5.7L V8": "0W-20" }, "Prius": { "1.8L Hybrid": "0W-16" } },
-          "2020": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" }, "Tundra": { "5.7L V8": "0W-20" } },
-          "2021": { "Camry": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" } },
-          "2022": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" }, "Highlander": { "3.5L V6": "0W-20" } },
-          "2023": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "3.5L V6": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" }, "Highlander": { "2.4L Turbo": "0W-20" } },
-          "2024": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "2.4L Turbo": "0W-20" }, "Tundra": { "3.5L Twin-Turbo V6": "0W-20" }, "Highlander": { "2.4L Turbo": "0W-20" } },
-          "2025": { "Camry": { "2.5L 4-cyl": "0W-20" }, "RAV4": { "2.5L 4-cyl": "0W-20" }, "Corolla": { "2.0L 4-cyl": "0W-16" }, "Tacoma": { "2.4L Turbo": "0W-20" }, "Highlander": { "2.4L Turbo": "0W-20" } }
-        }
-      },
-      "Honda": {
-        years: {
-          "2015": { "Civic": { "1.8L 4-cyl": "0W-20", "2.4L 4-cyl": "0W-20" }, "Accord": { "2.4L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "CR-V": { "2.4L 4-cyl": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "Odyssey": { "3.5L V6": "0W-20" }, "Fit": { "1.5L 4-cyl": "0W-20" } },
-          "2016": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "2.4L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "CR-V": { "2.4L 4-cyl": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "Odyssey": { "3.5L V6": "0W-20" }, "HR-V": { "1.8L 4-cyl": "0W-20" } },
-          "2017": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "2.4L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20", "2.4L 4-cyl": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "1.8L 4-cyl": "0W-20" } },
-          "2018": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "1.8L 4-cyl": "0W-20" }, "Odyssey": { "3.5L V6": "0W-20" } },
-          "2019": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "1.8L 4-cyl": "0W-20" }, "Odyssey": { "3.5L V6": "0W-20" } },
-          "2020": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
-          "2021": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } },
-          "2022": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "2.0L 4-cyl": "0W-20" } },
-          "2023": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20", "2.0L Hybrid": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "2.0L 4-cyl": "0W-20" } },
-          "2024": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" }, "HR-V": { "2.0L 4-cyl": "0W-20" } },
-          "2025": { "Civic": { "2.0L 4-cyl": "0W-20", "1.5L Turbo": "0W-20" }, "Accord": { "1.5L Turbo": "0W-20" }, "CR-V": { "1.5L Turbo": "0W-20" }, "Pilot": { "3.5L V6": "0W-20" } }
-        }
-      },
-      "Ford": {
-        years: {
-          "2015": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.6L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30", "2.5L 4-cyl": "5W-20" }, "Explorer": { "2.0L EcoBoost": "5W-30", "3.5L V6": "5W-20" }, "Focus": { "2.0L 4-cyl": "5W-20", "1.0L EcoBoost": "5W-20" }, "Fusion": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30", "2.5L 4-cyl": "5W-20" } },
-          "2016": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.6L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30", "2.5L 4-cyl": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30", "3.5L V6": "5W-20" }, "Focus": { "2.0L 4-cyl": "5W-20" }, "Fusion": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30", "2.5L 4-cyl": "5W-20" } },
-          "2017": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Explorer": { "2.3L EcoBoost": "5W-30", "3.5L V6": "5W-20" }, "Fusion": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30", "2.5L 4-cyl": "5W-20" }, "Edge": { "2.0L EcoBoost": "5W-30", "3.5L V6": "5W-20" } },
-          "2018": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Explorer": { "2.3L EcoBoost": "5W-30", "3.5L V6": "5W-20" }, "Fusion": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Edge": { "2.0L EcoBoost": "5W-30" } },
-          "2019": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Fusion": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Edge": { "2.0L EcoBoost": "5W-30" } },
-          "2020": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20", "2.0L EcoBoost": "5W-30" }, "Explorer": { "2.3L EcoBoost": "5W-30" } },
-          "2021": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30", "2.7L EcoBoost": "5W-30" } },
-          "2022": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
-          "2023": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
-          "2024": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Escape": { "1.5L EcoBoost": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" }, "Bronco": { "2.3L EcoBoost": "5W-30" } },
-          "2025": { "F-150": { "2.7L EcoBoost V6": "5W-30", "3.5L EcoBoost V6": "5W-30", "5.0L V8": "5W-20" }, "Explorer": { "2.3L EcoBoost": "5W-30" } }
-        }
-      },
-      "Chevrolet": {
-        years: {
-          "2015": { "Silverado 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "2.4L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Malibu": { "2.5L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Cruze": { "1.4L Turbo": "5W-30", "1.8L 4-cyl": "5W-30" }, "Tahoe": { "5.3L V8": "0W-20" } },
-          "2016": { "Silverado 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "2.4L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Malibu": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Cruze": { "1.4L Turbo": "5W-30" }, "Tahoe": { "5.3L V8": "0W-20" } },
-          "2017": { "Silverado 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Cruze": { "1.4L Turbo": "5W-30" }, "Tahoe": { "5.3L V8": "0W-20" } },
-          "2018": { "Silverado 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Cruze": { "1.4L Turbo": "5W-30" }, "Tahoe": { "5.3L V8": "0W-20" } },
-          "2019": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" }, "Tahoe": { "5.3L V8": "0W-20" } },
-          "2020": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
-          "2021": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
-          "2022": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
-          "2023": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" }, "Malibu": { "1.5L Turbo": "0W-20" } },
-          "2024": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" } },
-          "2025": { "Silverado 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20" }, "Equinox": { "1.5L Turbo": "0W-20" } }
-        }
-      },
-      "Jeep": {
-        years: {
-          "2015": { "Wrangler": { "3.6L V6": "5W-20" }, "Grand Cherokee": { "3.6L V6": "5W-20", "5.7L V8": "5W-20" }, "Cherokee": { "2.4L 4-cyl": "0W-20", "3.2L V6": "5W-20" }, "Patriot": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" }, "Compass": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" } },
-          "2016": { "Wrangler": { "3.6L V6": "5W-20" }, "Grand Cherokee": { "3.6L V6": "5W-20", "5.7L V8": "5W-20" }, "Cherokee": { "2.4L 4-cyl": "0W-20", "3.2L V6": "5W-20" }, "Renegade": { "1.4L Turbo": "5W-40", "2.4L 4-cyl": "0W-20" }, "Compass": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" } },
-          "2017": { "Wrangler": { "3.6L V6": "5W-20" }, "Grand Cherokee": { "3.6L V6": "5W-20", "5.7L V8": "5W-20" }, "Cherokee": { "2.4L 4-cyl": "0W-20", "3.2L V6": "5W-20" }, "Renegade": { "1.4L Turbo": "5W-40", "2.4L 4-cyl": "0W-20" }, "Compass": { "2.4L 4-cyl": "0W-20" } },
-          "2018": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "5W-20", "5.7L V8": "5W-20" }, "Cherokee": { "2.4L 4-cyl": "0W-20", "3.2L V6": "5W-20" }, "Compass": { "2.4L 4-cyl": "0W-20" }, "Renegade": { "2.4L 4-cyl": "0W-20" } },
-          "2019": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "5W-20", "5.7L V8": "5W-20" }, "Cherokee": { "2.0L Turbo": "0W-20", "2.4L 4-cyl": "0W-20", "3.2L V6": "5W-20" }, "Compass": { "2.4L 4-cyl": "0W-20" } },
-          "2020": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" }, "Cherokee": { "2.0L Turbo": "0W-20", "2.4L 4-cyl": "0W-20" } },
-          "2021": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" }, "Cherokee": { "2.0L Turbo": "0W-20" } },
-          "2022": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20", "2.0L Turbo": "0W-20" } },
-          "2023": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20", "2.0L Turbo": "0W-20" } },
-          "2024": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" } },
-          "2025": { "Wrangler": { "2.0L Turbo": "0W-20", "3.6L V6": "0W-20" }, "Grand Cherokee": { "3.6L V6": "0W-20" } }
-        }
-      },
-      "Nissan": {
-        years: {
-          "2015": { "Altima": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "1.8L 4-cyl": "0W-20" }, "Maxima": { "3.5L V6": "0W-20" }, "Pathfinder": { "3.5L V6": "0W-20" }, "Frontier": { "2.5L 4-cyl": "5W-30", "4.0L V6": "5W-30" } },
-          "2016": { "Altima": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "1.8L 4-cyl": "0W-20" }, "Maxima": { "3.5L V6": "0W-20" }, "Pathfinder": { "3.5L V6": "0W-20" }, "Frontier": { "2.5L 4-cyl": "5W-30", "4.0L V6": "5W-30" } },
-          "2017": { "Altima": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "1.8L 4-cyl": "0W-20" }, "Maxima": { "3.5L V6": "0W-20" }, "Pathfinder": { "3.5L V6": "0W-20" }, "Frontier": { "2.5L 4-cyl": "5W-30", "4.0L V6": "5W-30" } },
-          "2018": { "Altima": { "2.5L 4-cyl": "0W-20", "3.5L V6": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "1.8L 4-cyl": "0W-20" }, "Maxima": { "3.5L V6": "0W-20" }, "Pathfinder": { "3.5L V6": "0W-20" }, "Frontier": { "2.5L 4-cyl": "5W-30", "4.0L V6": "5W-30" } },
-          "2019": { "Altima": { "2.5L 4-cyl": "0W-20", "2.0L Turbo": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "1.8L 4-cyl": "0W-20" }, "Maxima": { "3.5L V6": "0W-20" }, "Pathfinder": { "3.5L V6": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2020": { "Altima": { "2.5L 4-cyl": "0W-20", "2.0L Turbo": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20", "2.0L Turbo": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2021": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2022": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2023": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2024": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" }, "Sentra": { "2.0L 4-cyl": "0W-20" }, "Frontier": { "3.8L V6": "0W-20" } },
-          "2025": { "Altima": { "2.5L 4-cyl": "0W-20" }, "Rogue": { "2.5L 4-cyl": "0W-20" } }
-        }
-      },
-      "Kia": {
-        years: {
-          "2015": { "Forte": { "1.8L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Soul": { "1.6L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sportage": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Sorento": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Optima": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" } },
-          "2016": { "Forte": { "1.8L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Soul": { "1.6L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sportage": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Sorento": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Optima": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" } },
-          "2017": { "Forte": { "2.0L 4-cyl": "5W-20", "1.6L Turbo": "5W-30" }, "Soul": { "1.6L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sportage": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Sorento": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Optima": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" } },
-          "2018": { "Forte": { "2.0L 4-cyl": "5W-20", "1.6L Turbo": "5W-30" }, "Soul": { "1.6L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sportage": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Sorento": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Optima": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" } },
-          "2019": { "Forte": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Sorento": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Optima": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" } },
-          "2020": { "Forte": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" } },
-          "2021": { "Forte": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
-          "2022": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
-          "2023": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
-          "2024": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Soul": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } },
-          "2025": { "Forte": { "2.0L 4-cyl": "0W-20" }, "Sportage": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Sorento": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Telluride": { "3.8L V6": "5W-30" }, "K5": { "1.6L Turbo": "0W-20", "2.5L Turbo": "0W-30" } }
-        }
-      },
-      "Hyundai": {
-        years: {
-          "2015": { "Elantra": { "1.8L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sonata": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Tucson": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" }, "Santa Fe": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Accent": { "1.6L 4-cyl": "5W-20" } },
-          "2016": { "Elantra": { "1.8L 4-cyl": "5W-20", "2.0L 4-cyl": "5W-20" }, "Sonata": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Tucson": { "1.6L Turbo": "5W-30", "2.0L 4-cyl": "5W-20" }, "Santa Fe": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Accent": { "1.6L 4-cyl": "5W-20" } },
-          "2017": { "Elantra": { "2.0L 4-cyl": "5W-20", "1.6L Turbo": "5W-30" }, "Sonata": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Tucson": { "1.6L Turbo": "5W-30", "2.0L 4-cyl": "5W-20" }, "Santa Fe": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" }, "Accent": { "1.6L 4-cyl": "5W-20" } },
-          "2018": { "Elantra": { "2.0L 4-cyl": "5W-20", "1.6L Turbo": "5W-30" }, "Sonata": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Tucson": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" }, "Santa Fe": { "2.4L 4-cyl": "5W-20", "3.3L V6": "5W-30" } },
-          "2019": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Sonata": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Tucson": { "2.0L 4-cyl": "5W-20", "2.4L 4-cyl": "5W-20" }, "Santa Fe": { "2.4L 4-cyl": "5W-20", "2.0L Turbo": "5W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2020": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "5W-30" }, "Sonata": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Tucson": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Santa Fe": { "2.4L 4-cyl": "5W-30", "2.0L Turbo": "5W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2021": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2022": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2023": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2024": { "Elantra": { "2.0L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } },
-          "2025": { "Elantra": { "2.0L 4-cyl": "0W-20" }, "Sonata": { "2.5L 4-cyl": "0W-20" }, "Tucson": { "2.5L 4-cyl": "0W-20", "1.6L Turbo": "0W-20" }, "Santa Fe": { "2.5L Turbo": "0W-30" }, "Palisade": { "3.8L V6": "5W-30" } }
-        }
-      },
-      "Genesis": {
-        years: {
-          "2015": { "G80": { "3.8L V6": "5W-30", "5.0L V8": "5W-30" } },
-          "2016": { "G80": { "3.8L V6": "5W-30", "5.0L V8": "5W-30" } },
-          "2017": { "G80": { "3.8L V6": "5W-30", "5.0L V8": "5W-30" }, "G90": { "3.3L Twin-Turbo V6": "5W-30", "5.0L V8": "5W-30" } },
-          "2018": { "G80": { "3.8L V6": "5W-30", "5.0L V8": "5W-30" }, "G70": { "2.0L Turbo": "5W-30", "3.3L Twin-Turbo V6": "5W-30" }, "G90": { "3.3L Twin-Turbo V6": "5W-30", "5.0L V8": "5W-30" } },
-          "2019": { "G80": { "3.8L V6": "5W-30", "5.0L V8": "5W-30" }, "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G90": { "3.3L Twin-Turbo V6": "5W-30", "5.0L V8": "5W-30" } },
-          "2020": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
-          "2021": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
-          "2022": { "G70": { "2.0L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
-          "2023": { "G70": { "2.5L Turbo": "0W-30", "3.3L Twin-Turbo V6": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
-          "2024": { "G70": { "2.5L Turbo": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } },
-          "2025": { "G70": { "2.5L Turbo": "0W-30" }, "G80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV70": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" }, "GV80": { "2.5L Turbo": "0W-30", "3.5L Twin-Turbo V6": "0W-30" } }
-        }
-      },
-      "Volkswagen": {
-        years: {
-          "2015": { "Jetta": { "1.8L Turbo": "5W-40", "2.0L Turbo": "5W-40" }, "Passat": { "1.8L Turbo": "5W-40" }, "Tiguan": { "2.0L Turbo": "5W-40" }, "Golf": { "1.8L Turbo": "5W-40", "2.0L Turbo": "5W-40" }, "Beetle": { "1.8L Turbo": "5W-40" } },
-          "2016": { "Jetta": { "1.4L Turbo": "5W-40", "1.8L Turbo": "5W-40" }, "Passat": { "1.8L Turbo": "5W-40" }, "Tiguan": { "2.0L Turbo": "5W-40" }, "Golf": { "1.8L Turbo": "5W-40", "2.0L Turbo": "5W-40" } },
-          "2017": { "Jetta": { "1.4L Turbo": "5W-40", "2.0L Turbo": "5W-40" }, "Passat": { "1.8L Turbo": "5W-40" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Golf": { "1.8L Turbo": "5W-40", "2.0L Turbo": "5W-40" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" } },
-          "2018": { "Jetta": { "1.4L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Golf": { "1.8L Turbo": "0W-20", "2.0L Turbo": "0W-30" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" } },
-          "2019": { "Jetta": { "1.4L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Golf": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-30" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" } },
-          "2020": { "Jetta": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Golf": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-30" } },
-          "2021": { "Jetta": { "1.4L Turbo": "0W-20", "1.5L Turbo": "0W-20" }, "Passat": { "2.0L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Golf": { "1.4L Turbo": "0W-20", "2.0L Turbo": "0W-30" } },
-          "2022": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
-          "2023": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20", "3.6L V6": "5W-30" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
-          "2024": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20" }, "Taos": { "1.5L Turbo": "0W-20" }, "Golf GTI": { "2.0L Turbo": "0W-30" } },
-          "2025": { "Jetta": { "1.5L Turbo": "0W-20" }, "Tiguan": { "2.0L Turbo": "0W-20" }, "Atlas": { "2.0L Turbo": "0W-20" }, "Taos": { "1.5L Turbo": "0W-20" } }
-        }
-      },
-      "Mazda": {
-        years: {
-          "2015": { "Mazda3": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "Mazda6": { "2.5L 4-cyl": "0W-20" }, "CX-5": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-3": { "2.0L 4-cyl": "0W-20" } },
-          "2016": { "Mazda3": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "Mazda6": { "2.5L 4-cyl": "0W-20" }, "CX-5": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-3": { "2.0L 4-cyl": "0W-20" } },
-          "2017": { "Mazda3": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "Mazda6": { "2.5L 4-cyl": "0W-20" }, "CX-5": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-3": { "2.0L 4-cyl": "0W-20" } },
-          "2018": { "Mazda3": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-3": { "2.0L 4-cyl": "0W-20" } },
-          "2019": { "Mazda3": { "2.0L 4-cyl": "0W-20", "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-3": { "2.0L 4-cyl": "0W-20" } },
-          "2020": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
-          "2021": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "Mazda6": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
-          "2022": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
-          "2023": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-9": { "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" } },
-          "2024": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-90": { "3.3L Turbo": "0W-20" } },
-          "2025": { "Mazda3": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-5": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-30": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-50": { "2.5L 4-cyl": "0W-20", "2.5L Turbo": "5W-30" }, "CX-90": { "3.3L Turbo": "0W-20" } }
-        }
-      },
-      "Scion": {
-        years: {
-          "2015": { "tC": { "2.5L 4-cyl": "0W-20" }, "xB": { "2.4L 4-cyl": "0W-20" }, "FR-S": { "2.0L 4-cyl": "0W-20" }, "iA": { "1.5L 4-cyl": "0W-20" }, "iM": { "1.8L 4-cyl": "0W-20" } },
-          "2016": { "tC": { "2.5L 4-cyl": "0W-20" }, "iA": { "1.5L 4-cyl": "0W-20" }, "iM": { "1.8L 4-cyl": "0W-20" }, "FR-S": { "2.0L 4-cyl": "0W-20" } }
-        }
-      },
-      "GMC": {
-        years: {
-          "2015": { "Sierra 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "2.4L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Acadia": { "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2016": { "Sierra 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "2.4L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Acadia": { "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2017": { "Sierra 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2018": { "Sierra 1500": { "4.3L V6": "5W-30", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2019": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2020": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2021": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2022": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20", "2.0L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2023": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2024": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Acadia": { "2.5L 4-cyl": "5W-30", "3.6L V6": "5W-30" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } },
-          "2025": { "Sierra 1500": { "2.7L Turbo": "0W-20", "5.3L V8": "0W-20", "6.2L V8": "0W-20" }, "Terrain": { "1.5L Turbo": "0W-20" }, "Yukon": { "5.3L V8": "0W-20", "6.2L V8": "0W-20" } }
-        }
-      },
-      "Lexus": {
-        years: {
-          "2015": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 200t": { "2.0L Turbo": "0W-20" }, "IS 250": { "2.5L V6": "0W-20" }, "IS 350": { "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" }, "CT 200h": { "1.8L Hybrid": "0W-20" } },
-          "2016": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 200t": { "2.0L Turbo": "0W-20" }, "IS 200t": { "2.0L Turbo": "0W-20" }, "IS 350": { "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2017": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 200t": { "2.0L Turbo": "0W-20" }, "IS 200t": { "2.0L Turbo": "0W-20" }, "IS 350": { "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2018": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2019": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2020": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2021": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 300": { "2.0L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2022": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "3.5L V6": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2023": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20", "3.5L V6": "0W-20" }, "GX 460": { "4.6L V8": "0W-20" } },
-          "2024": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20" }, "GX 550": { "3.4L Twin-Turbo V6": "0W-20" } },
-          "2025": { "ES 350": { "3.5L V6": "0W-20" }, "RX 350": { "2.4L Turbo": "0W-20" }, "NX 250": { "2.5L 4-cyl": "0W-20" }, "NX 350": { "2.4L Turbo": "0W-20" }, "IS 300": { "2.0L Turbo": "0W-20" }, "GX 550": { "3.4L Twin-Turbo V6": "0W-20" } }
-        }
-      }
-    };
-
-    const makeEl = document.getElementById('make');
-    const yearEl = document.getElementById('year');
-    const modelEl = document.getElementById('model');
-    const engineEl = document.getElementById('engine');
-    const resultEl = document.getElementById('result');
-    const oilGradeEl = document.getElementById('oil-grade');
-    const oilDetailEl = document.getElementById('oil-detail');
-    const vehicleLabelEl = document.getElementById('vehicle-label');
-
-    function resetSelect(el, placeholder) {
-      el.innerHTML = '';
-      const ph = document.createElement('option');
-      ph.value = '';
-      ph.textContent = placeholder;
-      el.appendChild(ph);
-      el.disabled = true;
-    }
-
-    function populateMakes() {
-      if (!makeEl) return;
-      // Keep the placeholder, clear any previous brands
-      makeEl.innerHTML = '';
-      const ph = document.createElement('option');
-      ph.value = '';
-      ph.textContent = 'Select brand';
-      makeEl.appendChild(ph);
-      Object.keys(vehicleData).sort().forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m;
-        opt.textContent = m;
-        makeEl.appendChild(opt);
-      });
-      makeEl.disabled = false;
-    }
-
-    // Populate brands as soon as script runs (script is at end of body)
-    populateMakes();
-
-    makeEl.addEventListener('change', () => {
-      resetSelect(yearEl, 'Select year');
-      resetSelect(modelEl, 'Select model');
-      resetSelect(engineEl, 'Select engine');
-      if (resultEl) resultEl.classList.remove('show');
-      if (!makeEl.value || !vehicleData[makeEl.value]) return;
-      const years = Object.keys(vehicleData[makeEl.value].years).sort((a, b) => b - a);
-      years.forEach(y => {
-        const opt = document.createElement('option');
-        opt.value = y;
-        opt.textContent = y;
-        yearEl.appendChild(opt);
-      });
-      yearEl.disabled = false;
-    });
-
-    yearEl.addEventListener('change', () => {
-      resetSelect(modelEl, 'Select model');
-      resetSelect(engineEl, 'Select engine');
-      resultEl.classList.remove('show');
-      if (!yearEl.value) return;
-      const models = Object.keys(vehicleData[makeEl.value].years[yearEl.value]);
-      models.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m; opt.textContent = m;
-        modelEl.appendChild(opt);
-      });
-      modelEl.disabled = false;
-    });
-
-    modelEl.addEventListener('change', () => {
-      resetSelect(engineEl, 'Select engine');
-      resultEl.classList.remove('show');
-      if (!modelEl.value) return;
-      const engines = Object.keys(vehicleData[makeEl.value].years[yearEl.value][modelEl.value]);
-      engines.forEach(e => {
-        const opt = document.createElement('option');
-        opt.value = e; opt.textContent = e;
-        engineEl.appendChild(opt);
-      });
-      engineEl.disabled = false;
-    });
-
-    document.getElementById('lookup-btn').addEventListener('click', () => {
-      const make = makeEl.value, year = yearEl.value, model = modelEl.value, engine = engineEl.value;
-      if (!make || !year || !model || !engine) {
-        alert('Please select brand, year, model, and engine.');
-        return;
-      }
-      const grade = vehicleData[make].years[year][model][engine];
-      vehicleLabelEl.textContent = `${year} ${make} ${model} — ${engine}`;
-      oilGradeEl.textContent = grade;
-      oilDetailEl.textContent = `Typical recommended viscosity: ${grade}. Use a quality oil that meets the latest API / ILSAC (or OEM) specification for your vehicle. Capacity varies by engine — we measure and fill correctly on site.`;
-      resultEl.classList.add('show');
-    });
-
-    document.getElementById('year-copy').textContent = new Date().getFullYear();
-  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script src="script.js"></script>
 </body>
 </html>
